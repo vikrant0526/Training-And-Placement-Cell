@@ -17,8 +17,8 @@
     	{
     		// echo "<option>"; echo $data['BATCH_DEGREE']; echo "</option>"; 
     		?>
-    		<option value="<?php echo $data['EVENT_ID'] ?>"><?php echo $data['EVENT_NAME'] ?></option>
-    		<?php	
+<option value="<?php echo $data['EVENT_ID'] ?>"><?php echo $data['EVENT_NAME'] ?></option>
+<?php	
     	}
      echo "</select>";	
 
