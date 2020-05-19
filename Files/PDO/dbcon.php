@@ -28,8 +28,10 @@ try{
 	    {
 	    	if (self::$con == null) {
 				try{
+				//self::$con =  new PDO("mysql:host=www.db4free.net;dbname=aaabbcc","vikrant5555","1234567890");
+				//https://db4free.net/phpMyAdmin/db_structure.php?db=aaabbcc	
+				//	self::$con =  new PDO("mysql:host=192.168.0.103;dbname=tpcell","Manav","Man011299");
 					self::$con =  new PDO("mysql:host=localhost;dbname=tpcell","root","");
-					
 				}catch(PDOException $e){
 					die("connection Failed....".$e->getmessage());
 				}	        	
@@ -40,7 +42,6 @@ try{
 
 	$con = dbcon::getInstance();
 ?>
-
 
 
 
