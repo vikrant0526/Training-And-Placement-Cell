@@ -9,7 +9,7 @@
     <meta name="author" content="potenzaglobalsolutions.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <title>Webster - Responsive Multi-purpose HTML5 Template</title>
-    <!-- Vikrant Lodu Chodu -->
+    <!-- Vikrant Lodu Chodu Gandu Nanga Chomu -->
     <!-- <i class="bx bx-comment"></i> -->
     <!-- Favicon -->
     <link rel="shortcut icon" href="images/favicon.ico" />
