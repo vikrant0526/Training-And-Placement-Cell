@@ -1,5 +1,5 @@
 <?php
-    include('../Files/PDO/dbcon.php');
+    include('C:\xampp\htdocs\T&PCell\Files\PDO\dbcon.php');
      $dept = $_GET['dept'];
 
     //$dept ="BMIIT";
