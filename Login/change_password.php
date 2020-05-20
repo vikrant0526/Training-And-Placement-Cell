@@ -12,13 +12,12 @@
       $email=$_SESSION['lemail'];  
       $new_paswd=$_REQUEST['pswd'];
       $rnew_pass=$_REQUEST['rpswd'];
-
     if(empty($old_pswd) || empty($new_paswd) || empty($rnew_pass)){
       $roldpass="Please Enter Old Password";      
       $rrpass="Please Enter Re Type Password";
       $rnewp="Please Enter New Password";
     }else{
-        include('C:\xampp\htdocs\T&PCell\Files\PDO\dbcon.php');
+        include('..\Files\PDO\dbcon.php');
         $stmt=$con->prepare("CALL CHANGE_PASSWORD(:oldp,:email)"); 
         $stmt->bindParam(':oldp',$old_pswd);
         $stmt->bindParam(':email',$email);

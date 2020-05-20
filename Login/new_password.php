@@ -268,7 +268,7 @@ function checkPass()
       $rpass = $_REQUEST['rpswd'];
       $email = $_SESSION['formail'];
 
-      include('C:\xampp\htdocs\T&PCell\Files\PDO\dbcon.php');
+      include('..\Files\PDO\dbcon.php');
       $stmt=$con->prepare("CALL NEW_PASSWORD(:email,:pass);");
       $stmt->bindParam(':email',$email);
       $stmt->bindParam(':pass',$pass);
