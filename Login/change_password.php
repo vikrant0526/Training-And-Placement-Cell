@@ -18,7 +18,7 @@
       $rrpass="Please Enter Re Type Password";
       $rnewp="Please Enter New Password";
     }else{
-        include('../Files/PDO/dbcon.php');
+        include('C:\xampp\htdocs\T&PCell\Files\PDO\dbcon.php');
         $stmt=$con->prepare("CALL CHANGE_PASSWORD(:oldp,:email)"); 
         $stmt->bindParam(':oldp',$old_pswd);
         $stmt->bindParam(':email',$email);

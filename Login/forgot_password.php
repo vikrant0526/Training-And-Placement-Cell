@@ -194,7 +194,7 @@
       $pne = $_REQUEST['uname'];
 
 
-      include('../Files/PDO/dbcon.php');
+      include('C:\xampp\htdocs\T&PCell\Files\PDO\dbcon.php');
       $stmt=$con->prepare("CALL FORGET_ONE(:pne);");
       //$stmt=$con->prepare("select @uname");
       $stmt->bindParam(':pne',$pne);

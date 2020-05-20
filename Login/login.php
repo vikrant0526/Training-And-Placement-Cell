@@ -49,7 +49,7 @@
     }
     else
     {
-      include('../Files/PDO/dbcon.php');
+      include('C:\xampp\htdocs\T&PCell\Files\PDO\dbcon.php');
       $stmt=$con->prepare("CALL LOGIN_AUTHENTICATION(:uname,:pass)");
       $stmt->bindParam(':uname',$uname);
       $stmt->bindParam(':pass',$pass);
@@ -164,6 +164,15 @@
                 $stmt3->execute();
                 $data = $stmt3->fetch(PDO::FETCH_ASSOC);
                 $status=$data['STATUS'];
+                $stmt2=$con->prepare("CALL  GET_STUDENT_DETAILS(:sid);");
+                $stmt2->bindParam(':sid',$lid);
+                $stmt2->execute();
+                $data = $stmt2->fetch(PDO::FETCH_ASSOC);
+                $stmt2=$con->prepare("CALL  GET_STUDENT_DETAILS(:sid);");
+                $stmt2->bindParam(':sid',$lid);
+                $stmt2->execute();
+                $data = $stmt2->fetch(PDO::FETCH_ASSOC);
+                $_SESSION['Userdata']=$data;
                 if ($status=='Y') {
                   $_SESSION['Userdata']=$data;
                   header('Location: ../Student/student_dashboard.php');
