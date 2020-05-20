@@ -2,41 +2,43 @@
 <html lang="en">
 
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="keywords" content="HTML5 Template" />
-<meta name="description" content="Webster - Responsive Multi-purpose HTML5 Template" />
-<meta name="author" content="potenzaglobalsolutions.com" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-<title>Webster - Responsive Multi-purpose HTML5 Template</title>
-<!-- <i class="bx bx-comment"></i> -->
-<!-- Favicon -->
-<link rel="shortcut icon" href="images/favicon.ico" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="HTML5 Template" />
+    <meta name="description" content="Webster - Responsive Multi-purpose HTML5 Template" />
+    <meta name="author" content="potenzaglobalsolutions.com" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Webster - Responsive Multi-purpose HTML5 Template</title>
+    <!-- Vikrant Lodu Chodu Gandu Nanga Chomu -->
+    <!-- <i class="bx bx-comment"></i> -->
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.ico" />
 
-<!-- font -->
-<link  rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,500,500i,600,700,800,900|Poppins:200,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900">
+    <!-- font -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,500,500i,600,700,800,900|Poppins:200,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900">
 
-<!-- Plugins -->
-<link rel="stylesheet" type="text/css" href="Files/css/plugins-css.css" />
+    <!-- Plugins -->
+    <link rel="stylesheet" type="text/css" href="Files/css/plugins-css.css" />
 
-<!-- Typography -->
-<link rel="stylesheet" type="text/css" href="Files/css/typography.css" />
+    <!-- Typography -->
+    <link rel="stylesheet" type="text/css" href="Files/css/typography.css" />
 
-<!-- Shortcodes -->
-<link rel="stylesheet" type="text/css" href="Files/css/shortcodes/shortcodes.css" />
+    <!-- Shortcodes -->
+    <link rel="stylesheet" type="text/css" href="Files/css/shortcodes/shortcodes.css" />
 
-<!-- Style -->
-<link rel="stylesheet" type="text/css" href="Files/css/style.css" />
+    <!-- Style -->
+    <link rel="stylesheet" type="text/css" href="Files/css/style.css" />
 
-<!-- Responsive -->
-<link rel="stylesheet" type="text/css" href="Files/css/responsive.css" />
+    <!-- Responsive -->
+    <link rel="stylesheet" type="text/css" href="Files/css/responsive.css" />
 
-<!-- Style customizer -->
-<link rel="stylesheet" type="text/css" href="#" data-style="styles"/>
-<link rel="stylesheet" type="text/css" href="Files/css/style-customizer.css" />
+    <!-- Style customizer -->
+    <link rel="stylesheet" type="text/css" href="#" data-style="styles" />
+    <link rel="stylesheet" type="text/css" href="Files/css/style-customizer.css" />
 
-<!-- Google Tag Manager -->
-<!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    <!-- Google Tag Manager -->
+    <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
