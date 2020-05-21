@@ -1,13 +1,13 @@
 <?php
     ob_start();
     session_start();    
-    if (!isset($_SESSION['semail'])) {
-        header('Location: ../Login/login.php');
-    }
+    // if (!isset($_SESSION['semail'])) {
+    //     header('Location: ../Login/login.php');
+    // }
     
-    if(isset($_SESSION['lid'])){
-        header('Location: ../Login/login.php');
-    }
+    // if(isset($_SESSION['lid'])){
+    //     header('Location: ../Login/login.php');
+    // }
 ?>
 
  <!DOCTYPE html>
@@ -378,8 +378,6 @@
         }
     </script>
 </body>
-
-<!-- Mirrored from themes.potenzaglobalsolutions.com/html/webster-responsive-multi-purpose-html5-template/login-09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 19 Dec 2019 09:41:57 GMT -->
 </html> 
 
 <?php
@@ -405,14 +403,12 @@
         $about=$_REQUEST['about'];
         $imgname=$_FILES['profileImage']['name'];
         $imgtempname=$_FILES['profileImage']['tmp_name'];   
-
-
-         $degree = $_REQUEST['degree'];
-       // $degree = "MSC(IT)";
+        $degree = $_REQUEST['degree'];
+        // $degree = "MSC(IT)";
 
 
         move_uploaded_file($imgtempname, "Profile_pic/$imgname");
-        include('../Files/PDO/dbcon.php');
+        include('C:\xampp\htdocs\T&PCell\Files\PDO\dbcon.php');
         $email = $_SESSION['semail'];
         $pass = $_SESSION['spass'];
         $rpass = $_SESSION['srpass'];
