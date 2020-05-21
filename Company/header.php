@@ -82,7 +82,7 @@
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="#"><i class="text-secondary ti-reload"></i>Activity</a>
         <a class="dropdown-item" href="#"><i class="text-success ti-email"></i>Messages</a>
-        <a class="dropdown-item" href="#"><i class="text-warning ti-user"></i>Profile</a>
+        <a class="dropdown-item" href="Company_profile.php"><i class="text-warning ti-user"></i>Profile</a>
         <a class="dropdown-item" href="#"><i class="text-dark ti-layers-alt"></i>Projects <span class="badge badge-info">6</span> </a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="#"><i class="text-info ti-settings"></i>Settings</a>
@@ -105,7 +105,7 @@
      <div class="scrollbar side-menu-bg">
       <ul class="nav navbar-nav side-menu" id="sidebarnav">
         <li>
-          <a href="faculty_dashboard.php">
+          <a href="company_dashboard.php">
             <div class="pull-left"><i class="ti-home"></i><span class="right-nav-text">Home</span></div><div class="clearfix"></div>
           </a>
          <a href="show_shortlist.php">
