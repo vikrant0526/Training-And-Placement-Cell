@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Mirrored from themes.potenzaglobalsolutions.com/html/webmin-bootstrap-4-angular-5-admin-dashboard-template/html-dark/index-04.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Feb 2020 17:24:55 GMT -->
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,21 +23,6 @@
 <body>
 
 <div class="wrapper">
-
-<!--=================================
- preloader -->
- 
-<!-- <div id="pre-loader">
-    <img src="images/pre-loader/loader-01.svg" alt="">
-</div> -->
-
-<!--=================================
- preloader -->
-
-
-<!--=================================
- header start-->
- 
 <nav class="admin-header navbar navbar-default col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
   <!-- logo -->
   <div class="text-left navbar-brand-wrapper">
@@ -125,6 +108,12 @@
           <a href="faculty_dashboard.php">
             <div class="pull-left"><i class="ti-home"></i><span class="right-nav-text">Home</span></div><div class="clearfix"></div>
           </a>
+         <a href="show_shortlist.php">
+            <div class="pull-left"><i class="ti-home"></i><span class="right-nav-text">Show Short List</span></div><div class="clearfix"></div>
+        </a>
+        <a href="traning.php">
+            <div class="pull-left"><i class="ti-home"></i><span class="right-nav-text">Traning</span></div><div class="clearfix"></div>
+        </a>
         </li>
     </ul>
   </div> 

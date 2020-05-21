@@ -482,7 +482,7 @@ function initMap() {
 
         move_uploaded_file($imgtempname, "com_logo/$imgname");
         try{
-            include('../Files/PDO/dbcon.php');
+            include('C:\xampp\htdocs\T&PCell\Files\PDO\dbcon.php');
             $cemailid=$_SESSION['cpemail'];
             $pass=$_SESSION['cppass'];
             $rpass=$_SESSION['cprpass'];
