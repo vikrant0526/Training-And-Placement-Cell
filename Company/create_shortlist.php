@@ -70,7 +70,6 @@
           break;
         }
       }  
-
         if($a == 0){
         //echo "<script>alert('This is Created')</script>";
         $stmt=$con->prepare("CALL INSERT_SELECTION_LIST(:cid,:sname);");
