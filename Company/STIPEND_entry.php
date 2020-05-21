@@ -94,28 +94,26 @@
 <?php 
 	if(isset($_REQUEST["submit"])){
 		//$stipend=$_REQUEST["stipend_student"];
-		$acc=0;
+		$acc='P';
 		$a=0;
 		for ($i = 0; $i < $count; $i++) {
 			$stipend=$_REQUEST["stipend_student$i"];
 			$student_id=$_REQUEST["student_id$i"];
 			//echo "<script>alert('$student_id')</script>";
 			if($a==0){
-				$stmt3=$con->prepare("CALL INSERT_UPDATE_TRAINING(:studid,:com_id,:stipend,:accepted,:select_list_id)");
+				$stmt3=$con->prepare("CALL INSERT_UPDATE_TRAINING(:studid,:com_id,:stipend,:accepted)");
 	    		$stmt3->bindParam(":studid",$student_id);
 	    		$stmt3->bindParam(":com_id",$cid);
 	    		$stmt3->bindParam(":stipend",$stipend);
 	    		$stmt3->bindParam(":accepted",$acc);
-	    		$stmt3->bindParam(":select_list_id",$selection_list_id);     
 	    		$stmt3->execute();
 	    		$a=1;
     		}
-    		$stmt3=$con->prepare("CALL INSERT_UPDATE_TRAINING(:studid,:com_id,:stipend,:accepted,:select_list_id)");
+    		$stmt3=$con->prepare("CALL INSERT_UPDATE_TRAINING(:studid,:com_id,:stipend,:accepted)");
     		$stmt3->bindParam(":studid",$student_id);
     		$stmt3->bindParam(":com_id",$cid);
     		$stmt3->bindParam(":stipend",$stipend);
     		$stmt3->bindParam(":accepted",$acc);
-    		$stmt3->bindParam(":select_list_id",$selection_list_id);     
     		$stmt3->execute();
 		}
 

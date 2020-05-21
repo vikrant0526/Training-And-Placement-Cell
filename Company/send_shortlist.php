@@ -41,7 +41,7 @@
        $stmt8=$con->prepare("CALL GET_STUDENT_DETAILS(:sid)");
    		 $stmt8->bindParam(":sid",$student_id);     
        $stmt8->execute(); 
-   	    //print_r($stmt8->errorinfo());		  
+   	  //print_r($stmt8->errorinfo());		  
 			while ($studdata = $stmt8->fetch(PDO::FETCH_ASSOC)) {
                 $student_id=$studdata["STUDENT_ID"];
                  $stmt9=$con->prepare("CALL GET_STIPEND_STUDENT(:studid,:company_id,:select_id)");
@@ -145,14 +145,21 @@
                  $stmt22->bindParam(":des",$des);   
                  $stmt22->execute();  
 
-                if($mail->send())
-           	 		{
-                			    header('Location: show_shortlist.php');
-             	 	}	
-				        else
-				        {
-				                  header('Location: show_shortlist.php');
-				        }			 
+
+              if(!empty($stipend) && !empty($sname)){                
+                    if($mail->send())
+                    {
+                              header('Location: show_shortlist.php');
+                    }
+                    else
+                      {
+                              echo "<script>alert('Mail Not Send')</script>";  
+                      }	
+              }else{
+                $_SESSION["errorforstipend"]="Student Stipend Not Entred Or Student Not Added";  
+                header('Location: show_shortlist.php');
+              } 
+				       			 
               
            }catch(Exception $e){
              echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
