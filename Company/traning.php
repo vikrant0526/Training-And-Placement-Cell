@@ -143,7 +143,7 @@
       }
       ?>
         <script>
-           alert("Files Missing For <?php echo $msg; ?>");
+           alert("Document Missing For <?php echo $msg; ?>");
         </script>
       <?php
      }
