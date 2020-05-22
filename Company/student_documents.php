@@ -93,7 +93,8 @@
       $stmt->bindParam(":doc_name",$bond_name);          
       $stmt->execute(); 
       if($stmt == TRUE){
-         echo "<script>alert('Document Save')</script>";
+        $_SESSION["message_document"]="Document Save";
+        header("location: traning.php");
       }else{
          echo "<script>alert('Document Not Save')</script>"; 
       }
