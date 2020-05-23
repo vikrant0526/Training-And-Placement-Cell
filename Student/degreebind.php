@@ -1,5 +1,5 @@
 <?php
-    include('C:\xampp\htdocs\T&PCell\Files\PDO\dbcon.php');
+    include('../Files/PDO/dbcon.php');
      $dept = $_GET['dept'];
 
     //$dept ="BMIIT";
@@ -13,8 +13,8 @@
     	{
     		// echo "<option>"; echo $data['BATCH_DEGREE']; echo "</option>"; 
     		?>
-    		<option value="<?php echo $data['BATCH_DEGREE'] ?>"><?php echo $data['BATCH_DEGREE'] ?></option>
-    		<?php	
+<option value="<?php echo $data['BATCH_DEGREE'] ?>"><?php echo $data['BATCH_DEGREE'] ?></option>
+<?php	
     	}
      echo "</select>";	
 
