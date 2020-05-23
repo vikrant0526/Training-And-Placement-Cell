@@ -83,6 +83,7 @@
                                      }
                               ?></td>
                               <td><a href="student_documents.php?sid=<?php echo $studdata["TRAINING_STUDENT_ID"]; ?>"><button type="button" class="btn btn-sm btn-outline-success"><i class="fa fa-plus"></i></button></a></td>
+                              <!-- <td><input type="text" class="form-control" name="test"/></td> -->
                             </tr>
                           <?php $a++; ?>
                    <?php
@@ -117,8 +118,17 @@
     while($studdata  = $stmt3->fetch(PDO::FETCH_ASSOC))
     {
         $checked_studid = $studdata["TRAINING_STUDENT_ID"];
+        // if(empty($_REQUEST["$checked_studid"])){
+        //   echo "<script>alert('Please Select a Student')</script>";
+        //   break;
+        // }
+
         if(isset($_REQUEST["$checked_studid"])){
             $sid=$_REQUEST["$checked_studid"];
+            // echo "<script>alert('$sid')</script>";
+            // if(empty($sid)){
+            //   echo "<script>alert('Please Select a Student')</script>";
+            // }
             //echo "<script>alert('$sid')</script>";
             //header("Location: student_documents.php?sid=$sid");
             $stmt4=$con->prepare("CALL CHECK_PLACEMENT_DOCUMENTS(:stud_id,:company_id);");
@@ -133,6 +143,8 @@
             if ($file_check['OL'] != '1' || $file_check['BD'] != '1') {
               array_push($missing,$file_check['STUDENT_ENROLLMENT_NUMBER']);
             }
+            $_SESSION["checked_stud_id"] .= $sid;
+            header("Location: Package_entry.php");  
         }
     }
     if (sizeof($missing) != 0) {

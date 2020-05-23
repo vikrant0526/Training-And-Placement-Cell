@@ -44,15 +44,13 @@
    	  //print_r($stmt8->errorinfo());		  
 			while ($studdata = $stmt8->fetch(PDO::FETCH_ASSOC)) {
                 $student_id=$studdata["STUDENT_ID"];
-                 $stmt9=$con->prepare("CALL GET_STIPEND_STUDENT(:studid,:company_id,:select_id)");
+                 $stmt9=$con->prepare("CALL GET_STIPEND_STUDENT(:studid,:company_id)");
                   $stmt9->bindParam(":studid",$student_id);   
                   $stmt9->bindParam(":company_id",$cid);   
-                  $stmt9->bindParam(":select_id",$selection_list_id);     
                   $stmt9->execute();
-                  $stmt9=$con->prepare("CALL GET_STIPEND_STUDENT(:studid,:company_id,:select_id)");
+                  $stmt9=$con->prepare("CALL GET_STIPEND_STUDENT(:studid,:company_id)");
                   $stmt9->bindParam(":studid",$student_id);   
-                  $stmt9->bindParam(":company_id",$cid);   
-                  $stmt9->bindParam(":select_id",$selection_list_id);     
+                  $stmt9->bindParam(":company_id",$cid);        
                   $stmt9->execute();
                   while ($stipentdata = $stmt9->fetch(PDO::FETCH_ASSOC)) {
                     $stipend[$i]  = $stipentdata["TRAINING_OFFERED_STIPEND"];

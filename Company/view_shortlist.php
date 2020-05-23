@@ -61,15 +61,13 @@
     				    			$stmt2->execute(); 
     				    			while ($studdata = $stmt2->fetch(PDO::FETCH_ASSOC)) {
                       $student_id=$studdata["STUDENT_ID"];
-                      $stmt3=$con->prepare("CALL GET_STIPEND_STUDENT(:studid,:company_id,:select_id)");
+                      $stmt3=$con->prepare("CALL GET_STIPEND_STUDENT(:studid,:company_id)");
                       $stmt3->bindParam(":studid",$student_id);   
                       $stmt3->bindParam(":company_id",$cid);   
-                      $stmt3->bindParam(":select_id",$selection_list_id);     
                       $stmt3->execute();
-                      $stmt3=$con->prepare("CALL GET_STIPEND_STUDENT(:studid,:company_id,:select_id)");
+                      $stmt3=$con->prepare("CALL GET_STIPEND_STUDENT(:studid,:company_id)");
                       $stmt3->bindParam(":studid",$student_id);   
-                      $stmt3->bindParam(":company_id",$cid);   
-                      $stmt3->bindParam(":select_id",$selection_list_id);     
+                      $stmt3->bindParam(":company_id",$cid);        
                       $stmt3->execute(); 
                       ?>
                           <tr>
