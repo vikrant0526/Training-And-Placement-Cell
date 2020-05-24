@@ -10,16 +10,16 @@
      $stmt2->execute();
      $sid = $_SESSION["selection_list_id"];
      ?>
-     <ul class="list-unstyled d-flex justify-content-center">
+<ul class="list-unstyled d-flex justify-content-center">
     <li>
-     <table class="table table-responsive">
-        <tr class="text-light font-weight-bold">
-            <td></td>
-            <td>Profile Pic</td>
-            <td>En No.</td>
-            <td>Name</td>
-        </tr>
-     <?php
+        <table class="table table-responsive">
+            <tr class="text-light font-weight-bold">
+                <td></td>
+                <td>Profile Pic</td>
+                <td>En No.</td>
+                <td>Name</td>
+            </tr>
+            <?php
        $cnt=0;
        $c=0;
         while ($data=$stmt2->fetch(PDO::FETCH_ASSOC)) {
@@ -41,26 +41,29 @@
             }
             if ($check==1) {
                 ?>
-                <tr>
-                    <td><input type="checkbox" id="stud_ins<?php echo $cnt; ?>" name="<?php echo $studid; ?>" value="<?php echo $studid; ?>" checked="checked" onClick="get_click(this.id)"></td>
-                     <td><img src="../Student/Profile_pic/<?php echo $data["STUDENT_PROFILE_PIC"]; ?>" style="height: 120px;width: 120px;"></td>
-                     <td><?php echo $data["STUDENT_ENROLLMENT_NUMBER"]; ?></td>
-                     <td><?php echo $data["STUDENT_FIRST_NAME"]." ".$data["STUDENT_LAST_NAME"]; ?></td>
-                 </tr>
-                <?php
+            <tr>
+                <td><input type="checkbox" id="stud_ins<?php echo $cnt; ?>" name="<?php echo $studid; ?>"
+                        value="<?php echo $studid; ?>" checked="checked" onClick="get_click(this.id)"></td>
+                <td><img src="../Student/Profile_pic/<?php echo $data["STUDENT_PROFILE_PIC"]; ?>"
+                        style="height: 120px;width: 120px;"></td>
+                <td><?php echo $data["STUDENT_ENROLLMENT_NUMBER"]; ?></td>
+                <td><?php echo $data["STUDENT_FIRST_NAME"]." ".$data["STUDENT_LAST_NAME"]; ?></td>
+            </tr>
+            <?php
                 $cnt+=1; 
             }
             else
             {
                 ?>
-                <tr>
-                    <td><input type="checkbox" id="ins_stud<?php echo $c; ?>" name="<?php echo $studid; ?>" value="<?php echo $studid; ?>"
-                    onClick="ins_click(this.id)"></td>
-                    <td><img src="../Student/Profile_pic/<?php echo $data["STUDENT_PROFILE_PIC"]; ?>" style="height: 120px;width: 120px;"></td>
-                     <td><?php echo $data["STUDENT_ENROLLMENT_NUMBER"]; ?></td>
-                     <td><?php echo $data["STUDENT_FIRST_NAME"]." ".$data["STUDENT_LAST_NAME"]; ?></td>
-                 </tr>
-                <?php
+            <tr>
+                <td><input type="checkbox" id="ins_stud<?php echo $c; ?>" name="<?php echo $studid; ?>"
+                        value="<?php echo $studid; ?>" onClick="ins_click(this.id)"></td>
+                <td><img src="../Student/Profile_pic/<?php echo $data["STUDENT_PROFILE_PIC"]; ?>"
+                        style="height: 120px;width: 120px;"></td>
+                <td><?php echo $data["STUDENT_ENROLLMENT_NUMBER"]; ?></td>
+                <td><?php echo $data["STUDENT_FIRST_NAME"]." ".$data["STUDENT_LAST_NAME"]; ?></td>
+            </tr>
+            <?php
                 $c+=1;
             }
         } 
