@@ -125,7 +125,7 @@
                   $sen_type="CP";
                   $rec_type="CH";
                   $type="CSL";
-                  $des="New Event:Final Company Short List";
+                  $des="New Event: ".$company_name." Short List";
                  $stmt22=$con->prepare("CALL INSERT_NOTIFICATION(:senderid,:rec_id,:sender_type,:rec_type,:type,:des)"); 
                  $stmt22->bindParam(":senderid",$cid);
                  $stmt22->bindParam(":rec_id",$faculty_id);  
