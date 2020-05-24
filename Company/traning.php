@@ -108,6 +108,7 @@
 ?>      
 <?php 
   if(isset($_REQUEST["submit"])){
+    $_SESSION['req']=$_REQUEST;
     $stmt3=$con->prepare("CALL GET_ALL_TRANING_STUDENT_BY_COMPANY(:company_id);");
     $stmt3->bindParam(":company_id",$cid);  
     $stmt3->execute();
@@ -143,7 +144,6 @@
             if ($file_check['OL'] != '1' || $file_check['BD'] != '1') {
               array_push($missing,$file_check['STUDENT_ENROLLMENT_NUMBER']);
             }
-            $_SESSION["checked_stud_id"] .= $sid;
             header("Location: Package_entry.php");  
         }
     }
