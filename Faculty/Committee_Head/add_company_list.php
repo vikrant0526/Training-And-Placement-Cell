@@ -127,14 +127,13 @@
     function company_check_evnt(clicked) {
         if ($('#' + clicked).is(":checked")) {
             var val = $('#' + clicked).val();
-            alert("uncheck" + val);
+            // alert("uncheck" + val);
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.open("GET", "Ex_company_add.php?cid=" + val, false);
             xmlhttp.send(null);
         } else {
             var val = $('#' + clicked).val();
-            alert(val);
-            // var val = $('#' + clicked).val();
+            // alert(val);
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.open("GET", "delete_company.php?cid=" + val, false);
             xmlhttp.send(null);
@@ -145,14 +144,14 @@
     function company_uncheck_evnt(clicked) {
         if ($('#' + clicked).is(":checked")) {
             var val = $('#' + clicked).val();
-            alert("check" + val);
+            // alert("check" + val);
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.open("GET", "insert_company.php?cid=" + val, false);
             xmlhttp.send(null);
             //alert(xmlhttp.responseText);
         } else {
             var val = $('#' + clicked).val();
-            alert(val);
+            // alert(val);
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.open("GET", "delete_company.php?cid=" + val, false);
             xmlhttp.send(null);
