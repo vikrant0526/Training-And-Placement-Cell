@@ -3,7 +3,7 @@
   include('header.php');
   $data=$_SESSION['Userdata'];
 ?>
-
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <div class="content-wrapper header-info">
     <div class="page-title">
         <div class="row">
@@ -130,44 +130,84 @@
 
     <?php
 
-//   if($_SERVER["REQUEST_METHOD"] == "POST"){
-//   	include('../../Files/PDO/dbcon.php');
-//       if(isset($_REQUEST["Submit"])){
-//       	$eid=$_REQUEST['event'];
-//         $sid=0;
-//         $att=0;
-//         $fid=$_SESSION['lid'];
-//         $c=1;
-//       	$stmt=$con->prepare("CALL  GET_APPLIED_STUDENT(:eid)");
-//         $stmt->bindParam(":eid",$eid);
-//         $stmt->execute();
-//         while ($x=$stmt->fetch(PDO::FETCH_ASSOC)) {
-//           $sid=$x['STUDENT_ID'];
-//           if(isset($_REQUEST[$sid]))
-//           {
-//             $att=1;
-//           }
-//           else
-//           {
-//             $att=0;
-//           }
-//           if ($c==1) {
-//             $c=0;
-//             $st1=$con->prepare("CALL INSERT_UPDATE_ATTENDANCE(:eid,:sid,:fid,:att);");
-//             $st1->bindparam(":eid",$eid);
-//             $st1->bindparam(":sid",$sid);
-//             $st1->bindparam(":fid",$fid);
-//             $st1->bindparam(":att",$att);
-//             $st1->execute();
-//           }
-//           $st1=$con->prepare("CALL INSERT_UPDATE_ATTENDANCE(:eid,:sid,:fid,:att);");
-//           $st1->bindparam(":eid",$eid);
-//           $st1->bindparam(":sid",$sid);
-//           $st1->bindparam(":fid",$fid);
-//           $st1->bindparam(":att",$att);
-//           $st1->execute();
-//           // print_r($st1->errorinfo());
-//         }
-//       }
-//   }
+  if($_SERVER["REQUEST_METHOD"] == "POST"){
+  	include('../../Files/PDO/dbcon.php');
+      if(isset($_REQUEST["Submit"])){
+      	$eid=$_REQUEST['event'];
+        $sid=0;
+        $att=0;
+        $fid=$_SESSION['lid'];
+        $c=1;
+      	$stmt=$con->prepare("CALL  GET_APPLIED_STUDENT(:eid)");
+        $stmt->bindParam(":eid",$eid);
+        $stmt->execute();
+        while ($x=$stmt->fetch(PDO::FETCH_ASSOC)) {
+          $sid=$x['STUDENT_ID'];
+          if(isset($_REQUEST[$sid]))
+          {
+            $att=1;
+          }
+          else
+          {
+            $att=0;
+          }
+          if ($c==1) {
+            $c=0;
+            $st1=$con->prepare("CALL INSERT_UPDATE_ATTENDANCE(:eid,:sid,:fid,:att);");
+            $st1->bindparam(":eid",$eid);
+            $st1->bindparam(":sid",$sid);
+            $st1->bindparam(":fid",$fid);
+            $st1->bindparam(":att",$att);
+            $st1->execute();
+          }
+          $st1=$con->prepare("CALL INSERT_UPDATE_ATTENDANCE(:eid,:sid,:fid,:att);");
+          $st1->bindparam(":eid",$eid);
+          $st1->bindparam(":sid",$sid);
+          $st1->bindparam(":fid",$fid);
+          $st1->bindparam(":att",$att);
+          $st1->execute();
+          // print_r($st1->errorinfo());
+        }
+      }
+  }
 ?>
+
+
+    <script type="text/javascript">
+    function att_check_evnt(clicked) {
+        if ($('#' + clicked).is(":checked")) {
+            var val = $('#' + clicked).val();
+            // alert("uncheck" + val);
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", "insert_att.php?sid=" + val, false);
+            xmlhttp.send(null);
+            // alert(xmlhttp.responseText);
+        } else {
+            var val = $('#' + clicked).val();
+            // alert(val);
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", "delete_att.php?sid=" + val, false);
+            xmlhttp.send(null);
+            // alert(xmlhttp.responseText);
+        }
+    }
+
+
+    function att_uncheck_evnt(clicked) {
+        if ($('#' + clicked).is(":checked")) {
+            var val = $('#' + clicked).val();
+            // alert("check" + val);
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", "insert_att.php?sid=" + val, false);
+            xmlhttp.send(null);
+            //alert(xmlhttp.responseText);
+        } else {
+            var val = $('#' + clicked).val();
+            // alert(val);
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", "delete_att.php?sid=" + val, false);
+            xmlhttp.send(null);
+            //alert(xmlhttp.responseText);
+        }
+    }
+    </script>
