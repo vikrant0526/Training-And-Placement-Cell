@@ -14,8 +14,6 @@
   $cid = $data["COMPANY_ID"];
   $cname= $data["COMPANY_NAME"];
 
-
-
   $stmt55=$con->prepare("CALL GET_COMPANY(:cid)"); 
   $stmt55->bindParam(":cid",$cid);  
   $stmt55->execute();   

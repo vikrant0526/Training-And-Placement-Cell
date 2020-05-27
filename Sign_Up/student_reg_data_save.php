@@ -10,7 +10,6 @@
   session_start();
   if(isset($_REQUEST['Submit']))
   {
-    
     $email=$_REQUEST['uname'];
     $pass=$_REQUEST['pass'];
     $rpass=$_REQUEST['rpass'];
@@ -57,8 +56,6 @@
   <!--[if !mso]><!-->
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css" style="line-height: inherit;">
   <!--<![endif]-->
-  
-  
 <style type="text/css" style="line-height: inherit;">
     body{
       margin:0;
