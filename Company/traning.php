@@ -45,6 +45,7 @@
                         <td>Date of Birth</td>
                         <td>Student Gender</td>
                         <td>Add Document</td>
+                        <td>Terminate Student</td>
                       </thead>
                		
                     <?php 
@@ -61,11 +62,24 @@
                             $stmt2=$con->prepare("CALL GET_STUDENT_DETAILS(:studid)");
                             $stmt2->bindParam(":studid",$studid);     
                             $stmt2->execute();
-                            while($studenttabledata  = $stmt2->fetch(PDO::FETCH_ASSOC))
-                            {
+                            // while($studenttabledata  = $stmt2->fetch(PDO::FETCH_ASSOC))
+                            // {
                                 // echo "<per>";
                                 // print_r($studenttabledata);
                                 // echo "</per>";
+                            $studenttabledata  = $stmt2->fetch(PDO::FETCH_ASSOC);
+
+                            $tid=$studenttabledata['TRAINING_ID'];
+
+                            $stmt3=$con->prepare("CALL CHECK_STUDENT_TRAINING(:tid)");
+    				    	          $stmt3->bindParam(":tid",$tid);     
+                            $stmt3->execute(); 
+                            $stmt3=$con->prepare("CALL CHECK_STUDENT_TRAINING(:tid)");
+                            $stmt3->bindParam(":tid",$tid);     
+                            $stmt3->execute();
+                            $check_training = $stmt3->fetch(PDO::FETCH_ASSOC);
+                            $st = $check_training['st'];
+                            if ($st == '0') {
                      ?> 
                      <tr>
                              <td><input type="checkbox"  name="<?php echo $studid; ?>" value="<?php echo $studid; ?>" ></td>
@@ -83,11 +97,13 @@
                                      }
                               ?></td>
                               <td><a href="student_documents.php?sid=<?php echo $studdata["TRAINING_STUDENT_ID"]; ?>"><button type="button" class="btn btn-sm btn-outline-success"><i class="fa fa-plus"></i></button></a></td>
+                              <td><a href="terminate_student.php?tid=<?php echo $tid; ?>"><button type="button" class="btn btn-sm btn-outline-danger"><i class="fa fa-trash"></i></button></a></td>
                               <!-- <td><input type="text" class="form-control" name="test"/></td> -->
                             </tr>
                           <?php $a++; ?>
                    <?php
-                            } 
+                            }
+                            // } 
                             } 
                      ?>
                	</table>
