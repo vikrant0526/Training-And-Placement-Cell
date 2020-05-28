@@ -1,5 +1,5 @@
 <?php
-    include('../Files/PDO/dbcon.php');
+    include('../../Files/PDO/dbcon.php');
      $dept = $_GET['dept'];
      $degree = $_GET['degree'];
      $pyear = $_GET['pyear'];
