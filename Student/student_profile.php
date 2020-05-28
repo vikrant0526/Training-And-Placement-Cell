@@ -29,11 +29,11 @@ wrapper -->
                 <div class="user-info">
                   <div class="row">
                     <div class="col-lg-6 align-self-center">
-                        <div style="width: 125px;height: 125px; position: relative; overflow: hidden;border-radius: 50%;">
+                        <!-- <div style="width: 125px;height: 125px; position: relative; overflow: hidden;border-radius: 50%;">
                                                 <img src="Profile_pic/<?php echo $data['STUDENT_PROFILE_PIC']; ?>" onclick="triggerClick()" id="profileDisplay" style="display: block;margin: -5px auto;" class="w-100 h-100">
                                                 <input type="file" class="form-control" placeholder="Company L
                                                     ogo" name="profileImage" id="profileImage" onchange="displayImage(this)" accept="image/*" style="display: none;" value="<?php echo $date['STUDENT_PROFILE_PIC'] ?>" required>
-                                            </div>
+                                            </div> -->
                     </div>
                     <!-- <div class="col-lg-6 text-right align-self-center">
                         <button type="button" class="btn btn-sm btn-danger"><i class="ti-user pr-1"></i>Follow</button>
@@ -204,6 +204,7 @@ wrapper -->
 
                 reader.onload = function(e){
                     document.querySelector('#profileDisplay').setAttribute('src',e.target.result);
+
                 }
                 reader.readAsDataURL(e.files[0]);
             }
@@ -231,7 +232,6 @@ wrapper -->
 		$fdob=date('Y-m-d',$fdate); 
 		$gender=$_REQUEST["gender"];
 		$pname=$_REQUEST["pname"];
-		$ppic="This";
 		$about=$_REQUEST["sabout"];
 		$address=$_REQUEST["saddress"];
 		$pnum=$_REQUEST["pnum"];
@@ -239,7 +239,7 @@ wrapper -->
 		$ppnum=$_REQUEST["pnumber"];
 		$pemail=$_REQUEST["pemail"];
 
-		$stmt=$con->prepare("CALL UPDATE_STUDENT_PROFILE(:sid,:fname,:lname,:ennum,:dob,:gender,:pname,:ppic,:about,:address,:pnum,:email,:ppnum,:pemail)");
+		$stmt=$con->prepare("CALL UPDATE_STUDENT_PROFILE(:sid,:fname,:lname,:ennum,:dob,:gender,:pname,:about,:address,:pnum,:email,:ppnum,:pemail)");
 		$stmt->bindParam(":sid",$sid);
 		$stmt->bindParam(":fname",$fname);
 		$stmt->bindParam(":lname",$lname);
@@ -247,7 +247,6 @@ wrapper -->
 		$stmt->bindParam(":dob",$fdob);
 		$stmt->bindParam(":gender",$gender);
 		$stmt->bindParam(":pname",$pname);
-		$stmt->bindParam(":ppic",$ppic);
 		$stmt->bindParam(":about",$about);
 		$stmt->bindParam(":address",$address);
 		$stmt->bindParam(":pnum",$pnum);

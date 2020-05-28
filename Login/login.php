@@ -177,6 +177,7 @@
                 if ($status=='Y') {
                   $_SESSION['Userdata']=$data;
                   header('Location: ../Student/student_dashboard.php');
+                // print_r($_SESSION['Userdata']);
                 }
                 elseif ($status=='N') {
                   header('Location: student_end.php');

@@ -69,13 +69,11 @@
                                 // echo "</per>";
                             $studenttabledata  = $stmt2->fetch(PDO::FETCH_ASSOC);
 
-                            $tid=$studenttabledata['TRAINING_ID'];
-
-                            $stmt3=$con->prepare("CALL CHECK_STUDENT_TRAINING(:tid)");
-    				    	          $stmt3->bindParam(":tid",$tid);     
+                            $stmt3=$con->prepare("CALL CHECK_STUDENT_TRAINING(:sid)");
+    				    	          $stmt3->bindParam(":sid",$studid);     
                             $stmt3->execute(); 
-                            $stmt3=$con->prepare("CALL CHECK_STUDENT_TRAINING(:tid)");
-                            $stmt3->bindParam(":tid",$tid);     
+                            $stmt3=$con->prepare("CALL CHECK_STUDENT_TRAINING(:sid)");
+                            $stmt3->bindParam(":sid",$studid);     
                             $stmt3->execute();
                             $check_training = $stmt3->fetch(PDO::FETCH_ASSOC);
                             $st = $check_training['st'];
