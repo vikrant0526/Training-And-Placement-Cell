@@ -31,7 +31,7 @@
                 echo $_SESSION["message_document"];
                 }
                ?></h4>
-              <ul class="list-unstyled d-xl-flex justify-content-center">
+              <ul class="list-unstyled">
               <form action="#" method="Post" class="">
                	<table class="table text-light table-responsive">
                       <thead class="font-weight-bold">
@@ -69,13 +69,11 @@
                                 // echo "</per>";
                             $studenttabledata  = $stmt2->fetch(PDO::FETCH_ASSOC);
 
-                            $tid=$studenttabledata['TRAINING_ID'];
-
-                            $stmt3=$con->prepare("CALL CHECK_STUDENT_TRAINING(:tid)");
-    				    	          $stmt3->bindParam(":tid",$tid);     
+                            $stmt3=$con->prepare("CALL CHECK_STUDENT_TRAINING(:sid)");
+    				    	          $stmt3->bindParam(":sid",$studid);     
                             $stmt3->execute(); 
-                            $stmt3=$con->prepare("CALL CHECK_STUDENT_TRAINING(:tid)");
-                            $stmt3->bindParam(":tid",$tid);     
+                            $stmt3=$con->prepare("CALL CHECK_STUDENT_TRAINING(:sid)");
+                            $stmt3->bindParam(":sid",$studid);     
                             $stmt3->execute();
                             $check_training = $stmt3->fetch(PDO::FETCH_ASSOC);
                             $st = $check_training['st'];
@@ -160,7 +158,7 @@
             if ($file_check['OL'] != '1' || $file_check['BD'] != '1') {
               array_push($missing,$file_check['STUDENT_ENROLLMENT_NUMBER']);
             }
-            header("Location: Package_entry.php");  
+            //
         }
     }
     if (sizeof($missing) != 0) {
@@ -175,6 +173,9 @@
         </script>
       <?php
      }
+     else{
+      header("Location: Package_entry.php");  
+    }
   }
 ?>
 
