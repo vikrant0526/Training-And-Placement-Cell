@@ -1,7 +1,6 @@
 <?php 
   ob_start();
   include('header.php');
-  session_start();
   $data=$_SESSION['Userdata'];
   $_SESSION["broadcast_id"]=0;
 ?>
