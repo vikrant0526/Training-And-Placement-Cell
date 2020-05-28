@@ -31,7 +31,7 @@
                 echo $_SESSION["message_document"];
                 }
                ?></h4>
-              <ul class="list-unstyled d-xl-flex justify-content-center">
+              <ul class="list-unstyled">
               <form action="#" method="Post" class="">
                	<table class="table text-light table-responsive">
                       <thead class="font-weight-bold">
@@ -160,7 +160,7 @@
             if ($file_check['OL'] != '1' || $file_check['BD'] != '1') {
               array_push($missing,$file_check['STUDENT_ENROLLMENT_NUMBER']);
             }
-            header("Location: Package_entry.php");  
+            //
         }
     }
     if (sizeof($missing) != 0) {
@@ -175,6 +175,9 @@
         </script>
       <?php
      }
+     else{
+      header("Location: Package_entry.php");  
+    }
   }
 ?>
 
