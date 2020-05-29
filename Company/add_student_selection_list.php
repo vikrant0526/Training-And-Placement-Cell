@@ -1,7 +1,6 @@
 <?php
    ob_start();
    include('header.php');
-   session_start();
    $data=$_SESSION['Userdata'];
    $cid = $data["COMPANY_ID"];
    $cname= $data["COMPANY_NAME"];

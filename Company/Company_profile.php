@@ -1,7 +1,6 @@
 <?php 
   ob_start();
   include('header.php');
-  session_start();
   $data=$_SESSION['Userdata'];
 ?>
 <!--=================================
@@ -31,10 +30,7 @@ wrapper -->
                 <div class="user-info">
                   <div class="row">
                     <div class="col-lg-6 align-self-center">
-                        <div style="width: 125px;height: 125px; position: relative; overflow: hidden;border-radius: 50%;"><a href="update_dp.php">
-                                                <img src="com_logo/<?php echo $data['COMPANY_LOGO']; ?>"style="display: block;margin: -5px auto;" class="w-100 h-100"></a>
-                                                </div>
-                    </div>
+                     
                     <div id="vikTest"></div>
                     <!-- <div class="col-lg-6 text-right align-self-center">
                         <button type="button" class="btn btn-sm btn-danger"><i class="ti-user pr-1"></i>Follow</button>
@@ -292,6 +288,7 @@ wrapper -->
     $stmt->bindParam(":cnum",$cnum);
     $stmt->bindParam(":hrnum",$hrnum);
     $stmt->execute();
+    header('Refresh:0');
     // print_r($stmt->errorinfo());
     if($stmt == TRUE){
       echo "<script>alert('Update Company Data')</script>";

@@ -3,13 +3,13 @@
   include('header.php');
   include('../Files/PDO/dbcon.php');
   $data=$_SESSION['Userdata'];
-  $sid = $data["STUDENT_ID"];
+  $cid = $data["COMPANY_ID"];
 ?>
   <div class="content-wrapper header-info">
       <div class="page-title">
       <div class="row">
           <div class="col-md-6">
-            <h3 class="mb-15 text-white"> Welcome back, <?php echo $data['STUDENT_FIRST_NAME']; ?>! </h3>
+            <h3 class="mb-15 text-white"> Welcome back, <?php echo $data['COMPANY_NAME']; ?>! </h3>
             <span class="mb-10 mb-md-30 text-white d-block">Hope you are having a good day.</span>
           </div>
           <div class="col-md-6">
@@ -28,8 +28,8 @@
                     <div class="col-lg-6 align-self-center">
                     <form  action="#" method="post" enctype="multipart/form-data">
                         <div style="width: 125px;height: 125px; position: relative; overflow: hidden;border-radius: 50%;">
-                                                <img src="Profile_pic/<?php echo $data['STUDENT_PROFILE_PIC']; ?>" onclick="triggerClick()" id="profileDisplay"  style="display: block;margin: -5px auto;" class="w-100 h-100">
-                                                <input type="file" class="form-control" name="student_pic" placeholder="Company L
+                                                <img src="com_logo/<?php echo $data['COMPANY_LOGO']; ?>" onclick="triggerClick()" id="profileDisplay"  style="display: block;margin: -5px auto;" class="w-100 h-100">
+                                                <input type="file" class="form-control" name="company_logo" placeholder="Company L
                                                     ogo" name="profileImage" id="profileImage" onchange="displayImage(this)" accept="image/*" style="display: none;" value="<?php echo $date['STUDENT_PROFILE_PIC'] ?>" required>
                                             </div>
                          <input type="submit" name="submit" class="finish btn"
@@ -71,14 +71,14 @@
 	if(isset($_REQUEST['submit']))
 	{
         
-        $imgname = $_FILES["student_pic"]["name"];
-        $tmpname = $_FILES["student_pic"]["tmp_name"];
+        $imgname = $_FILES["company_logo"]["name"];
+        $tmpname = $_FILES["company_logo"]["tmp_name"];
         
-        move_uploaded_file($tmpname, "Profile_pic/$imgname");
+        move_uploaded_file($tmpname, "com_logo/$imgname");
 
-         $stmt=$con->prepare("CALL UPDATE_STUDENT_PROFILE_PIC(:ppic,:sid)");
-         $stmt->bindParam(":ppic",$imgname);
-		 $stmt->bindParam(":sid",$sid);
+         $stmt=$con->prepare("CALL UPDATE_COMPANY_LOGO(:cid,:company_logo_nam)");
+         $stmt->bindParam(":cid",$cid);
+		     $stmt->bindParam(":company_logo_nam",$imgname);
          $stmt->execute();
          header('Refresh:0');
 	}

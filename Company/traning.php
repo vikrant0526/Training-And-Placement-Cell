@@ -2,7 +2,6 @@
   ob_start();
   include('header.php');
   include('../Files/PDO/dbcon.php');
-  session_start();
   $data=$_SESSION['Userdata'];
   $cid = $data["COMPANY_ID"];
   $cname= $data["COMPANY_NAME"];

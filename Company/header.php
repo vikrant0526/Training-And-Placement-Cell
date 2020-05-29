@@ -1,3 +1,7 @@
+<?php 
+  session_start();
+  $data=$_SESSION['Userdata'];
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,14 +72,14 @@
     </li>
     <li class="nav-item dropdown mr-30">
       <a class="nav-link nav-pill user-avatar" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-        <img src="images/profile-avatar.jpg" alt="avatar">
+        <img src="com_logo/<?php echo $data['COMPANY_LOGO']; ?>" alt="avatar">
       </a>
       <div class="dropdown-menu dropdown-menu-right">
         <div class="dropdown-header">
           <div class="media">
             <div class="media-body">
-              <h5 class="mt-0 mb-0">Michael Bean</h5>
-              <span>michael-bean@mail.com</span>
+              <h5 class="mt-0 mb-0"><?php echo $data['COMPANY_NAME']; ?></h5>
+              <span><?php echo $data["COMPANY_EMAIL"]; ?></span>
             </div>
           </div>
         </div>
@@ -83,6 +87,7 @@
         <a class="dropdown-item" href="#"><i class="text-secondary ti-reload"></i>Activity</a>
         <a class="dropdown-item" href="#"><i class="text-success ti-email"></i>Messages</a>
         <a class="dropdown-item" href="Company_profile.php"><i class="text-warning ti-user"></i>Profile</a>
+        <a class="dropdown-item" href="Update_profile_pic.php"><i class="text-warning ti-user"></i>Profile Pic</a>
         <a class="dropdown-item" href="#"><i class="text-dark ti-layers-alt"></i>Projects <span class="badge badge-info">6</span> </a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="#"><i class="text-info ti-settings"></i>Settings</a>

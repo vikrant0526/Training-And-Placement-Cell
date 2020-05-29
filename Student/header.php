@@ -97,7 +97,7 @@
           <div class="media">
             <div class="media-body">
               <h5 class="mt-0 mb-0"><?php echo $data['STUDENT_FIRST_NAME']." ".$data['STUDENT_LAST_NAME'] ?></h5>
-              <span><?php echo $data["STUDENT_EMAIL"] ?></span>
+              <span><?php echo $data["STUDENT_EMAIL"]; ?></span>
             </div>
           </div>
         </div>
