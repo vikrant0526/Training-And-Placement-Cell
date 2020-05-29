@@ -126,23 +126,24 @@
                   $rec_type="CH";
                   $type="CSL";
                   $des="New Event: ".$company_name." Short List";
-                 $stmt22=$con->prepare("CALL INSERT_NOTIFICATION(:senderid,:rec_id,:sender_type,:rec_type,:type,:des)"); 
-                 $stmt22->bindParam(":senderid",$cid);
-                 $stmt22->bindParam(":rec_id",$faculty_id);  
-                 $stmt22->bindParam(":sender_type",$sen_type);  
-                 $stmt22->bindParam(":rec_type",$rec_type);  
-                 $stmt22->bindParam(":type",$type);  
-                 $stmt22->bindParam(":des",$des);   
-                 $stmt22->execute();   
-                  $stmt22=$con->prepare("CALL INSERT_NOTIFICATION(:senderid,:rec_id,:sender_type,:rec_type,:type,:des)"); 
-                 $stmt22->bindParam(":senderid",$cid);
-                 $stmt22->bindParam(":rec_id",$faculty_id);  
-                 $stmt22->bindParam(":sender_type",$sen_type);  
-                 $stmt22->bindParam(":rec_type",$rec_type);  
-                 $stmt22->bindParam(":type",$type);  
-                 $stmt22->bindParam(":des",$des);   
-                 $stmt22->execute();  
-
+                  $stmt22=$con->prepare("CALL INSERT_SHORTLIST_NOTIFICATION(:senderid,:rec_id,:sender_type,:rec_type,:type,:des,:short_id)"); 
+                  $stmt22->bindParam(":senderid",$cid);
+                  $stmt22->bindParam(":rec_id",$faculty_id);  
+                  $stmt22->bindParam(":sender_type",$sen_type);  
+                  $stmt22->bindParam(":rec_type",$rec_type);  
+                  $stmt22->bindParam(":type",$type);  
+                  $stmt22->bindParam(":des",$des);   
+                  $stmt22->bindParam(":short_id",$selection_list_id);   
+                  $stmt22->execute();   
+                  $stmt22=$con->prepare("CALL INSERT_SHORTLIST_NOTIFICATION(:senderid,:rec_id,:sender_type,:rec_type,:type,:des,:short_id)"); 
+                  $stmt22->bindParam(":senderid",$cid);
+                  $stmt22->bindParam(":rec_id",$faculty_id);  
+                  $stmt22->bindParam(":sender_type",$sen_type);  
+                  $stmt22->bindParam(":rec_type",$rec_type);  
+                  $stmt22->bindParam(":type",$type);  
+                  $stmt22->bindParam(":des",$des);   
+                  $stmt22->bindParam(":short_id",$selection_list_id);   
+                  $stmt22->execute();
 
               if(!empty($stipend) && !empty($sname)){                
                     if($mail->send())
