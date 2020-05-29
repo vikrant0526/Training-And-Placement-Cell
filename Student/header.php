@@ -143,6 +143,11 @@
             <li> <a href="Bulid_resume.php"><i class="fa fa-hourglass"></i>Bulid Resume</a> </li>
           </ul>
         </li>
+        <li>
+          <a href="Upload_resume.php">
+            <div class="pull-left"><i class="ti-home"></i><span class="right-nav-text">Upload Resume</span></div><div class="clearfix"></div>
+          </a>
+        </li>
     </ul>
   </div> 
 </div>
