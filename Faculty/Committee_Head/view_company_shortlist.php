@@ -42,7 +42,16 @@
                                 $stmt3->bindParam(":studid",$studid);   
                                 $stmt3->bindParam(":selection_list_id",$select_list_id);   
                                 $stmt3->execute();
-                                $stipentdata = $stmt3->fetch(PDO::FETCH_ASSOC) 
+                                $stipentdata = $stmt3->fetch(PDO::FETCH_ASSOC);
+                                $stmt5=$con->prepare("CALL CHECK_STUDENT_TRAINING_NOTIFICATION(:studid)");
+                                $stmt5->bindParam(":studid",$studid);   
+                                $stmt5->execute();
+                                $stmt5=$con->prepare("CALL CHECK_STUDENT_TRAINING_NOTIFICATION(:studid)");
+                                $stmt5->bindParam(":studid",$studid);   
+                                $stmt5->execute();
+                                $checkdata=$stmt5->fetch(PDO::FETCH_ASSOC);
+                                $st = $checkdata["st"];
+                                if ($st=='1') {
                                  ?>
                                 <tr>
                                     <td><img src="../../Student/Profile_pic/<?php echo $studdata["STUDENT_PROFILE_PIC"]; ?>"
@@ -64,23 +73,28 @@
                                                     class="fa fa-check"></i></button></a>
                                     </td>
                                 </tr>
-                                <?php } ?>
+                                <?php 
+                                }
+                            } ?>
                             </table>
                         </li>
                         <li>
-                            <div class="media">
+                            <!-- <div class="media">
                                 <div class="media-body mb-2">
-                                    <input type="submit" class="button button-border x-small" value="Publish"
-                                        name="Submit">
+                                    <button class="button button-border x-small">
+                                        <a
+                                            href="insert_hole_selectlist_notification.php?sid=<?php echo $select_list_id; ?>">
+                                            Publish
+                                        </a>
+                                    </button>
                                 </div>
-                            </div>
+                            </div> -->
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
-
     <?php 
   include('footer.php');
   ob_flush();

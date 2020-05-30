@@ -156,15 +156,6 @@
           }
           elseif($lut == "ST")
           {
-                $stmt3=$con->prepare("CALL CHECK_STATUS(:sid);");
-                $stmt3->bindParam(':sid',$lid);
-                $stmt3->execute();
-                $data = $stmt3->fetch(PDO::FETCH_ASSOC);
-                $stmt3=$con->prepare("CALL CHECK_STATUS(:sid);");
-                $stmt3->bindParam(':sid',$lid);
-                $stmt3->execute();
-                $data = $stmt3->fetch(PDO::FETCH_ASSOC);
-                $status=$data['STATUS'];
                 $stmt2=$con->prepare("CALL  GET_STUDENT_DETAILS(:sid);");
                 $stmt2->bindParam(':sid',$lid);
                 $stmt2->execute();
@@ -174,14 +165,9 @@
                 $stmt2->execute();
                 $data = $stmt2->fetch(PDO::FETCH_ASSOC);
                 $_SESSION['Userdata']=$data;
-                if ($status=='Y') {
-                  $_SESSION['Userdata']=$data;
                   header('Location: ../Student/student_dashboard.php');
                 // print_r($_SESSION['Userdata']);
-                }
-                elseif ($status=='N') {
-                  header('Location: student_end.php');
-                }
+              
           }
            ob_flush();
         }
