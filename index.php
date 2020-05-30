@@ -9,7 +9,6 @@
     <meta name="author" content="potenzaglobalsolutions.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <title>Webster - Responsive Multi-purpose HTML5 Template</title>
-    <!-- Vikrant Lodu Chodu Gandu Nanga Chomu -->
     <!-- <i class="bx bx-comment"></i> -->
     <!-- Favicon -->
     <link rel="shortcut icon" href="images/favicon.ico" />
@@ -94,7 +93,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                             <li><a href="about_us.php">About us</a></li>
                                             <li><a href="contact_us.php">Contact us</a></li>
                                             <li><a href="Login/login.php">Login</a></li>
-
                                         </ul>
                                     </div>
                                 </div>
