@@ -139,6 +139,7 @@
     $stmt3->bindParam(":company_id",$cid);  
     $stmt3->execute();
     $missing=array();
+    $cnt=0;
     while($studdata  = $stmt3->fetch(PDO::FETCH_ASSOC))
     {
         $checked_studid = $studdata["TRAINING_STUDENT_ID"];
@@ -167,23 +168,25 @@
             if ($file_check['OL'] != '1' || $file_check['BD'] != '1') {
               array_push($missing,$file_check['STUDENT_ENROLLMENT_NUMBER']);
             }
-            //
+            $cnt=1;
         }
     }
     if (sizeof($missing) != 0) {
-      $msg="";
-      foreach($missing as $a){
-        $msg .= $a;
-        $msg .= "  ";
-      }
-      ?>
+        $msg="";
+        foreach($missing as $a){
+          $msg .= $a;
+          $msg .= "  ";
+        }
+        ?>
     <script>
     alert("Document Missing For <?php echo $msg; ?>");
     </script>
     <?php
-     }
-     else{
-      header("Location: Package_entry.php");  
+    }
+    if ($cnt==1 && sizeof($missing) == 0) {
+          header("Location: Package_entry.php");
     }
   }
+
+  
 ?>
