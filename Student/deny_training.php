@@ -35,6 +35,12 @@
     $stmt6->bindParam(":nid",$nid);
     $stmt6->execute();
     
+    $stmt7=$con->prepare("CALL DEACTIVATE_STUDENT(:stud_id)");
+    $stmt7->bindParam(":stud_id",$sid);
+    $stmt7->execute();
+    $stmt7=$con->prepare("CALL DEACTIVATE_STUDENT(:stud_id)");
+    $stmt7->bindParam(":stud_id",$sid);
+    $stmt7->execute();
 
     header("location: student_dashboard.php");
 ?>

@@ -132,7 +132,18 @@ wrapper -->
                         <?php
                   }
                   elseif ($data['NOTIFICATION_TYPE'] == 'CPL') {
-                    $cmpny_name="";
+                    $cid=$data['NOTIFICATION_SENDER_ID'];
+                    $type='CP';
+                    $stmt5=$con->prepare(" CALL GET_USERNAME(:cid, :type);");
+                    $stmt5->bindparam(":cid",$cid);
+                    $stmt5->bindparam(":type",$type);
+                    $stmt5->execute();
+                    $stmt5=$con->prepare(" CALL GET_USERNAME(:cid, :type);");
+                    $stmt5->bindparam(":cid",$cid);
+                    $stmt5->bindparam(":type",$type);
+                    $stmt5->execute();
+                    $companydata=$stmt5->fetch(PDO::FETCH_ASSOC); 
+                    $cmpny_name=$companydata["uname"];
                     ?>
                         <li class="">
                             <div class="media">
@@ -145,7 +156,7 @@ wrapper -->
                                                 class="btn btn-sm btn-outline-secondary float-right ml-2 mb-2"><i
                                                     class="fa fa-times"></i> Remove</button></a>
                                         <a
-                                            href="view_company_shortlist.php?sid=<?php echo $data['NOTIFICATION_EVENT_ID']; ?>"><button
+                                            href="view_company_placement_list.php?cid=<?php echo $data['NOTIFICATION_SENDER_ID']; ?>"><button
                                                 class="btn btn-sm btn-outline-info float-right ml-2 mb-2"><i
                                                     class="fa fa-eye"></i> View</button></a>
                                     </p>

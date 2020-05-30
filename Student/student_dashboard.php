@@ -148,6 +148,38 @@ wrapper -->
                         </li>
                         <?php
                   }
+                  elseif ($data['NOTIFICATION_TYPE'] == 'PLOF') {
+                    $stmt4=$con->prepare(" CALL CHECK_STUDENT_PLACEMENT_DATA(:stud_id)");
+                    $stmt4->bindparam(":stud_id",$studid);
+                    $stmt4->execute();
+                    $stmt4=$con->prepare(" CALL CHECK_STUDENT_PLACEMENT_DATA(:stud_id)");
+                    $stmt4->bindparam(":stud_id",$studid);
+                    $stmt4->execute();
+                    $companydata=$stmt4->fetch(PDO::FETCH_ASSOC);
+                    // print_r($companydata);
+                    $cmpny_name=$companydata["COMPANY_NAME"];
+                  ?>
+                        <li class="">
+                            <div class="media">
+                                <div class="media-body">
+                                    <h6 class="mt-0"><?php echo $cmpny_name; ?><small
+                                            class="float-right"><?php echo $data['NOTIFICATION_TIME_STAMP']; ?></small>
+                                    </h6>
+                                    <p><?php echo $data['NOTIFICATION_DESCRPTION']." Package:".$companydata["PLACEMENT_OFFERED_PACKAGE"]; ?>
+                                        <a href="deny_placement.php?nid=<?php echo $data['NOTIFICATION_ID']; ?>"><button
+                                                class="btn btn-sm btn-outline-danger float-right ml-2 mb-2"><i
+                                                    class="fa fa-times"></i> Deny</button></a>
+                                        <a href="accept_placement.php?nid=<?php echo $data['NOTIFICATION_ID']; ?>"><button
+                                                class="btn btn-sm btn-outline-success float-right mb-2"><i
+                                                    class="fa fa-check"></i> Accept</button></a></p>
+                                    <div>
+                                        <hr style="border-top: 1px solid #495057">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <?php
+                }
                }
                 ?>
                     </ul>
