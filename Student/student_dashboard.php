@@ -159,6 +159,20 @@ wrapper -->
                     $companydata=$stmt4->fetch(PDO::FETCH_ASSOC);
                     // print_r($companydata);
                     $cmpny_name=$companydata["COMPANY_NAME"];
+                    $stmt5=$con->prepare("CALL GET_STUDENT_PLACEMENT_DOCUMENTS(:sid)");
+                    $stmt5->bindParam(":sid",$studid);     
+                    $stmt5->execute();
+                    $stmt5=$con->prepare("CALL GET_STUDENT_PLACEMENT_DOCUMENTS(:sid)");
+                    $stmt5->bindParam(":sid",$studid);     
+                    $stmt5->execute();
+                    while ($document = $stmt5->fetch(PDO::FETCH_ASSOC)) {
+                        if ($document['COMPANY_DOCUMENT_TYPE'] == 'OL') {
+                            $ol=$document['COMPANY_DOCUMENT_NAME'];
+                        }
+                        elseif ($document['COMPANY_DOCUMENT_TYPE'] == 'BD') {
+                            $bd=$document['COMPANY_DOCUMENT_NAME'];
+                        }
+                    }
                   ?>
                         <li class="">
                             <div class="media">
@@ -170,6 +184,8 @@ wrapper -->
                                         <a href="deny_placement.php?nid=<?php echo $data['NOTIFICATION_ID']; ?>"><button
                                                 class="btn btn-sm btn-outline-danger float-right ml-2 mb-2"><i
                                                     class="fa fa-times"></i> Deny</button></a>
+                                                    <a href="../Company/Document_offer_letter/<?php echo $ol; ?>" download><button class="btn btn-sm btn-outline-warning float-right mb-2 ml-2"><i class="fa fa-download"></i>Offer Letter</button></a>
+                                                    <a href="../Company/Document_bond/<?php echo $bd; ?>" download><button class="btn btn-sm btn-outline-warning float-right mb-2 ml-2"><i class="fa fa-download"></i>Bond</button></a>
                                         <a href="accept_placement.php?nid=<?php echo $data['NOTIFICATION_ID']; ?>"><button
                                                 class="btn btn-sm btn-outline-success float-right mb-2"><i
                                                     class="fa fa-check"></i> Accept</button></a></p>

@@ -39,6 +39,20 @@
                                  $x=$stmt3->fetch(PDO::FETCH_ASSOC);
                                  $st=$x['st'];
                                 if ($st=='1') {
+                                    $stmt4=$con->prepare("CALL GET_STUDENT_PLACEMENT_DOCUMENTS(:sid)");
+                                    $stmt4->bindParam(":sid",$sid);     
+                                    $stmt4->execute();
+                                    $stmt4=$con->prepare("CALL GET_STUDENT_PLACEMENT_DOCUMENTS(:sid)");
+                                    $stmt4->bindParam(":sid",$sid);     
+                                    $stmt4->execute();
+                                    while ($document = $stmt4->fetch(PDO::FETCH_ASSOC)) {
+                                        if ($document['COMPANY_DOCUMENT_TYPE'] == 'OL') {
+                                            $ol=$document['COMPANY_DOCUMENT_NAME'];
+                                        }
+                                        elseif ($document['COMPANY_DOCUMENT_TYPE'] == 'BD') {
+                                            $bd=$document['COMPANY_DOCUMENT_NAME'];
+                                        }
+                                    }
                                  ?>
                                 <tr>
                                     <td><img src="../../Student/Profile_pic/<?php echo $studdata["STUDENT_PROFILE_PIC"]; ?>"
@@ -48,6 +62,8 @@
                                     </td>
                                     <td><?php echo $studdata["PLACEMENT_OFFERED_PACKAGE"]; ?>
                                     </td>
+                                    <td><a href="../../Company/Document_offer_letter/<?php echo $ol; ?>" download><button class="btn btn-outline-warning"><i class="fa fa-download"></i>Offer Letter</button></a></td>
+                                    <td><a href="../../Company/Document_bond/<?php echo $bd; ?>" download><button class="btn btn-outline-warning"><i class="fa fa-download"></i>Bond</button></a></td>
                                     <td>
                                         <a href="view_student_profile.php?sid=<?php echo $studdata["STUDENT_ID"]; ?>"><button
                                                 type="button" class="btn btn-sm btn-outline-info"><i
