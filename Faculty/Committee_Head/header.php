@@ -170,6 +170,16 @@
           </ul>
         </li>
         <li>
+          <a href="javascript:void(0);" data-toggle="collapse" data-target="#batch">
+            <div class="pull-left"><i class="fas fa-user-graduate"></i><span class="right-nav-text">Batch</span></div>
+            <div class="pull-right font-weight-bold"><span class="right-nav-text"><i class="ti-plus"></i></span></div><div class="clearfix"></div>
+          </a>
+          <ul id="batch" class="collapse" data-parent="#sidebarnav">
+            <li> <a href="view_batch.php"><i class="fa fa-list"></i>Batch List</a> </li>
+            <li> <a href="new_batch.php"><i class="fa fa-list"></i>New Batch</a> </li>
+          </ul>
+        </li>
+        <li>
           <a href="javascript:void(0);" data-toggle="collapse" data-target="#company">
             <div class="pull-left"><i class="fas fa-user-secret"></i><span class="right-nav-text">Company</span></div>
             <div class="pull-right font-weight-bold"><span class="right-nav-text"><i class="ti-plus"></i></span></div><div class="clearfix"></div>

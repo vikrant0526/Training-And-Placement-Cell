@@ -5,12 +5,6 @@
   $data=$_SESSION['Userdata'];
 ?>
 
-<?php
-	    include('../../Files/PDO/dbcon.php');	
-        $stmt=$con->prepare("CALL VIEW_COMPANY();");
-        $stmt->execute();
-	?>
-
 <div class="content-wrapper header-info">
     <div class="page-title">
         <div class="row">
@@ -30,60 +24,53 @@
     <div class="mb-30">
         <div class="card h-100">
             <div class="card-body h-100">
-                <h4 class="card-title">Company</h4>
+                <h4 class="card-title">Batch</h4>
                 <!-- action group -->
                 <ul class="list-unstyled">
-                    <li>
-                        <table class="table text-dark table-responsive" style="table-layout: fixed;width: 100%;">
-                            <tr class="font-weight-bold">
-                                <td></td>
-                                <td>Name</td>
-                                <td>Email</td>
-                                <td>Phone Number</td>
-                                <td>Contact Person(CP)</td>
-                                <td>CP Email</td>
-                                <td>CP Phone Number</td>
-                                <td>Address</td>
-                                <td>Website</td>
-                                <td>Profile</td>
-                                <td>Deactivate</td>
-                            </tr>
-                            <?php while($data = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
-                            <tr>
-                                <td>
-                                    <div style="height: 35px;width: 35px;border-radius: 50%;">
-                                        <img src="../../Company/com_logo/<?php echo $data['COMPANY_LOGO'] ?>"
-                                            alt="avatar" style="height: 100%;width: 100%;">
-                                    </div>
-                                </td>
-                                <td><?php echo $data['COMPANY_NAME']; ?></td>
-                                <td><?php echo $data['COMPANY_EMAIL']; ?></td>
-                                <td><?php echo $data['COMPANY_PHONE_NUMBER_1']; ?></td>
-                                <td><?php echo $data['COMPANY_HR_NAME']; ?></td>
-                                <td><?php echo $data['COMPANY_HR_EMAIL']; ?></td>
-                                <td><?php echo $data['COMPANY_PHONE_NUMBER_2']; ?></td>
-                                <td><?php echo $data['COMPANY_ADDRESS']; ?></td>
-                                <td><?php echo $data['COMPANY_WEBSITE']; ?></td>
-                                <td>
-                                    <a href="company_profile.php?cid=<?php echo $data['COMPANY_ID'] ?>" title="">
-                                        <button type="button" class="btn btn-outline-info"><i
-                                                class="fa fa-user-circle-o"></i></button>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="company_deactivate.php?cid=<?php echo $data['COMPANY_ID'] ?>" title="">
-                                        <button type="button" class="btn btn-outline-danger"><i
-                                                class="fas fa-user-slash"></i></button>
-                                    </a>
-                                </td>
-                            </tr>
-                            <?php } ?>
-                        </table>
-                    </li>
+                <li>
+                  <div class="media">
+                    <div class="media-body mb-2">
+                      <select name="dept" class="form-control p-1 pl-3" id="dept" onchange="course()" autofocus>
+                            <option>Select Department</option>
+                            <option value="BMIIT">BMIIT</option>
+                            <option value="SRIMCA">SRIMCA</option>
+                            <option value="CGPIT">CGPIT</option>
+                      </select>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="media">
+                    <div class="media-body mb-2">
+                      <select name="degree" class="form-control p-1 pl-3" id="degree" onchange="get_batch()">
+                            <option>Select Degree</option>
+                        </select>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                    <div id="show" class="d-flex justify-content-center"></div> 
+                </li>
                 </ul>
             </div>
         </div>
     </div>
+    <script type="text/javascript"> 
+    function course(){
+            var xmlhttp=new XMLHttpRequest();
+            xmlhttp.open("GET","degreebind.php?dept="+document.getElementById("dept").value,false);
+            xmlhttp.send(null);
+            //alert(xmlhttp.responseText);  
+            document.getElementById("degree").innerHTML=xmlhttp.responseText;
+        }
+        function get_batch(){ 
+            var xmlhttp=new XMLHttpRequest();
+            xmlhttp.open("GET","view_batch_bind.php?dept="+document.getElementById("dept").value+"&degree="+document.getElementById("degree").value,false);
+            xmlhttp.send(null);
+            // alert(xmlhttp.responseText); 
+            document.getElementById("show").innerHTML=xmlhttp.responseText;
+        }
+        </script>
     <?php 
   include('footer.php');
   ob_flush();
