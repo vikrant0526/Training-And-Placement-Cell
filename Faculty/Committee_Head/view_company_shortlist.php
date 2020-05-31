@@ -26,6 +26,7 @@
                             $stmt4->bindparam(":selection_list_id",$select_list_id);
                             $stmt4->execute();
                              while($x = $stmt4->fetch(PDO::FETCH_ASSOC)) { 
+                                //  print_r($x);
                                 $studid=$x["SHORTLIST_STUDENT_ID"];
                                 $stmt2=$con->prepare("CALL GET_STUDENT_DETAILS(:studid)");
                                 $stmt2->bindParam(":studid",$studid);     

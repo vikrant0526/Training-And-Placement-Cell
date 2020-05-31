@@ -149,6 +149,7 @@ wrapper -->
                         <?php
                   }
                   elseif ($data['NOTIFICATION_TYPE'] == 'PLOF') {
+                    $studid=$data["NOTIFICATION_RECEIVER_ID"];
                     $stmt4=$con->prepare(" CALL CHECK_STUDENT_PLACEMENT_DATA(:stud_id)");
                     $stmt4->bindparam(":stud_id",$studid);
                     $stmt4->execute();
