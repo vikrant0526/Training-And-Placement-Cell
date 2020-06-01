@@ -167,6 +167,7 @@
           <ul id="stud" class="collapse" data-parent="#sidebarnav">
             <li> <a href="view_students.php"><i class="fa fa-list"></i>Student List</a> </li>
             <li> <a href="view_deactive_students.php"><i class="fas fa-user-slash"></i>Deactive Students</a> </li>
+            <li> <a href="new_material.php"><i class="fas fa-file"></i>New Material</a> </li>
           </ul>
         </li>
         <li>
