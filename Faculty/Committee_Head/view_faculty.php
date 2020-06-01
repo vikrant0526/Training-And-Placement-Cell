@@ -4,12 +4,6 @@
  
   $data=$_SESSION['Userdata'];
 ?>
-<!--=================================
- Main content -->
-
- <!--=================================
-wrapper -->
-
 	<?php
 	    include('../../Files/PDO/dbcon.php');	
         $stmt=$con->prepare("CALL VIEW_COMMITTEE_MEMBER();");

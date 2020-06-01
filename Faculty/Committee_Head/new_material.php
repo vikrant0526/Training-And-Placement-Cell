@@ -40,6 +40,13 @@
                 <li>
                   <div class="media">
                     <div class="media-body mb-2">
+                      <input type="text" name="title" class="form-control" placeholder="Material Title">
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="media">
+                    <div class="media-body mb-2">
                       <select name="doc_type" class="form-control p-1 pl-3">
                             <option>Select Type</option>
                             <option value="PL">Practical List</option>
@@ -49,7 +56,6 @@
                     </div>
                   </div>
                 </li>
-
                 <li class="mb-2">
                  <div class="custom-file">
                     <input type="file" class="custom-file-input" id="validatedCustomFile" accept="application/pdf" name="matrials[]" multiple required>
@@ -95,17 +101,19 @@
             $dept = $_REQUEST["dept"];
             $degree = $_REQUEST["degree"];
             $doc_type = $_REQUEST["doc_type"];
+            $doc_title = $_REQUEST["title"];
            for($i=0;$i<$filecount;$i++){
                $ran_num = mt_rand(100000,999999);
                $filename = $ran_num." ".$_FILES["matrials"]["name"][$i];
                move_uploaded_file($_FILES["matrials"]["tmp_name"][$i], "MATERIAL/$filename");
-               $stmt=$con->prepare("CALL INSERT_MATERIAL(:dept,:degree,:up_id,:up_type,:doc_type,:doc_name);");
+               $stmt=$con->prepare("CALL INSERT_MATERIAL(:dept,:degree,:up_id,:up_type,:doc_type,:doc_name,:doc_title);");
                $stmt->bindParam(":dept",$dept);
                $stmt->bindParam(":degree",$degree);
                $stmt->bindParam(":up_id",$fid);
                $stmt->bindParam(":up_type",$ftype);
                $stmt->bindParam(":doc_type",$doc_type);
                $stmt->bindParam(":doc_name",$filename);
+               $stmt->bindParam(":doc_title",$doc_title);
                $stmt->execute(); 
            }    
             if ($stmt) {

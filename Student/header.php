@@ -148,6 +148,9 @@
             <div class="pull-left"><i class="ti-home"></i><span class="right-nav-text">Upload Resume</span></div><div class="clearfix"></div>
           </a>
         </li>
+        <li>
+          <a href="materials.php"><i class="ti-home"></i><span class="right-nav-text">Materials</span></div><div class="clearfix"></a>
+        </li>
     </ul>
   </div> 
 </div>
