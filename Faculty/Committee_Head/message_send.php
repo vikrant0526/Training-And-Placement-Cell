@@ -11,6 +11,7 @@
 	$x=$con->prepare("CALL GET_COMPANY(:id);");
 	$x->bindparam(":id", $id);
 	$x->execute();
+	// print_r($x->errorinfo());
 	$company = $x->fetch(PDO::FETCH_ASSOC);
 
 	try {

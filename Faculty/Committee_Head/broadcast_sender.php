@@ -66,7 +66,7 @@
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.open("GET", "message_send.php?id=<?php echo $data1['COMPANY_ID']; ?>&cnt=<?php echo $cnt; ?>", false);
         xmlhttp.send(null);
-        var i = < ? php echo json_encode($cnt); ? > ;
+        var i = <?php echo json_encode($cnt); ?>;
         var div_id = "sent_".concat(i);
         document.getElementById(div_id).innerHTML = xmlhttp.responseText;
     }
