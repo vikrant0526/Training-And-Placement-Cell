@@ -38,9 +38,7 @@
                   <div class="row">
                     <div class="col-lg-6 align-self-center">
                          <div style="width: 125px;height: 125px; position: relative; overflow: hidden;border-radius: 50%;">
-                                                <img src="../../Student/Profile_pic/<?php echo $data['STUDENT_PROFILE_PIC']; ?>" onclick="triggerClick()" id="profileDisplay" style="display: block;margin: -5px auto;" class="w-100 h-100">
-                                                <input type="file" class="form-control" placeholder="Company L
-                                                    ogo" name="profileImage" id="profileImage" onchange="displayImage(this)" accept="image/*" style="display: none;" value="<?php echo $date['STUDENT_PROFILE_PIC'] ?>" required>
+                                                <img src="../../Student/Profile_pic/<?php echo $data['STUDENT_PROFILE_PIC']; ?>"  id="profileDisplay" style="display: block;margin: -5px auto;" class="w-100 h-100">
                                             </div>
                     </div>
                     <!-- <div class="col-lg-6 text-right align-self-center">
@@ -58,7 +56,7 @@
       <div class="mb-30">
            <div class="card h-100 ">
            <div class="card-body h-100">
-             <h4 class="card-title">Profile View</h4>
+             <h4 class="card-title">Profile Student View</h4>
              <!-- action group -->
              <div class="btn-group info-drop">
                 <button type="button" class="dropdown-toggle-split text-muted" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-more"></i></button>
@@ -176,24 +174,42 @@
                     </div>
                   </div>
                 </li>  
+                <li>
+                  <div class="media">
+                    <div class="media-body mb-2">
+                    	<textarea name="saddress" rows="3" disabled placeholder="Address" class="form-control"><?php echo $data["STUDENT_ADDRESS"]; ?>
+                    	</textarea>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="media">
+                    <div class="media-body mb-2">
+                      <?php 
+                        $stmt1=$con->prepare("CALL CHECK_STUDENT_RESUME(:sid)");
+                        $stmt1->bindparam(":sid",$sid);
+                        $stmt1->execute();
+                        $stmt1=$con->prepare("CALL CHECK_STUDENT_RESUME(:sid)");
+                        $stmt1->bindparam(":sid",$sid);
+                        $stmt1->execute();
+                        $x=$stmt1->fetch(PDO::FETCH_ASSOC);
+                        $st=$x['st'];
+                        if ($st == '1') {
+                          $resume_name=$x['RESUME_DOCUMENT_NAME'];
+                          ?>                         
+                            <a href="../../Student/Resume_Document/<?php echo $resume_name; ?>" download><button class="btn btn-outline-warning" type="button"><i class="fa fa-download"></i>Resume</button></a>
+                          <?php
+                        }else{
+                          ?>
+                            Resume Not Uploaded
+                          <?php
+                        }
+                      ?>
+                    </div>
+                  </div>
+                </li>  
               </form>
-<script type="text/javascript" >
-        function triggerClick() {
-            document.querySelector('#profileImage').click();
-        }
-
-        function displayImage(e) {
-            if(e.files[0]){
-                var reader = new FileReader();
-
-                reader.onload = function(e){
-                    document.querySelector('#profileDisplay').setAttribute('src',e.target.result);
-
-                }
-                reader.readAsDataURL(e.files[0]);
-            }
-        }
-        
+<script type="text/javascript" >  
         function course(){
             var xmlhttp=new XMLHttpRequest();
             xmlhttp.open("GET","degreebind.php?dept="+document.getElementById("dept").value,false);

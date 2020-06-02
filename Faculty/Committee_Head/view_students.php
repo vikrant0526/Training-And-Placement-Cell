@@ -9,7 +9,7 @@
           <div class="col-md-6">
             <h3 class="mb-15 text-white"> Ohoo, <?php echo $data['FACULTY_FIRST_NAME']; ?>! </h3><span class="mb-10 mb-md-30 text-white d-block">So it that time now.</span>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6"> 
           <div class="card">
             <div class="btn-group info-drop header-info-button">
               </div>

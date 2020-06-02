@@ -77,7 +77,7 @@
                         <td><?php echo $data['FACULTY_PHONE_NUMBER']; ?></td>
                         <td><?php echo $data['FACULTY_GENDER']; ?></td>
                         <td><?php echo $data['FACULTY_ABOUT']; ?></td>
-                        <td><a href="faculty_profile.php?fid=<?php echo $data['FACULTY_ID'] ?>" title="">
+                        <td><a href="view_faculty_profile.php?fid=<?php echo $data['FACULTY_ID'] ?>" title="">
                           <button type="button" class="btn btn-outline-info"><i class="fa fa-user-circle-o"></i></button>
                         </a></td>
                         <td><a href="deactivate_profile.php?fid=<?php echo $data['FACULTY_ID'] ?>" title="">
@@ -130,7 +130,7 @@
                         <td><?php echo $data['FACULTY_PHONE_NUMBER']; ?></td>
                         <td><?php echo $data['FACULTY_GENDER']; ?></td>
                         <td><?php echo $data['FACULTY_ABOUT']; ?></td>
-                        <td><a href="faculty_profile.php?fid=<?php echo $data['FACULTY_ID'] ?>" title="">
+                        <td><a href="view_faculty_profile.php?fid=<?php echo $data['FACULTY_ID'] ?>" title="">
                           <button type="button" class="btn btn-outline-info"><i class="fa fa-user-circle-o"></i></button>
                         </a></td>
                           <td><a href="deactivate_profile.php?fid=<?php echo $data['FACULTY_ID'] ?>" title="">
