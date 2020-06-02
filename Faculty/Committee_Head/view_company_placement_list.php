@@ -65,7 +65,7 @@
                                     <td><a href="../../Company/Document_offer_letter/<?php echo $ol; ?>" download><button class="btn btn-outline-warning"><i class="fa fa-download"></i>Offer Letter</button></a></td>
                                     <td><a href="../../Company/Document_bond/<?php echo $bd; ?>" download><button class="btn btn-outline-warning"><i class="fa fa-download"></i>Bond</button></a></td>
                                     <td>
-                                        <a href="view_student_profile.php?sid=<?php echo $studdata["STUDENT_ID"]; ?>"><button
+                                        <a href="student_profile.php?sid=<?php echo $studdata["STUDENT_ID"]; ?>"><button
                                                 type="button" class="btn btn-sm btn-outline-info"><i
                                                     class="fa fa-eye"></i></button></a>
                                     </td>

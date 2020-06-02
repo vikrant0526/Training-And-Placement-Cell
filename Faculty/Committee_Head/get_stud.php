@@ -36,7 +36,7 @@
                 <td><?php echo $data['STUDENT_PHONE_NUMBER'] ?></td>
                 <td class="text-nowrap"><?php echo $data['STUDENT_ABOUT'] ?></td>
                 <td>
-                    <a href="view_student_profile.php?sid=<?php echo $data['STUDENT_ID']; ?>" title="">
+                    <a href="student_profile.php?sid=<?php echo $data['STUDENT_ID']; ?>" title="">
                         <button class="btn btn-outline-info" type="button"><i class="fa fa-user-circle-o"></i></button>
                     </a>
                 </td>
