@@ -136,7 +136,9 @@
                           </div>
                         </div>
                       </li>	  
+      
               </form>
+
 
 <?php 
 
@@ -147,24 +149,25 @@
     $lname=$_REQUEST["lname"];
     $gender=$_REQUEST["gender"];
     $email=$_REQUEST["email"];
-		$punm=$_REQUEST["num"];
+		$pnum=$_REQUEST["num"];
 		$about=$_REQUEST["about"];
         
-        echo $pnum;
-        
-		// $stmt=$con->prepare("CALL UPDATE_FACULTY_PROFILE(:fid,:fname,:lname,:gender,:phn,:abt,:email)");
-		// $stmt->bindParam(":fid",$fid);
-		// $stmt->bindParam(":fname",$fname);
-		// $stmt->bindParam(":lname",$lname);
-		// $stmt->bindParam(":gender",$gender);
-		// $stmt->bindParam(":phn",$pnum);
-		// $stmt->bindParam(":abt",$about);
-		// $stmt->bindParam(":email",$email);
-		// $stmt->execute();
-		// header('Refresh:0');
+		$stmt=$con->prepare("CALL UPDATE_FACULTY_PROFILE(:fid,:fname,:lname,:gender,:phn,:abt,:email)");
+		$stmt->bindParam(":fid",$fid);
+		$stmt->bindParam(":fname",$fname);
+		$stmt->bindParam(":lname",$lname);
+		$stmt->bindParam(":gender",$gender);
+		$stmt->bindParam(":phn",$pnum);
+		$stmt->bindParam(":abt",$about);
+		$stmt->bindParam(":email",$email);
+		$stmt->execute();
+		header('Refresh:0');
 	}
+  ?>
 
- ?>
+
+  
+              
 <?php 
   include('footer.php');
   ob_flush();
