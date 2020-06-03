@@ -9,7 +9,7 @@
      $stmt2=$con->prepare("CALL GET_APPLIED_STUDENT(:eid)");
      $stmt2->bindParam(":eid",$eid);     
      $stmt2->execute();
-     $sid = $_SESSION["selection_list_id"];
+    // $sid = $_SESSION["selection_list_id"];
      ?>
 <ul class="list-unstyled d-flex justify-content-center">
     <li>

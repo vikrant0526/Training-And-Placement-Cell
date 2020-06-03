@@ -3,13 +3,13 @@
   include('header.php');
  
   $data=$_SESSION['Userdata'];
-  $id=$_SESSION['lid'];
+  $cid=$_SESSION['lid'];
 ?>
 
 <?php
 	    include('../Files/PDO/dbcon.php');	
         $stmt=$con->prepare("CALL VIEW_RECOMMENDATIONS(:cid);");
-        $stmt->bindparam(':cid', $id);
+        $stmt->bindparam(':cid', $cid);
         $stmt->execute();
 	?>
 
@@ -37,17 +37,17 @@
                 <ul class="list-unstyled">
                     <li>
                         <table class="table text-dark table-responsive" style="table-layout: fixed;width: 100%;">
-                            <tr class="font-weight-bold">
+                            <!-- <tr class="font-weight-bold">
                                 <td></td>
-                            </tr>
+                            </tr> -->
                             <?php while($data = $stmt->fetch(PDO::FETCH_ASSOC)) {
                                 $stmt2=$con->prepare("CALL CHECK_STUDENT_IN_SHORTLIST(:sid, :cid);");
                                 $stmt2->bindparam(':sid', $data["STUDENT_ID"]);
-                                $stmt2->bindparam(':cid', $id);
+                                $stmt2->bindparam(':cid', $cid);
                                 $stmt2->execute();
                                 $stmt2=$con->prepare("CALL CHECK_STUDENT_IN_SHORTLIST(:sid, :cid);");
                                 $stmt2->bindparam(':sid', $data["STUDENT_ID"]);
-                                $stmt2->bindparam(':cid', $id);
+                                $stmt2->bindparam(':cid', $cid);
                                 $stmt2->execute();
                                 $x=$stmt2->fetch(PDO::FETCH_ASSOC);
                                 $st=$x['st'];
@@ -58,8 +58,9 @@
                                     <td><img src="../Student/Profile_pic/<?php echo $data["STUDENT_PROFILE_PIC"]; ?>"
                                                 style="height: 120px;width: 120px;"></td>
                                     <td><?php echo $data["STUDENT_ENROLLMENT_NUMBER"]; ?></td>
-                                    <td><?php echo $data["STUDENT_FIRST_NAME"]." ".$data["STUDENT_LAST_NAME"]; ?>
-                                    </td>
+                                    <td><?php echo $data["STUDENT_FIRST_NAME"]." ".$data["STUDENT_LAST_NAME"]; ?></td>
+                                    <td><a href="student_profile.php?sid=<?php echo $data["STUDENT_ID"]; ?>"><button class="btn btn-sm btn-outline-info" type="button"><i class="fa fa-eye"></i></button></a></td>
+                                    <td><a href="add_to_short_list.php?sid=<?php echo $data["STUDENT_ID"]; ?>&cid=<?php echo $cid; ?>"><button class="btn btn-sm btn-outline-success" type="button"><i class="fa fa-plus"></i> Shortlist</button></a></td>
                             </tr>
                             <?php 
                             
