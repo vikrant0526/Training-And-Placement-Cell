@@ -1,3 +1,6 @@
+<?php session_start();
+  $data=$_SESSION['Userdata'];
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -85,25 +88,25 @@
     </li>
     <li class="nav-item dropdown mr-30">
       <a class="nav-link nav-pill user-avatar" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-        <img src="images/profile-avatar.jpg" alt="avatar">
+      <img src="../img/<?php echo $data['FACULTY_PROFILE_PIC'] ?>" alt="avatar">
       </a>
       <div class="dropdown-menu dropdown-menu-right">
         <div class="dropdown-header">
           <div class="media">
             <div class="media-body">
-              <h5 class="mt-0 mb-0">Michael Bean</h5>
-              <span>michael-bean@mail.com</span>
+            <h5 class="mt-0 mb-0"><?php echo $data['FACULTY_FIRST_NAME']." ".$data['FACULTY_LAST_NAME'] ?></h5>
+              <span><?php echo $data["FACULTY_EMAIL"] ?></span>
             </div>
           </div>
         </div>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="#"><i class="text-secondary ti-reload"></i>Activity</a>
-        <a class="dropdown-item" href="#"><i class="text-success ti-email"></i>Messages</a>
+        <a class="dropdown-item" href="../../Login/change_password.php"><i class="text-success ti-email"></i>Change Password</a>
         <a class="dropdown-item" href="#"><i class="text-warning ti-user"></i>Profile</a>
         <a class="dropdown-item" href="#"><i class="text-dark ti-layers-alt"></i>Projects <span class="badge badge-info">6</span> </a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="#"><i class="text-info ti-settings"></i>Settings</a>
-        <a class="dropdown-item" href="#"><i class="text-danger ti-unlock"></i>Logout</a>
+        <a class="dropdown-item" href="../../Login/logout.php"><i class="text-danger ti-unlock"></i>Logout</a>
       </div>
     </li>
   </ul>
