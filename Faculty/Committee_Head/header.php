@@ -193,6 +193,7 @@
             <li> <a href="broadcast_list.php"><i class="fas fa-stream"></i>Broadcast Lists</a> </li>
             <li> <a href="send_broadcast.php"><i class="fa fa-paper-plane"></i>Send Broadcast</a> </li>
             <li class="text-nowrap"> <a href="placement_schedule.php"><i class="fa fa-calendar-alt"></i>Placement Schedule</a> </li>
+            <li> <a href="send_recommendation.php"><i class="fa fa-paper-plane"></i>Recommend Student</a> </li>
           </ul>
         </li>
         <li>

@@ -110,14 +110,17 @@
      <div class="scrollbar side-menu-bg">
       <ul class="nav navbar-nav side-menu" id="sidebarnav">
         <li>
-          <a href="company_dashboard.php">
-            <div class="pull-left"><i class="ti-home"></i><span class="right-nav-text">Home</span></div><div class="clearfix"></div>
-          </a>
-         <a href="show_shortlist.php">
+        <a href="company_dashboard.php">
+          <div class="pull-left"><i class="ti-home"></i><span class="right-nav-text">Home</span></div><div class="clearfix"></div>
+        </a>
+        <a href="show_shortlist.php">
             <div class="pull-left"><i class="ti-home"></i><span class="right-nav-text">Show Short List</span></div><div class="clearfix"></div>
         </a>
         <a href="traning.php">
             <div class="pull-left"><i class="ti-home"></i><span class="right-nav-text">Traning</span></div><div class="clearfix"></div>
+        </a>
+        <a href="recommendations.php">
+            <div class="pull-left"><i class="ti-home"></i><span class="right-nav-text">Recommendations</span></div><div class="clearfix"></div>
         </a>
         </li>
     </ul>
