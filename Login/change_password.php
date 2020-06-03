@@ -1,9 +1,5 @@
 <?php
     session_start();
-   if(!isset($_SESSION['lid']))
-  {
-      header('Location: ../Login/login.php');
-  }
   $roldpass = $rrpass = $rnewp="";
   $upassmess="";
   if(isset($_REQUEST['Submit']))
@@ -17,15 +13,18 @@
       $roldpass="Please Enter Old Password";      
       $rrpass="Please Enter Re Type Password";
       $rnewp="Please Enter New Password";
-    }else{
+    }elseif($new_paswd != $rnew_pass){
+      echo "<script>alert('Password And Confirm Password Are Not Match')</script>";
+    }
+    else{
         include('../Files/PDO/dbcon.php');
         $stmt=$con->prepare("CALL CHANGE_PASSWORD(:oldp,:email)"); 
         $stmt->bindParam(':oldp',$old_pswd);
         $stmt->bindParam(':email',$email);
         $stmt->execute();
+        // print_r($stmt->errorinfo());
         $rowsdata = $stmt->fetch(PDO::FETCH_ASSOC);
         $demail = $rowsdata['LOGIN_USER_EMAIL'];
-
         if($demail == $email)
         {
            $stmt=$con->prepare("CALL NEW_PASSWORD(:email,:newp)"); 
@@ -33,23 +32,24 @@
            $stmt->bindParam(':newp',$new_paswd);
            $stmt->execute();
 
-            echo "<script>alert('Password Update Sccessfully')</script>";
+            // echo "<script>alert('Password Update Sccessfully')</script>";
 
             if(isset($_SESSION['lid']))
             {
               if (isset($_SESSION['lut'])) {
                   $lut=$_SESSION['lut'];
-                  if($lut == "CH")
-                  {
-                     header('Location: ../Faculty/faculty_dashboard.php');
+                  if($lut == "CH"){
+                     header('Location: ../Faculty/Committee_Head/committee_head_dashboard.php');
                   }
-                  elseif($lut == "CM"  OR $lut == "FC")
-                  {
-                     header('Location: ../Faculty/faculty_dashboard.php');
+                  elseif($lut == "CM"){
+                    header('Location: ../Faculty/Committee_Member/committee_member_dashboard.php');  
+                  }
+                  elseif($lut == "FC"){
+                    header('Location: ../Faculty/faculty_dashboard.php');
                   }
                   elseif($lut == "CP")
                   {
-                     header('location: ../Company/company_dashboard1.php'); 
+                     header('location: ../Company/company_dashboard.php'); 
                   }
                   elseif($lut == "ST")
                   {
@@ -67,8 +67,6 @@
             </script>
             <?php*/
             $upassmess="Old Password Does Not Match";  
-
-
         }
       }
 
@@ -124,63 +122,63 @@
     <script type="text/javascript">
 
 
-function checkPass()
+// function checkPass()
 
-{
+// {
 
-    //Store the password field objects into variables ...
+//     //Store the password field objects into variables ...
 
-    var password = document.getElementById('password2');
+//     var password = document.getElementById('password2');
 
-    var confirm  = document.getElementById('confirm2');
+//     var confirm  = document.getElementById('confirm2');
 
-    var SubmitButtonElement = document.getElementById("SubmitButton");
+//     var SubmitButtonElement = document.getElementById("SubmitButton");
 
-    //Store the Confirmation Message Object ...
+//     //Store the Confirmation Message Object ...
 
-    var message = document.getElementById('confirm-message2');
+//     var message = document.getElementById('confirm-message2');
 
-    //Set the colors we will be using ...
+//     //Set the colors we will be using ...
 
-    var good_color = "#84ba3f";
+//     var good_color = "#84ba3f";
 
-    var bad_color  = "#ff6666";
+//     var bad_color  = "#ff6666";
 
-    //Compare the values in the password field 
+//     //Compare the values in the password field 
 
-    //and the confirmation field
+//     //and the confirmation field
 
-    if(password.value == confirm.value){
+//     if(password.value == confirm.value){
 
-        //The passwords match. 
+//         //The passwords match. 
 
-        //Set the color to the good color and inform
+//         //Set the color to the good color and inform
 
-        //the user that they have entered the correct password 
+//         //the user that they have entered the correct password 
 
-        confirm.style.borderColor = good_color;
+//         confirm.style.borderColor = good_color;
 
-        message.style.color           = good_color;
+//         message.style.color           = good_color;
 
-        message.innerHTML             = '<i class="fa fa-check" style="color:#84ba3f;">&nbsp;Passwords Match!</i>';
+//         message.innerHTML             = '<i class="fa fa-check" style="color:#84ba3f;">&nbsp;Passwords Match!</i>';
 
-        SubmitButtonElement.style.display="inline";
-    }else{
+//         SubmitButtonElement.style.display="inline";
+//     }else{
 
-        //The passwords do not match.
+//         //The passwords do not match.
 
-        //Set the color to the bad color and
+//         //Set the color to the bad color and
 
-        //notify the user.
+//         //notify the user.
 
-        confirm.style.borderColor = bad_color;
+//         confirm.style.borderColor = bad_color;
 
-        message.style.color           = bad_color;
+//         message.style.color           = bad_color;
 
-        message.innerHTML             = '<i class="fa fa-exclamation-triangle text-danger">&nbsp;Passwords Do Not Match!</i>';
+//         message.innerHTML             = '<i class="fa fa-exclamation-triangle text-danger">&nbsp;Passwords Do Not Match!</i>';
 
-        SubmitButtonElement.style.display="none";
-    }
+//         SubmitButtonElement.style.display="none";
+//     }
 
 }  
 
@@ -256,7 +254,7 @@ function checkPass()
                 <form action="#" method="post">
                   <div class="section-field mb-20">
                     <label class="mb-10 text-dark font-weight-bold"for="name">Old Password<label class="text-danger">*</label></label>
-                    <input id="password2" class="Password form-control" type="password" placeholder="Password" name="old_pswd">
+                    <input id="password2" class="Password form-control" type="password" placeholder="Password" name="old_pswd" required>
                     <span class="error"><?php echo $roldpass;?></span> 
                   </div>
                   <div class="section-field mb-20">

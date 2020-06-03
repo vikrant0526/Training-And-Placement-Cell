@@ -101,13 +101,13 @@
         </div>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="#"><i class="text-secondary ti-reload"></i>Activity</a>
-        <a class="dropdown-item" href="#"><i class="text-success ti-email"></i>Messages</a>
+        <a class="dropdown-item" href="../../Login/change_password.php"><i class="text-success ti-email"></i>Change Password</a>
         <a class="dropdown-item" href="faculty_profile.php"><i class="text-warning ti-user"></i>Profile</a>
         <a class="dropdown-item" href="Update_profile_pic.php"><i class="text-warning ti-user"></i>Profile Pic</a>
         <a class="dropdown-item" href="#"><i class="text-dark ti-layers-alt"></i>Projects <span class="badge badge-info">6</span> </a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="#"><i class="text-info ti-settings"></i>Settings</a>
-        <a class="dropdown-item" href="#"><i class="text-danger ti-unlock"></i>Logout</a>
+        <a class="dropdown-item" href="../../Login/logout.php"><i class="text-danger ti-unlock"></i>Logout</a>
       </div>
     </li>
   </ul>
