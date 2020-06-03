@@ -14,6 +14,7 @@
         $stmt->execute();
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
         ?>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>      
   <div class="content-wrapper header-info">
       <div class="page-title">
       <div class="row">
@@ -30,7 +31,7 @@
         <div class="row">
         <div class="col-lg-12 mb-30">
           <div class="card">
-            <div class="card-body">
+            <div class="card-body" oncontextmenu="return false;">
               <div class="user-bg" style="background: url(../Files/assets/images/user-bg.jpg);">
                 <div class="user-info">
                   <div class="row">
@@ -70,14 +71,14 @@
               	  <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                    	<input type="text" name="fname" class="form-control" placeholder="First Name" value="<?php echo $data["FACULTY_FIRST_NAME"]; ?>">
+                    	<input type="text" name="fname" class="form-control" placeholder="First Name" value="<?php echo $data["FACULTY_FIRST_NAME"]; ?>" disabled>
                     </div>
                   </div>
                 </li>
                 <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                    	<input type="text" name="lname" class="form-control" placeholder="Last Name" value="<?php echo $data["FACULTY_LAST_NAME"]; ?>">
+                    	<input type="text" name="lname" class="form-control" placeholder="Last Name" value="<?php echo $data["FACULTY_LAST_NAME"]; ?>" disabled>
                     </div>
                   </div>
                 </li>
@@ -101,26 +102,24 @@
 					</div>
 					<?php } ?>
                 </li>  
-
-
                  <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                    	<input type="email" name="email" placeholder="Faculty email" class="form-control" value="<?php echo $data["FACULTY_EMAIL"]; ?>">
+                    	<input type="email" name="email" placeholder="Faculty email" class="form-control" value="<?php echo $data["FACULTY_EMAIL"]; ?>" disabled>
                     </div>
                   </div>
                 </li>
                  <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                    <input type="text" name="num" placeholder="Faculty Number" class="form-control" value="<?php echo $data["FACULTY_PHONE_NUMBER"]; ?>">
+                    <input type="text" name="num" placeholder="Faculty Number" class="form-control" value="<?php echo $data["FACULTY_PHONE_NUMBER"]; ?>" disabled>
                     </div>
                   </div>
                 </li>
                  <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                    	<textarea name="about" rows="3" placeholder="Something about yourself........" class="form-control"><?php echo $data["FACULTY_ABOUT"]; ?>
+                    	<textarea name="about" rows="3" placeholder="Something about yourself........" class="form-control" disabled><?php echo $data["FACULTY_ABOUT"]; ?>
                     	</textarea>
                     </div>
                   </div>
@@ -167,4 +166,44 @@
             window.location.href = mypath;
         }
     }
+</script>
+
+<script language="JavaScript">
+  window.onload = function() {
+    document.addEventListener("contextmenu", function(e){
+      e.preventDefault();
+    }, false);
+    document.addEventListener("keydown", function(e) {
+    //document.onkeydown = function(e) {
+      // "I" key
+      if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+        disabledEvent(e);
+      }
+      // "J" key
+      if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+        disabledEvent(e);
+      }
+      // "S" key + macOS
+      if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+        disabledEvent(e);
+      }
+      // "U" key
+      if (e.ctrlKey && e.keyCode == 85) {
+        disabledEvent(e);
+      }
+      // "F12" key
+      if (event.keyCode == 123) {
+        disabledEvent(e);
+      }
+    }, false);
+    function disabledEvent(e){
+      if (e.stopPropagation){
+        e.stopPropagation();
+      } else if (window.event){
+        window.event.cancelBubble = true;
+      }
+      e.preventDefault();
+      return false;
+    }
+  };
 </script>
