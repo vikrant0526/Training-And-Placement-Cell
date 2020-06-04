@@ -1,0 +1,14 @@
+Login Check existing email
+Forget Pass send otp if user exist 
+Provide Event Details in event Notification
+View Marks for Past test
+Show Resume Details
+Search students
+Placement Schedule Broadcast
+Download Placement Schedule
+Show Only past events for company in shortlist
+
+Committee Member-Faculty Dashboard
+
+Activity Diagrams:
+Residtration(One for all Users)
