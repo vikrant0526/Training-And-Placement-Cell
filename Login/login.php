@@ -64,10 +64,12 @@
 
          $rowsdata = $stmt->fetch(PDO::FETCH_ASSOC);
       
+         
          $lid  = $rowsdata['LOGIN_REFERENCE_ID'];
          $lut  = $rowsdata['LOGIN_USER_TYPE'];
          $lemail = $rowsdata['LOGIN_USER_EMAIL'];
          $phonenum = $rowsdata['LOGIN_USER_PHONE_NUMBER'];
+         
          $_SESSION['lemail']=$lemail;
          $_SESSION['lid']=$lid;
          $_SESSION['lut']=$lut;
