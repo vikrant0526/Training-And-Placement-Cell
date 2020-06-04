@@ -6,7 +6,7 @@
   use PHPMailer\PHPMailer\PHPMailer;
   use PHPMailer\PHPMailer\SMTP;
   use PHPMailer\PHPMailer\Exception;
-
+  error_reporting(0);
   session_start();
   if(isset($_REQUEST['Submit']))
   {
@@ -14,11 +14,24 @@
     $pass=$_REQUEST['pass'];
     $rpass=$_REQUEST['rpass'];
 
-    if($pass != $rpass)
+    include('../Files/PDO/dbcon.php');
+    $stmt=$con->prepare("CALL CHECK_USER(:pne)");
+    $stmt->bindParam(':pne',$email);
+    $stmt->execute();
+    $rowsdata = $stmt->fetch(PDO::FETCH_ASSOC);
+    $email_user="";
+    if(isset($rowsdata)){
+    $email_user = $rowsdata['LOGIN_USER_EMAIL'];
+    }
+    
+    if($email_user == $email){
+        echo "<script>alert('Email Exist');window.open('student_reg.php','_self');</script>";
+    }
+    elseif($pass != $rpass)
     {
         ?>
           <script>
-            alert('Password AND Confirm Password are Not Same!!...')
+            alert('Password AND Confirm Password are Not Same!!...');
             window.open('student_reg.php','_self');
           </script>
           <?php

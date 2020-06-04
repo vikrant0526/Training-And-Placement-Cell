@@ -195,13 +195,11 @@
 
 
       include('../Files/PDO/dbcon.php');
-      $stmt=$con->prepare("CALL FORGET_ONE(:pne);");
-      //$stmt=$con->prepare("select @uname");
+      $stmt=$con->prepare("CALL CHECK_USER(:pne)");
       $stmt->bindParam(':pne',$pne);
       $stmt->execute();
       $rowsdata = $stmt->fetch(PDO::FETCH_ASSOC);
       $email = $rowsdata['LOGIN_USER_EMAIL'];
-     // $uname = $rowsdata['uname'];
       $_SESSION['formail'] = $email;
       $_SESSION['otp'] =  mt_rand(100000,999999);
       $otp=$_SESSION['otp'];
