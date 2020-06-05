@@ -59,6 +59,7 @@
                   }
                   ?>
                </table>
+               <td><a href="placement_schedule_download.php"><button class="btn btn-outline-warning"><i class="fa fa-download"></i>Download</button></a></td>   
               </li>
             </ul>
            </div>

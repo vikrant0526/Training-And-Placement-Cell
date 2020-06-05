@@ -1,7 +1,6 @@
 Login Check existing email vb
 Provide Event Details in event Notification
 View Marks for Past test
-Show Resume Details
 Search students
 Placement Schedule Broadcast
 Download Placement Schedule
