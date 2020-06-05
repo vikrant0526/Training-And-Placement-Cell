@@ -25,7 +25,7 @@
 ?>
 <html lang='en'>
 <head></head>
-        <title>Desmond Resume Template</title>
+        <title>Resume Template</title>
 
         <meta name='description' content=''>
 

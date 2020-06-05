@@ -1,5 +1,4 @@
-Login Check existing email
-Forget Pass send otp if user exist 
+Login Check existing email vb
 Provide Event Details in event Notification
 View Marks for Past test
 Show Resume Details

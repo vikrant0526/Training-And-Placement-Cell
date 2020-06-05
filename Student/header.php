@@ -141,6 +141,7 @@
             <li> <a href="academic_details.php"><i class="fa fa-plus"></i>Academic Details</a> </li>
             <li> <a href="resume_details.php"><i class="fa fa-hourglass"></i>Resume Details</a> </li>
             <li> <a href="Bulid_resume.php"><i class="fa fa-hourglass"></i>Bulid Resume</a> </li>
+            <li> <a href="view_Student_resume_details.php"><i class="fa fa-hourglass"></i>Show Resume Details</a> </li>
           </ul>
         </li>
         <li>

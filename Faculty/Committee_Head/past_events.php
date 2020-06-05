@@ -4,13 +4,7 @@
  
   $data=$_SESSION['Userdata'];
 ?>
-<!--=================================
- Main content -->
-
- <!--=================================
-wrapper -->
-
-	<?php
+<?php
 	    include('../../Files/PDO/dbcon.php');	
         $stmt=$con->prepare("CALL VIEW_PAST_EVENT();");
         $stmt->execute();
