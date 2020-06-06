@@ -77,6 +77,9 @@ wrapper -->
                                         <a href="remove_notification.php?nid=<?php echo $data['NOTIFICATION_ID']; ?>"><button
                                                 class="btn btn-sm btn-outline-warning float-right ml-2 mb-2"><i
                                                     class="fa fa-times"></i> Remove</button></a>
+                                        <a href="view_event_detail.php?eid=<?php echo $data['NOTIFICATION_EVENT_ID']; ?>"><button
+                                                class="btn btn-sm btn-outline-info float-right ml-2 mb-2"><i
+                                                    class="fa fa-eye"></i> View</button></a>          
                                     </p>
                                     <div>
                                         <hr style="border-top: 1px solid #495057">
@@ -100,7 +103,12 @@ wrapper -->
                                         <a
                                             href="allow.php?nid=<?php echo $data['NOTIFICATION_ID']; ?>&sid=<?php echo $data['NOTIFICATION_RECEIVER_ID'];?>&eid=<?php echo $uname['EVENT_ID']; ?>"><button
                                                 class="btn btn-sm btn-outline-success float-right mb-2"><i
-                                                    class="fa fa-check"></i> Accept</button></a></p>
+                                                    class="fa fa-check"></i> Accept</button></a>
+
+                                        <a href="view_event_detail.php?eid=<?php echo $data['NOTIFICATION_EVENT_ID']; ?>"><button
+                                                class="btn btn-sm btn-outline-info float-right ml-2 mb-2"><i
+                                                    class="fa fa-eye"></i> View</button></a>          
+                                    </p>
                                     <div>
                                         <hr style="border-top: 1px solid #495057">
                                     </div>
