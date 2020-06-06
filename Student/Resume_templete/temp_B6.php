@@ -2887,7 +2887,7 @@ a .fa,
                           <div class='o-section__content  t-section__content  '>
                             
                             <div class='o-grid'>
-                              <?php 
+                              <?php   
                                $ra=$data1['RESUME_ACHIVEMENTS'];
                                $ra1=explode('#', $ra);
                                $a=0;

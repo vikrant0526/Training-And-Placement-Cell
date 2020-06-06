@@ -1,13 +1,6 @@
 <?php
     ob_start();
     session_start();    
-    // if (!isset($_SESSION['semail'])) {
-    //     header('Location: ../Login/login.php');
-    // }
-    
-    // if(isset($_SESSION['lid'])){
-    //     header('Location: ../Login/login.php');
-    // }
 ?>
 
 <!DOCTYPE html>
@@ -472,11 +465,31 @@
         // $degree = "MSC(IT)";
 
 
+   
         move_uploaded_file($imgtempname, "Profile_pic/$imgname");
         include('../Files/PDO/dbcon.php');
         $email = $_SESSION['semail'];
         $pass = $_SESSION['spass'];
         $rpass = $_SESSION['srpass'];
+
+        //     $stmt2=$con->prepare("CALL CHECK_USER(:pne)");
+        //     $stmt2->bindParam(':pne',$sphoneno);
+        //     $stmt2->execute();
+        //     $stmt2=$con->prepare("CALL CHECK_USER(:pne)");
+        //     $stmt2->bindParam(':pne',$sphoneno);
+        //     $stmt2->execute();
+        //     $rowsdata = $stmt2->fetch(PDO::FETCH_ASSOC);
+        //     $email_user="";
+        //     if(isset($rowsdata)){
+        //     $email_user = $rowsdata['LOGIN_USER_EMAIL'];
+        //     }
+            
+             
+        // if($email_user == $email){
+        // echo "<script>alert('Email Exist');window.open('company_reg.php','_self');</script>";
+        // }
+
+
          $stmt=$con->prepare("CALL INSERT_STUDENT(:fn,:ln,:en,:email,:pn,:dob,:gender,:password,:pname,:ppnum,:pemail,:ppic,:about,:address,:dept,:degree,:pyear,:ayear)");   
           $stmt->bindParam(':fn',$fname);
           $stmt->bindParam(':ln',$lname);
@@ -504,11 +517,11 @@
                 $_SESSION['datamess'] = "Your Registration is Completed<br>Please Login";
              }else {
                   ?>
-<script>
-alert('Your Details Are Not Save!!..');
-window.open('student_wizard.php', '_self');
-</script>
-<?php
+                    <script>
+                    alert('Your Details Are Not Save!!..');
+                    window.open('student_wizard.php', '_self');
+                    </script>
+                    <?php
              }  
      }   
      ob_flush();
