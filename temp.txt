@@ -3,8 +3,8 @@ Provide Event Details in event Notification
 View Marks for Past test
 Search students
 Placement Schedule Broadcast
-Download Placement Schedule
-Show Only past events for company in shortlist
+Show Event Details
+Company Event_notification
 
 Committee Member-Faculty Dashboard
 

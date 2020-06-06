@@ -2,10 +2,10 @@
      include('../Files/PDO/dbcon.php');
      session_start();
      $eid = $_GET['eid'];
-     $stmt2=$con->prepare("CALL GET_APPLIED_STUDENT(:eid)");
+     $stmt2=$con->prepare("CALL GET_APPLIED_PRESENT_STUDENT(:eid)");
      $stmt2->bindParam(":eid",$eid);     
      $stmt2->execute();
-     $stmt2=$con->prepare("CALL GET_APPLIED_STUDENT(:eid)");
+     $stmt2=$con->prepare("CALL GET_APPLIED_PRESENT_STUDENT(:eid)");
      $stmt2->bindParam(":eid",$eid);     
      $stmt2->execute();
      $sid = $_SESSION["selection_list_id"];
