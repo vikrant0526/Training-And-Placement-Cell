@@ -239,23 +239,32 @@ wrapper -->
 		$ppnum=$_REQUEST["pnumber"];
 		$pemail=$_REQUEST["pemail"];
 
-
-
     $studemail = $data["STUDENT_EMAIL"];
     $studpnum = $data["STUDENT_PHONE_NUMBER"];
 
-    $stmt=$con->prepare("CALL CHECK_USER_FOR_PROFILE_UPDATE(:email,:pnum)");
+
+    $stmt=$con->prepare("CALL CHECK_USER(:email)");
     $stmt->bindParam(':email',$email);
-    $stmt->bindParam(':pnum',$pnum);
     $stmt->execute();
     $rowsdata = $stmt->fetch(PDO::FETCH_ASSOC);
     $email_user="";
-    $phone_user="";
     if(isset($rowsdata)){
     $email_user = $rowsdata['LOGIN_USER_EMAIL'];
-    $phone_user = $rowsdata['LOGIN_USER_PHONE_NUMBER'];
     }
-    
+   
+
+
+    $stmt1=$con->prepare("CALL CHECK_USER_PHONE(:pnum)");
+    $stmt1->bindParam(':pnum',$pnum);
+    $stmt1->execute();
+    $stmt1=$con->prepare("CALL CHECK_USER_PHONE(:pnum)");
+    $stmt1->bindParam(':pnum',$pnum);
+    $stmt1->execute();
+    $rowsdata1 = $stmt1->fetch(PDO::FETCH_ASSOC);
+    $phone_user="";
+    if(isset($rowsdata1)){
+    $phone_user = $rowsdata1['LOGIN_USER_PHONE_NUMBER'];
+    }
 
 
     if($email_user == $email && $studemail != $email){
