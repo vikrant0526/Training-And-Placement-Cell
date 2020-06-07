@@ -49,7 +49,7 @@ wrapper -->
            <div class="card-body h-100">
              <h4 class="card-title">Past Test</h4>
              <!-- action group -->
-	          <ul class="list-unstyled d-xl-flex justify-content-center">
+	          <ul class="list-unstyled">
 	            <li>
 	                   <table class="table text-dark table-responsive">
 	                   	<thead class="font-weight-bold">
@@ -76,6 +76,7 @@ wrapper -->
 	                   		<td><?php echo $data['BATCH_PASSING_YEAR']; ?></td>
 	                   		<td><?php echo $data['TEST_TOTAL_MARKS']; ?></td>
 	                   		<td><?php echo $data['TEST_PASSING_MARKS']; ?></td>
+                        <td><a href="view_test_marks.php?tid=<?php echo $data['TEST_ID']; ?>"><button class="btn btn-outline-info"><i class="fa fa-eye"></i></button></a></td>
 	                   	</tr>
 	                   <?php } ?>
 	                   </table>

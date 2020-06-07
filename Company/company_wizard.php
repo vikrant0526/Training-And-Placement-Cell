@@ -567,7 +567,7 @@
             $pass=$_SESSION['cppass'];
             $rpass=$_SESSION['cprpass'];
             $imges="null";
-            $stmt=$con->prepare("CALL INSERT_COMPANY(:name,:ryear,:address,:email,:pn1,:pn2,:website,:password,:logo,:about,:tech,:noe,:maximum_pack,:minimum_pack,:images,:hr_name,:hr_email)");   
+            $stmt=$con->prepare("CALL INSERT_COMPANY(:name,:ryear,:address,:email,:pn1,:pn2,:website,:password,:logo,:about,:tech,:noe,:maximum_pack,:minimum_pack,:hr_name,:hr_email)");   
             $stmt->bindParam(':name',$cnmae);
             $stmt->bindParam(':ryear',$ryear);
             $stmt->bindParam(':address',$address);
@@ -582,7 +582,6 @@
             $stmt->bindParam(':noe',$noe);
             $stmt->bindParam(':maximum_pack',$maxpack);
             $stmt->bindParam(':minimum_pack',$minpack);
-            $stmt->bindParam(':images',$imges);
             $stmt->bindParam(':hr_name',$hrname);
             $stmt->bindParam(':hr_email',$hremail);
             $stmt->execute();

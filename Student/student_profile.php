@@ -239,22 +239,56 @@ wrapper -->
 		$ppnum=$_REQUEST["pnumber"];
 		$pemail=$_REQUEST["pemail"];
 
-		$stmt=$con->prepare("CALL UPDATE_STUDENT_PROFILE(:sid,:fname,:lname,:ennum,:dob,:gender,:pname,:about,:address,:pnum,:email,:ppnum,:pemail)");
-		$stmt->bindParam(":sid",$sid);
-		$stmt->bindParam(":fname",$fname);
-		$stmt->bindParam(":lname",$lname);
-		$stmt->bindParam(":ennum",$enum);
-		$stmt->bindParam(":dob",$fdob);
-		$stmt->bindParam(":gender",$gender);
-		$stmt->bindParam(":pname",$pname);
-		$stmt->bindParam(":about",$about);
-		$stmt->bindParam(":address",$address);
-		$stmt->bindParam(":pnum",$pnum);
-		$stmt->bindParam(":email",$email);
-		$stmt->bindParam(":ppnum",$ppnum);
-		$stmt->bindParam(":pemail",$pemail);
-		$stmt->execute();
-		header('Refresh:0');
+    $studemail = $data["STUDENT_EMAIL"];
+    $studpnum = $data["STUDENT_PHONE_NUMBER"];
+
+
+    $stmt=$con->prepare("CALL CHECK_USER(:email)");
+    $stmt->bindParam(':email',$email);
+    $stmt->execute();
+    $rowsdata = $stmt->fetch(PDO::FETCH_ASSOC);
+    $email_user="";
+    if(isset($rowsdata)){
+    $email_user = $rowsdata['LOGIN_USER_EMAIL'];
+    }
+   
+
+
+    $stmt1=$con->prepare("CALL CHECK_USER_PHONE(:pnum)");
+    $stmt1->bindParam(':pnum',$pnum);
+    $stmt1->execute();
+    $stmt1=$con->prepare("CALL CHECK_USER_PHONE(:pnum)");
+    $stmt1->bindParam(':pnum',$pnum);
+    $stmt1->execute();
+    $rowsdata1 = $stmt1->fetch(PDO::FETCH_ASSOC);
+    $phone_user="";
+    if(isset($rowsdata1)){
+    $phone_user = $rowsdata1['LOGIN_USER_PHONE_NUMBER'];
+    }
+
+
+    if($email_user == $email && $studemail != $email){
+      echo "<script>alert('Email Exist')</script>";      
+    }elseif($phone_user == $pnum && $studpnum != $pnum){
+      echo "<script>alert('Phone Number Exist')</script>";      
+    }else{
+      $stmt=$con->prepare("CALL UPDATE_STUDENT_PROFILE(:sid,:fname,:lname,:ennum,:dob,:gender,:pname,:about,:address,:pnum,:email,:ppnum,:pemail)");
+      $stmt->bindParam(":sid",$sid);
+      $stmt->bindParam(":fname",$fname);
+      $stmt->bindParam(":lname",$lname);
+      $stmt->bindParam(":ennum",$enum);
+      $stmt->bindParam(":dob",$fdob);
+      $stmt->bindParam(":gender",$gender);
+      $stmt->bindParam(":pname",$pname);
+      $stmt->bindParam(":about",$about);
+      $stmt->bindParam(":address",$address);
+      $stmt->bindParam(":pnum",$pnum);
+      $stmt->bindParam(":email",$email);
+      $stmt->bindParam(":ppnum",$ppnum);
+      $stmt->bindParam(":pemail",$pemail);
+      $stmt->execute();
+      header('Refresh:0');
+    }
 	}
 
  ?>

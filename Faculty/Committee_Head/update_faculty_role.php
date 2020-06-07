@@ -1,4 +1,4 @@
-<?php
+    <?php
     $fid = $_GET["fid"];
     $frole = $_GET["frole"];
     include('../../Files/PDO/dbcon.php');

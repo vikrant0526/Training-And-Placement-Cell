@@ -69,7 +69,6 @@
                     $stmt2->execute();
                     $x=$stmt2->fetch(PDO::FETCH_ASSOC);
                     $uname=$x['uname'];
-                  }
                 ?>
                 <li class="">
                   <div class="media">
@@ -86,6 +85,45 @@
                   </div>
                 </li>
                 <?php
+                  }elseif ($data['NOTIFICATION_TYPE']=='MEVNT' || $data['NOTIFICATION_TYPE']=='AEVNT') {
+                    $id = $data['NOTIFICATION_EVENT_ID'];
+                    if($count==0)
+                    {
+                      $x=7;
+                      $stmt1=$con->prepare(" CALL GET_EVENT(:id);");
+                      $stmt1->bindparam(":id",$x);
+                      $stmt1->execute();
+                      $uname=$stmt1->fetch(PDO::FETCH_ASSOC);
+                      $count=1;
+                      echo $uname;
+                    }
+                    $stmt1=$con->prepare(" CALL GET_EVENT(:id);");
+                    $stmt1->bindparam(":id",$id);
+                    $stmt1->execute();
+                    $uname=$stmt1->fetch(PDO::FETCH_ASSOC);
+                    ?>
+                    <li class="">
+                        <div class="media">
+                            <div class="media-body">
+                                <h6 class="mt-0"><?php echo $uname['EVENT_NAME']; ?><small
+                                        class="float-right"><?php echo $data['NOTIFICATION_TIME_STAMP']; ?></small>
+                                </h6>
+                                <p><?php echo $data['NOTIFICATION_DESCRPTION']; ?><?php echo $uname['EVENT_CATEGORY']; ?>
+                                    <a href="remove_notification.php?nid=<?php echo $data['NOTIFICATION_ID']; ?>"><button
+                                            class="btn btn-sm btn-outline-warning float-right ml-2 mb-2"><i
+                                                class="fa fa-times"></i> Remove</button></a>
+                                    <a href="view_event_detail.php?eid=<?php echo $data['NOTIFICATION_EVENT_ID']; ?>"><button
+                                                class="btn btn-sm btn-outline-info float-right ml-2 mb-2"><i
+                                                    class="fa fa-eye"></i> View</button></a>          
+                                </p>
+                                <div>
+                                    <hr style="border-top: 1px solid #495057">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <?php
+                  }
                 }
                 ?>
               </ul>
