@@ -162,9 +162,6 @@ wrapper -->
                     </div>
                   </div>
                 </li>
-
-                <!--This is for Profile Pic Update-->
-
                  <li>
                   <div class="media">
                     <div class="media-body mb-2">
@@ -272,41 +269,59 @@ wrapper -->
     $creg=date('Y-m-d',$fdate); 
     $ppic="This";
     $imgname=$data['COMPANY_LOGO'];
-    $stmt=$con->prepare("CALL UPDATE_COMPANY_PROFILE(:cid,:cname,:creg,:caddress,:cweb,:cabout,:cemp,:cmax,:cmin,:hrname,:hremail,:cemail,:cnum,:hrnum)");
-    $stmt->bindParam(":cid",$cid);
-    $stmt->bindParam(":cname",$cname);
-    $stmt->bindParam(":creg",$creg);
-    $stmt->bindParam(":caddress",$caddress);
-    $stmt->bindParam(":cweb",$cweb);
-    $stmt->bindParam(":cabout",$cabout);
-    $stmt->bindParam(":cemp",$cemp);
-    $stmt->bindParam(":cmax",$cmax);
-    $stmt->bindParam(":cmin",$cmin);
-    $stmt->bindParam(":hrname",$hrname);
-    $stmt->bindParam(":hremail",$hremail);
-    $stmt->bindParam(":cemail",$cemail);
-    $stmt->bindParam(":cnum",$cnum);
-    $stmt->bindParam(":hrnum",$hrnum);
+
+
+
+    $company_email = $data["COMPANY_EMAIL"];
+    $company_pnum = $data["COMPANY_PHONE_NUMBER_1"];
+
+
+    $stmt=$con->prepare("CALL CHECK_USER(:email)");
+    $stmt->bindParam(':email',$cemail);
     $stmt->execute();
-    header('Refresh:0');
-    // print_r($stmt->errorinfo());
-    if($stmt == TRUE){
-      echo "<script>alert('Update Company Data')</script>";
-    }else{
-      echo "<script>alert('Company Data Not Update')</script>";
+    $rowsdata = $stmt->fetch(PDO::FETCH_ASSOC);
+    $email_user="";
+    if(isset($rowsdata)){
+    $email_user = $rowsdata['LOGIN_USER_EMAIL'];
     }
+    
 
-   // print_r($stmt->errorinfo());
+    $stmt1=$con->prepare("CALL CHECK_USER_PHONE(:pnum)");
+    $stmt1->bindParam(':pnum',$cnum);
+    $stmt1->execute();
+    $stmt1=$con->prepare("CALL CHECK_USER_PHONE(:pnum)");
+    $stmt1->bindParam(':pnum',$cnum);
+    $stmt1->execute();
+    $rowsdata1 = $stmt1->fetch(PDO::FETCH_ASSOC);
+    $phone_user="";
+    if(isset($rowsdata1)){
+    $phone_user = $rowsdata1['LOGIN_USER_PHONE_NUMBER'];
+    }
+  
 
-    // $stmt1=$con->prepare("CALL SELECT_COMPANY_PROFILE(:cid)");
-    // $stmt1->bindParam(":cid",$cid);
-    // $stmt1=$con->prepare("CALL SELECT_COMPANY_PROFILE(:cid)");
-    // $stmt1->bindParam(":cid",$cid);
-    // $stmt1->execute();
-    // $userdata = $stmt1->fetch(PDO::FETCH_ASSOC);
-    // $_SESSION["Userdata"]=$userdata;
-    // // header("sendback.php");
-    // header("Refresh: 0");
+    if($email_user == $cemail && $company_email != $cemail){
+      echo "<script>alert('Email Exist')</script>";      
+    }elseif($phone_user == $cnum && $company_pnum != $cnum){
+      echo "<script>alert('Phone Number Exist')</script>";      
+    }else{
+      $stmt=$con->prepare("CALL UPDATE_COMPANY_PROFILE(:cid,:cname,:creg,:caddress,:cweb,:cabout,:cemp,:cmax,:cmin,:hrname,:hremail,:cemail,:cnum,:hrnum)");
+      $stmt->bindParam(":cid",$cid);
+      $stmt->bindParam(":cname",$cname);
+      $stmt->bindParam(":creg",$creg);
+      $stmt->bindParam(":caddress",$caddress);
+      $stmt->bindParam(":cweb",$cweb);
+      $stmt->bindParam(":cabout",$cabout);
+      $stmt->bindParam(":cemp",$cemp);
+      $stmt->bindParam(":cmax",$cmax);
+      $stmt->bindParam(":cmin",$cmin);
+      $stmt->bindParam(":hrname",$hrname);
+      $stmt->bindParam(":hremail",$hremail);
+      $stmt->bindParam(":cemail",$cemail);
+      $stmt->bindParam(":cnum",$cnum);
+      $stmt->bindParam(":hrnum",$hrnum);
+      $stmt->execute();
+      header('Refresh:0');
+    }
   }
  ?>
 <?php 

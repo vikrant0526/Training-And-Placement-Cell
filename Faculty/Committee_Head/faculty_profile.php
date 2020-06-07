@@ -105,21 +105,21 @@
                  <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                    	<input type="email" name="email" placeholder="Faculty email" class="form-control" value="<?php echo $data["FACULTY_EMAIL"]; ?>" disabled>
+                    	<input type="email" name="email" placeholder="Faculty email" class="form-control" value="<?php echo $data["FACULTY_EMAIL"]; ?>">
                     </div>
                   </div>
                 </li>
                  <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                    <input type="text" name="num" placeholder="Faculty Number" class="form-control" value="<?php echo $data["FACULTY_PHONE_NUMBER"]; ?>" disabled>
+                    <input type="text" name="num" placeholder="Faculty Number" class="form-control" value="<?php echo $data["FACULTY_PHONE_NUMBER"]; ?>">
                     </div>
                   </div>
                 </li>
                  <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                    	<textarea name="about" rows="3" placeholder="Something about yourself........" class="form-control" disabled><?php echo $data["FACULTY_ABOUT"]; ?>
+                    	<textarea name="about" rows="3" placeholder="Something about yourself........" class="form-control"><?php echo $data["FACULTY_ABOUT"]; ?>
                     	</textarea>
                     </div>
                   </div>
@@ -151,17 +151,51 @@
     $email=$_REQUEST["email"];
 		$pnum=$_REQUEST["num"];
 		$about=$_REQUEST["about"];
-        
-		$stmt=$con->prepare("CALL UPDATE_FACULTY_PROFILE(:fid,:fname,:lname,:gender,:phn,:abt,:email)");
-		$stmt->bindParam(":fid",$fid);
-		$stmt->bindParam(":fname",$fname);
-		$stmt->bindParam(":lname",$lname);
-		$stmt->bindParam(":gender",$gender);
-		$stmt->bindParam(":phn",$pnum);
-		$stmt->bindParam(":abt",$about);
-		$stmt->bindParam(":email",$email);
-		$stmt->execute();
-		header('Refresh:0');
+    
+    
+    $faculty_email = $data["FACULTY_EMAIL"];
+    $faculty_pnum = $data["FACULTY_PHONE_NUMBER"];
+
+
+    $stmt=$con->prepare("CALL CHECK_USER(:email)");
+    $stmt->bindParam(':email',$email);
+    $stmt->execute();
+    $rowsdata = $stmt->fetch(PDO::FETCH_ASSOC);
+    $email_user="";
+    if(isset($rowsdata)){
+    $email_user = $rowsdata['LOGIN_USER_EMAIL'];
+    }
+   
+
+    $stmt1=$con->prepare("CALL CHECK_USER_PHONE(:pnum)");
+    $stmt1->bindParam(':pnum',$pnum);
+    $stmt1->execute();
+    $stmt1=$con->prepare("CALL CHECK_USER_PHONE(:pnum)");
+    $stmt1->bindParam(':pnum',$pnum);
+    $stmt1->execute();
+    $rowsdata1 = $stmt1->fetch(PDO::FETCH_ASSOC);
+    $phone_user="";
+    if(isset($rowsdata1)){
+    $phone_user = $rowsdata1['LOGIN_USER_PHONE_NUMBER'];
+    }
+
+
+    if($email_user == $email && $faculty_email != $email){
+      echo "<script>alert('Email Exist')</script>";      
+    }elseif($phone_user == $pnum && $faculty_pnum != $pnum){
+      echo "<script>alert('Phone Number Exist')</script>";      
+    }else{
+      $stmt=$con->prepare("CALL UPDATE_FACULTY_PROFILE(:fid,:fname,:lname,:gender,:phn,:abt,:email)");
+      $stmt->bindParam(":fid",$fid);
+      $stmt->bindParam(":fname",$fname);
+      $stmt->bindParam(":lname",$lname);
+      $stmt->bindParam(":gender",$gender);
+      $stmt->bindParam(":phn",$pnum);
+      $stmt->bindParam(":abt",$about);
+      $stmt->bindParam(":email",$email);
+      $stmt->execute();
+      header('Refresh:0');
+    }
 	}
   ?>
 

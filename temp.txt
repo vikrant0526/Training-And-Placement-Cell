@@ -1,15 +1,7 @@
-Login Check existing email vb
-Provide Event Details in event Notification
-View Marks for Past test
-Search students
+Sign Up check existing phone number
 Placement Schedule Broadcast
-Show Event Details
-Company Event_notification
+Login Code remaining
+All Page titles
+Sweet Alerts
 
 Committee Member-Faculty Dashboard
-
-Activity Diagrams:
-Residtration(One for all Users)
-
-
-
