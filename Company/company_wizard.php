@@ -229,7 +229,7 @@
      login-->
 
         <section class="login-box-main height-100vh page-section-ptb"
-            style="background: url(../Files/images/login/06.jpg);">
+            style="background: url(../Files/images/login/06.jpg); background-repeat: no-repeat; background-attachment: fixed;">
             <div class="login-box-main-middle">
                 <div class="container">
                     <div class="row justify-content-center no-gutter">
@@ -243,28 +243,28 @@
                                             </div>
                                         </div>
                                         <div class="card-body">
-                                            <div class="stepy-tab">
-                                                <ul id="default-titles" class="stepy-titles">
-                                                    <li id="default-title-0" class="current-step">
-                                                        <div>Step 1</div>
-                                                    </li>
-                                                    <li id="default-title-1" class="">
-                                                        <div>Step 2</div>
-                                                    </li>
-                                                    <li id="default-title-2" class="">
-                                                        <div>Step 3</div>
-                                                    </li>
-                                                    <!-- <li id="default-title-3" class="">
-                                            <div>Step 4</div>
-                                        </li> -->
-                                                </ul>
-                                            </div>
                                             <form class="" action="#" method="post" enctype="multipart/form-data"
                                                 id="default">
-                                                <fieldset title="Step1" class="step" id="default-step-0">
-                                                    <legend></legend>
+                                                
 
                                                     <!-- <h5 class="mb-3">Step Title</h5> -->
+                                                    <div class="form-group row">
+                                                        <div
+                                                            style="width: 125px;height: 125px; position: relative; overflow: hidden;border-radius: 50%;margin: auto auto">
+                                                            <img src="../Files/images/myImages/default-profile-picture1.jpg"
+                                                                onclick="triggerClick()" id="profileDisplay"
+                                                                style="display: block;margin: -5px auto;"
+                                                                class="w-100 h-100">
+                                                            <input type="file" class="form-control"
+                                                                placeholder="Company Logo" name="profileImage"
+                                                                id="profileImage" onchange="displayImage(this)"
+                                                                accept="image/*">
+                                                        </div>
+                                                    </div>
+                                                    <!-- <div class="form-group row">
+                                                        <label class="btn btn-light col-4 offset-4" id="profileDisplay"
+                                                            onclick="triggerClick()">Choose A Logo</label>
+                                                    </div> -->
                                                     <div class="form-group row">
                                                         <label
                                                             class="col-sm-4 col-form-label col-form-label-sm">Comapany
@@ -295,12 +295,7 @@
                                                                 class="form-control" placeholder="Example: 1998"
                                                                 required>
                                                         </div>
-                                                    </div>
-                                                    <br><br><br>
-                                                    <br><br><br>
-                                                </fieldset>
-                                                <fieldset title="Step 2" class="step" id="default-step-1">
-                                                    <legend> </legend>
+                                                    </div>                                                
                                                     <div class="form-group row">
                                                         <label
                                                             class="col-sm-4 col-form-label col-form-label-sm">Technologies</label>
@@ -368,9 +363,8 @@
                                                                 placeholder="Max Package" required>
                                                         </div>
                                                     </div>
-                                                </fieldset>
-                                                <fieldset title="Step 3" class="step" id="default-step-2">
-                                                    <legend> </legend>
+                                               
+                                                
                                                     <div class="form-group row">
                                                         <label class="col-sm-4 col-form-label col-form-label-sm">HR
                                                             Name</label>
@@ -416,37 +410,17 @@
                                                                 placeholder="No of Employees" required>
                                                         </div>
                                                     </div>
-                                                    <br><br><br><br>
-                                                </fieldset>
-                                                <fieldset title="Step 4" class="step" id="default-step-3">
-                                                    <legend> </legend>
-                                                    <div class="form-group row">
-                                                        <div
-                                                            style="width: 125px;height: 125px; position: relative; overflow: hidden;border-radius: 50%;margin: auto auto">
-                                                            <img src="../Files/images/myImages/default-profile-picture1.jpg"
-                                                                onclick="triggerClick()" id="profileDisplay"
-                                                                style="display: block;margin: -5px auto;"
-                                                                class="w-100 h-100">
-                                                            <input type="file" class="form-control"
-                                                                placeholder="Company Logo" name="profileImage"
-                                                                id="profileImage" onchange="displayImage(this)"
-                                                                accept="image/*">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <label class="btn btn-light col-4 offset-4" id="profileDisplay"
-                                                            onclick="triggerClick()">Choose A Logo</label>
-                                                    </div>
+                                                   
                                                     <div class="form-group row">
                                                         <label
-                                                            class="col-sm-3 col-form-label col-form-label-sm">About</label>
-                                                        <div class="col-sm-9">
+                                                            class="col-sm-4 col-form-label col-form-label-sm">About</label>
+                                                        <div class="col-sm-8">
                                                             <textarea class="form-control" rows="3" name="about"
                                                                 placeholder="Tell us Something about your company..."></textarea>
                                                         </div>
                                                     </div>
-                                                </fieldset>
-                                                <input type="submit" name="submit" class="finish btn"
+                                                
+                                                <input type="submit" name="submit" class="btn btn-success"
                                                     style="background:#84BA3F;color: white;" value="Finish" />
                                             </form>
                                         </div>

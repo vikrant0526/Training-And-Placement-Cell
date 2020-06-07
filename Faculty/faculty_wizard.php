@@ -122,7 +122,7 @@
     <!--=================================
      login-->
 
-    <section class="login-box-main height-100vh page-section-ptb" style="background: url(../Files/images/login/06.jpg);">
+    <section class="login-box-main height-100vh page-section-ptb" style="background: url(../Files/images/login/06.jpg); background-repeat: no-repeat; background-attachment: fixed;">
       <div class="login-box-main-middle">
         <div class="container">
           <div class="row justify-content-center no-gutter">
@@ -135,35 +135,13 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <!-- <div class="stepy-tab">
-                                <ul id="default-titles" class="stepy-titles">
-                                    <li id="default-title-0" class="current-step">
-                                        <div>Step 1</div>
-                                    </li>
-                                    <li id="default-title-1" class="">
-                                        <div>Step 2</div>
-                                    </li>
-                                    <li id="default-title-2" class="">
-                                        <div>Step 3</div>
-                                    </li>
-                                </ul>
-                            </div> -->
-                            <form class="" action="faculty_data.php" method="post" enctype="multipart/form-data" id="default">
-                                <fieldset title="Step1" class="step" id="default-step-0">
-                                    <legend> </legend>
-                                    <!-- <h5 class="mb-3">Step Title</h5> -->
-                                    <!-- <div class="form-group row">
-                                            <img src="../Files/images/myImages/default-profile-picture1.jpg" onclick="triggerClick()" id="profileDisplay" style="display: block;margin: -5px auto;min-width: 20px;max-width: 200px;min-height: 20px;max-height: 200px" name="profileImage" class="col-sm-5 rounded-circle">  
-                                            <input type="file" class="form-control" id="profileImage" name="profileImage" onchange="displayImage(this)" style="display: none;">
-                                    </div> -->
+                            
+                            <form class="" action="faculty_data.php" method="post" enctype="multipart/form-data" id="default">     
                                     <div class="form-group row">
                                         <div style="width: 125px;height: 125px; position: relative; overflow: hidden;border-radius: 50%;margin: auto auto">
                                             <img src="../Files/images/myImages/default-profile-picture1.jpg" onclick="triggerClick()" id="profileDisplay" style="display: block;margin: -5px auto;" name="profileImage" class="w-100 h-100">  
                                             <input type="file" class="form-control" id="profileImage" name="profileImage" onchange="displayImage(this)" style="display: none;">
                                         </div>
-                                    </div>
-                                    <div class="form-group row">
-                                            <label class="btn btn-light col-6 offset-3" name="profileImage" id="profileDisplay" onclick="triggerClick()">Choose A Profile Pic</label>
                                     </div>
                                     <div class="form-group row">  
                                         <label class="col-sm-4 col-form-label col-form-label-sm">First Name</label>
@@ -200,7 +178,7 @@
                                             <textarea class="form-control" maxlength="255" name="About" placeholder="Tell Us Something About You.." rows="3" required></textarea>
                                         </div>
                                     </div>
-                                </fieldset><!-- 
+                                <!-- 
                                 <fieldset title="Step 2" class="step" id="default-step-1" >
                                     <legend> </legend>
                                     <div class="form-group row">
