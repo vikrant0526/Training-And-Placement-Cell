@@ -285,8 +285,17 @@
                                                     <label
                                                         class="col-sm-4 col-form-label col-form-label-sm">Degree</label>
                                                     <div class="col-sm-8">
-                                                        <select class="form-control" name="degree" id="degree" required>
+                                                        <select class="form-control" onchange="passing_year()" name="degree" id="degree" required>
                                                             <option>Select....</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-sm-4 col-form-label col-form-label-sm">Year Of
+                                                        Passing</label>
+                                                    <div class="col-sm-8">
+                                                        <select class="form-control" name="pyear" id="pyear" required>
+                                                                <option>Select....</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -295,15 +304,6 @@
                                                         Admission</label>
                                                     <div class="col-sm-8">
                                                         <input type="text" name="yoa" maxlength="4"
-                                                            onkeypress="isInputNumber(event)" class="form-control"
-                                                            placeholder="Example: 2015" required>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label class="col-sm-4 col-form-label col-form-label-sm">Year Of
-                                                        Passing</label>
-                                                    <div class="col-sm-8">
-                                                        <input type="text" name="yop" maxlength="4"
                                                             onkeypress="isInputNumber(event)" class="form-control"
                                                             placeholder="Example: 2015" required>
                                                     </div>
@@ -433,6 +433,15 @@
         //alert(xmlhttp.responseText);  
         document.getElementById("degree").innerHTML = xmlhttp.responseText;
     }
+    
+    function passing_year(){ 
+            // alert('aa');
+            var xmlhttp=new XMLHttpRequest();
+            xmlhttp.open("GET","pyearbind.php?dept="+document.getElementById("dept").value+"&"+"degree="+document.getElementById("degree").value,false);
+            xmlhttp.send(null);
+            // alert(xmlhttp.responseText);
+            document.getElementById("pyear").innerHTML=xmlhttp.responseText;
+        }
     </script>
 </body>
 
@@ -471,23 +480,6 @@
         $email = $_SESSION['semail'];
         $pass = $_SESSION['spass'];
         $rpass = $_SESSION['srpass'];
-
-        //     $stmt2=$con->prepare("CALL CHECK_USER(:pne)");
-        //     $stmt2->bindParam(':pne',$sphoneno);
-        //     $stmt2->execute();
-        //     $stmt2=$con->prepare("CALL CHECK_USER(:pne)");
-        //     $stmt2->bindParam(':pne',$sphoneno);
-        //     $stmt2->execute();
-        //     $rowsdata = $stmt2->fetch(PDO::FETCH_ASSOC);
-        //     $email_user="";
-        //     if(isset($rowsdata)){
-        //     $email_user = $rowsdata['LOGIN_USER_EMAIL'];
-        //     }
-            
-             
-        // if($email_user == $email){
-        // echo "<script>alert('Email Exist');window.open('company_reg.php','_self');</script>";
-        // }
 
 
          $stmt=$con->prepare("CALL INSERT_STUDENT(:fn,:ln,:en,:email,:pn,:dob,:gender,:password,:pname,:ppnum,:pemail,:ppic,:about,:address,:dept,:degree,:pyear,:ayear)");   
