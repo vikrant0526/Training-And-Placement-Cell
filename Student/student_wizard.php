@@ -1,6 +1,7 @@
 <?php
     ob_start();
     session_start();    
+    error_reporting(0);
 ?>
 
 <!DOCTYPE html>
@@ -440,7 +441,7 @@
 
 <?php
 
-    // print_r($_REQUEST);
+    //print_r($_REQUEST);
 
     if(isset($_REQUEST['submit'])){
         $fname = $_REQUEST['fname'];
@@ -472,25 +473,43 @@
         $pass = $_SESSION['spass'];
         $rpass = $_SESSION['srpass'];
 
-        //     $stmt2=$con->prepare("CALL CHECK_USER(:pne)");
-        //     $stmt2->bindParam(':pne',$sphoneno);
-        //     $stmt2->execute();
-        //     $stmt2=$con->prepare("CALL CHECK_USER(:pne)");
-        //     $stmt2->bindParam(':pne',$sphoneno);
-        //     $stmt2->execute();
-        //     $rowsdata = $stmt2->fetch(PDO::FETCH_ASSOC);
-        //     $email_user="";
-        //     if(isset($rowsdata)){
-        //     $email_user = $rowsdata['LOGIN_USER_EMAIL'];
-        //     }
-            
+        $stmt1=$con->prepare("CALL CHECK_USER_PHONE(:pnum)");
+        $stmt1->bindParam(':pnum',$sphoneno);
+        $stmt1->execute();
+        $stmt1=$con->prepare("CALL CHECK_USER_PHONE(:pnum)");
+        $stmt1->bindParam(':pnum',$sphoneno);
+        $stmt1->execute();
+        $rowsdata1 = $stmt1->fetch(PDO::FETCH_ASSOC);
+        $phone_user="";
+        if(isset($rowsdata1)){
+        $phone_user = $rowsdata1['LOGIN_USER_PHONE_NUMBER'];
+        }
+         
              
-        // if($email_user == $email){
-        // echo "<script>alert('Email Exist');window.open('company_reg.php','_self');</script>";
-        // }
-
-
-         $stmt=$con->prepare("CALL INSERT_STUDENT(:fn,:ln,:en,:email,:pn,:dob,:gender,:password,:pname,:ppnum,:pemail,:ppic,:about,:address,:dept,:degree,:pyear,:ayear)");   
+        if($phone_user == $sphoneno){
+            echo "<script>alert('Phone Number Exist')</script>";      
+          }else{
+          $stmt=$con->prepare("CALL INSERT_STUDENT(:fn,:ln,:en,:email,:pn,:dob,:gender,:password,:pname,:ppnum,:pemail,:ppic,:about,:address,:dept,:degree,:pyear,:ayear)");   
+          $stmt->bindParam(':fn',$fname);
+          $stmt->bindParam(':ln',$lname);
+          $stmt->bindParam(':en',$enum);
+          $stmt->bindParam(':email',$email);
+          $stmt->bindParam(':pn',$sphoneno);
+          $stmt->bindParam(':dob',$nd);
+          $stmt->bindParam(':gender',$gender);  
+          $stmt->bindParam(':password',$pass);
+          $stmt->bindParam(':pname',$pfname);
+          $stmt->bindParam(':ppnum',$pphoneno);
+          $stmt->bindParam(':pemail',$pemail);
+          $stmt->bindParam(':ppic',$imgname);
+          $stmt->bindParam(':about',$about);
+          $stmt->bindParam(':address',$address);
+          $stmt->bindParam(':dept',$dept);
+          $stmt->bindParam(':degree',$degree);
+          $stmt->bindParam(':pyear',$yop);
+          $stmt->bindParam(':ayear',$yoa);
+          $stmt->execute();
+          $stmt=$con->prepare("CALL INSERT_STUDENT(:fn,:ln,:en,:email,:pn,:dob,:gender,:password,:pname,:ppnum,:pemail,:ppic,:about,:address,:dept,:degree,:pyear,:ayear)");   
           $stmt->bindParam(':fn',$fname);
           $stmt->bindParam(':ln',$lname);
           $stmt->bindParam(':en',$enum);
@@ -511,7 +530,8 @@
           $stmt->bindParam(':ayear',$yoa);
           $stmt->execute();
            if($stmt == TRUE){
-                header("Location: ../Login/login.php");
+             print_r($stmt->errorinfo());
+                // header("Location: ../Login/login.php");
                 session_destroy();
                 session_start();
                 $_SESSION['datamess'] = "Your Registration is Completed<br>Please Login";
@@ -522,7 +542,8 @@
                     window.open('student_wizard.php', '_self');
                     </script>
                     <?php
-             }  
+             }
+            }  
      }   
      ob_flush();
 ?>
