@@ -7,7 +7,8 @@
      $stmt=$con->prepare("CALL GET_DEGREE(:dept)");
      $stmt->bindParam(':dept',$dept);
      $stmt->execute();
-     echo "<select>"; 
+     echo "<select>".
+     "<option>Select Degree</option>"; 
 
     	while($data = $stmt->fetch(PDO::FETCH_ASSOC))
     	{

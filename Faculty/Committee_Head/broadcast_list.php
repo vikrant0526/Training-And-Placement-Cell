@@ -30,7 +30,7 @@
       <div class="mb-30">
            <div class="card h-100">
            <div class="card-body h-100">
-             <h4 class="card-title">Invitation Lists</h4>
+             <h4 class="card-title">Broadcast Lists</h4>
              <!-- action group -->
               <div class="btn-group info-drop">
                 <a href="new_broadcast_list.php"><button class="btn btn-outline-info">New <i class="fas fa-plus"></i></button></a>

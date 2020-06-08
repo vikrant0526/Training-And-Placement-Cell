@@ -69,7 +69,7 @@
     <li class="nav-item fullscreen">
       <a id="btnFullscreen" href="#" class="nav-link" ><i class="ti-fullscreen"></i></a>
     </li>
-    <li class="nav-item dropdown ">
+    <!-- <li class="nav-item dropdown ">
       <a class="nav-link top-nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true"> <i class=" ti-view-grid"></i> </a>
       <div class="dropdown-menu dropdown-menu-right dropdown-big">
         <div class="dropdown-header">
@@ -85,7 +85,7 @@
           <a href="#" class="nav-grid-item"><i class="ti-truck text-danger "></i><h5>New Orders</h5></a>
         </div>
       </div>
-    </li>
+    </li> -->
     <li class="nav-item dropdown mr-30">
       <a class="nav-link nav-pill user-avatar" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
         <img src="../img/<?php echo $data['FACULTY_PROFILE_PIC'] ?>" alt="avatar">

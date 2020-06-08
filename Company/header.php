@@ -17,6 +17,7 @@
 <link rel="shortcut icon" href="../Files/images/logo-5.png" />
 
 <!-- Font -->
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
 <link  rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:200,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900">
 
 <!-- css -->
@@ -52,23 +53,6 @@
   <ul class="nav navbar-nav ml-auto">
     <li class="nav-item fullscreen">
       <a id="btnFullscreen" href="#" class="nav-link" ><i class="ti-fullscreen"></i></a>
-    </li>
-    <li class="nav-item dropdown ">
-      <a class="nav-link top-nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true"> <i class=" ti-view-grid"></i> </a>
-      <div class="dropdown-menu dropdown-menu-right dropdown-big">
-        <div class="dropdown-header">
-          <strong>Quick Links</strong>
-        </div>
-        <div class="dropdown-divider"></div> 
-        <div class="nav-grid">
-          <a href="#" class="nav-grid-item"><i class="ti-files text-primary"></i><h5>New Task</h5></a>
-          <a href="#" class="nav-grid-item"><i class="ti-check-box text-success"></i><h5>Assign Task</h5></a>
-        </div>
-        <div class="nav-grid">
-          <a href="#" class="nav-grid-item"><i class="ti-pencil-alt text-warning"></i><h5>Add Orders</h5></a>
-          <a href="#" class="nav-grid-item"><i class="ti-truck text-danger "></i><h5>New Orders</h5></a>
-        </div>
-      </div>
     </li>
     <li class="nav-item dropdown mr-30">
       <a class="nav-link nav-pill user-avatar" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
@@ -106,23 +90,30 @@
 <div class="container-fluid">
   <div class="row">
     <!-- Left Sidebar -->
-    <div class="side-menu-fixed ">
+    <div class="side-menu-fixed light-side-menu">
      <div class="scrollbar side-menu-bg">
       <ul class="nav navbar-nav side-menu" id="sidebarnav">
         <li>
-        <a href="company_dashboard.php">
-          <div class="pull-left"><i class="ti-home"></i><span class="right-nav-text">Home</span></div><div class="clearfix"></div>
-        </a>
-        <a href="show_shortlist.php">
-            <div class="pull-left"><i class="ti-home"></i><span class="right-nav-text">Show Short List</span></div><div class="clearfix"></div>
-        </a>
-        <a href="traning.php">
-            <div class="pull-left"><i class="ti-home"></i><span class="right-nav-text">Traning</span></div><div class="clearfix"></div>
-        </a>
+          <a href="company_dashboard.php">
+            <div class="pull-left"><i class="fa fa-home"></i><span class="right-nav-text">Home</span></div><div class="clearfix"></div>
+          </a>
+        </li>
+        <li>
+          <a href="show_shortlist.php">
+              <div class="pull-left"><i class="fa fa-list"></i><span class="right-nav-text">Show Short List</span></div><div class="clearfix"></div>
+          </a>
+        </li>
+        <li>
+          <a href="traning.php">
+              <div class="pull-left"><i class="fas fa-users-cog"></i><span class="right-nav-text">Traning</span></div><div class="clearfix"></div>
+          </a>
+        </li>
+        <li>
         <a href="recommendations.php">
-            <div class="pull-left"><i class="ti-home"></i><span class="right-nav-text">Recommendations</span></div><div class="clearfix"></div>
+            <div class="pull-left"><i class="fas fa-user-check "></i><span class="right-nav-text">Recommendations</span></div><div class="clearfix"></div>
         </a>
         </li>
     </ul>
   </div> 
 </div>
+

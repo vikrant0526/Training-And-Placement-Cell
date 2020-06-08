@@ -30,7 +30,7 @@
     <div class="mb-30">
         <div class="card h-100">
             <div class="card-body h-100">
-                <h4 class="card-title">Company</h4>
+                <h4 class="card-title">Placement Schedule</h4>
                 <!-- action group -->
                 <ul class="list-unstyled">
                     <form action="generate_placement_scheduele.php" method="post">

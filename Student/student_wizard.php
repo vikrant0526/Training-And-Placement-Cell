@@ -184,7 +184,7 @@
                                                         Number</label>
                                                     <div class="col-sm-8">
                                                         <input type="text" name="enum" onkeypress="isInputNumber(event)"
-                                                            maxlength="15" class="form-control"
+                                                            maxlength="15" minlength="15" class="form-control"
                                                             placeholder="Enrollment Number" required>
                                                     </div>
                                                 </div>
@@ -466,9 +466,23 @@
         if(isset($rowsdata1)){
         $phone_user = $rowsdata1['LOGIN_USER_PHONE_NUMBER'];
         }
-         
-             
-        if($phone_user == $sphoneno){
+
+        
+
+        $stmt2=$con->prepare("CALL CHECK_ENROLLMENT_NUMBER(:eno)");
+        $stmt2->bindParam(':eno',$enum);
+        $stmt2->execute();
+        $stmt2=$con->prepare("CALL CHECK_ENROLLMENT_NUMBER(:eno)");
+        $stmt2->bindParam(':eno',$enum);
+        $stmt2->execute();  
+        $Studen = $stmt2->fetch(PDO::FETCH_ASSOC);
+        // print_r($stmt2->errorinfo());
+        $st=$Studen['st'];
+        // echo $st;
+        // echo $enum;
+          if($st == '1'){
+            echo "<script>alert('Enrollment Number Exist')</script>"; 
+          }elseif($phone_user == $sphoneno){
             echo "<script>alert('Phone Number Exist')</script>";      
           }else{
           $stmt=$con->prepare("CALL INSERT_STUDENT(:fn,:ln,:en,:email,:pn,:dob,:gender,:password,:pname,:ppnum,:pemail,:ppic,:about,:address,:dept,:degree,:pyear,:ayear)");   
@@ -491,9 +505,8 @@
           $stmt->bindParam(':pyear',$yop);
           $stmt->bindParam(':ayear',$yoa);
           $stmt->execute();
-          $stmt=$con->prepare("CALL INSERT_STUDENT(:fn,:ln,:en,:email,:pn,:dob,:gender,:password,:pname,:ppnum,:pemail,:ppic,:about,:address,:dept,:degree,:pyear,:ayear)");   
 
-         $stmt=$con->prepare("CALL INSERT_STUDENT(:fn,:ln,:en,:email,:pn,:dob,:gender,:password,:pname,:ppnum,:pemail,:ppic,:about,:address,:dept,:degree,:pyear,:ayear)");   
+          $stmt=$con->prepare("CALL INSERT_STUDENT(:fn,:ln,:en,:email,:pn,:dob,:gender,:password,:pname,:ppnum,:pemail,:ppic,:about,:address,:dept,:degree,:pyear,:ayear)");   
           $stmt->bindParam(':fn',$fname);
           $stmt->bindParam(':ln',$lname);
           $stmt->bindParam(':en',$enum);
@@ -514,8 +527,8 @@
           $stmt->bindParam(':ayear',$yoa);
           $stmt->execute();
            if($stmt == TRUE){
-             print_r($stmt->errorinfo());
-                // header("Location: ../Login/login.php");
+            //  print_r($stmt->errorinfo());
+                header("Location: ../Login/login.php");
                 session_destroy();
                 session_start();
                 $_SESSION['datamess'] = "Your Registration is Completed<br>Please Login";
