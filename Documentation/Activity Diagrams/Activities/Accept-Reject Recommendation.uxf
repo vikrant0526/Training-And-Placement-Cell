@@ -107,10 +107,10 @@
       <x>800</x>
       <y>320</y>
       <w>30</w>
-      <h>60</h>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLSyncBarHorizontal</id>
@@ -174,9 +174,9 @@
       <x>560</x>
       <y>320</y>
       <w>30</w>
-      <h>60</h>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
