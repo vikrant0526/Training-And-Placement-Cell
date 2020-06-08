@@ -106,7 +106,7 @@
 <div class="container-fluid">
   <div class="row">
     <!-- Left Sidebar -->
-    <div class="side-menu-fixed">
+    <div class="side-menu-fixed ">
      <div class="scrollbar side-menu-bg">
       <ul class="nav navbar-nav side-menu" id="sidebarnav">
         <li>
