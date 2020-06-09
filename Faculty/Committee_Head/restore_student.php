@@ -5,5 +5,5 @@
 	$stmt->bindparam(":sid",$sid);
 	$stmt->execute();
 	print_r($stmt->errorinfo());
-	// header("location: view_deactive_students.php");
+	header("location: view_deactive_students.php");
  ?>

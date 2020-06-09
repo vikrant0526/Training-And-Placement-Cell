@@ -240,11 +240,11 @@
       else
       {
          ?>
-<script>
-alert('OTP Is Invalid!!....');
-window.open('Sign_up_OTP_company.php', '_self');
-</script>
-<?php
+            <script>
+            alert('OTP Is Invalid!!....');
+            window.open('Sign_up_OTP_company.php', '_self');
+            </script>
+        <?php
       }
 
       ob_flush();

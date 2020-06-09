@@ -23,7 +23,7 @@
                   <a class="dropdown-item" href="#"><i class="text-dark ti-pencil-alt"></i>Leave app </a> 
                   <a class="dropdown-item" href="#"><i class="text-success ti-email"></i>New Message</a> 
                   <a class="dropdown-item" href="#"><i class="text-warning ti-user"></i>Edit Profile</a> 
-                  <a class="dropdown-item" href="#"><i class="text-info ti-settings"></i>Settings</a> 
+                   
                   <a class="dropdown-item" href="#"><i class="text-danger ti-unlock"></i>Logout</a> 
                 </div> -->
               </div>
@@ -108,7 +108,7 @@
                                 <h6 class="mt-0"><?php echo $uname['EVENT_NAME']; ?><small
                                         class="float-right"><?php echo $data['NOTIFICATION_TIME_STAMP']; ?></small>
                                 </h6>
-                                <p><?php echo $data['NOTIFICATION_DESCRPTION']; ?><?php echo $uname['EVENT_CATEGORY']; ?>
+                                <p><?php echo $data['NOTIFICATION_DESCRPTION']; ?>
                                     <a href="remove_notification.php?nid=<?php echo $data['NOTIFICATION_ID']; ?>"><button
                                             class="btn btn-sm btn-outline-warning float-right ml-2 mb-2"><i
                                                 class="fa fa-times"></i> Remove</button></a>

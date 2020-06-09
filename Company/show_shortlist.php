@@ -7,19 +7,6 @@
   $cname= $data["COMPANY_NAME"];
 ?>
   <div class="content-wrapper header-info">
-      <div class="page-title">
-      <div class="row">
-          <div class="col-md-6">
-            <h3 class="mb-15 text-white">Welcome Back, <?php echo $cname; ?>! </h3><span class="mb-10 mb-md-30 text-white d-block">A something new is about to happen.</span>
-          </div>
-          <div class="col-md-6">
-          <div class="card">
-            <div class="btn-group info-drop header-info-button">
-              </div>
-            </div>
-           </div>
-          </div>
-        </div>
       <div class="mb-30">
            <div class="card h-100 ">
            <div class="card-body h-100">
@@ -62,7 +49,7 @@
                      			<td><?php echo $data["SELECTION_LIST_NAME"]; ?></td>
                      			<td><?php echo $data["SELECTION_LIST_YEAR"]; ?></td>
                           <td><a href="view_shortlist.php?sid=<?php echo $data["SELECTION_LIST_ID"]; ?>"><button type="button" class="btn btn-sm btn-outline-info"><i class="fa fa-eye"></i></button></a> </td>
-                          <td><a href="STIPEND_entry.php?sid=<?php echo $data["SELECTION_LIST_ID"];?>"><button type="button" class="btn btn-sm btn-outline-primary"><i class="fa fa-paper-plane"></i></button></a></td>
+                          <td><a href="STIPEND_entry.php?sid=<?php echo $data["SELECTION_LIST_ID"];?>"><button type="button" class="btn btn-sm btn-outline-warning"> <i class="fas fa-rupee-sign"></i> </button></a></td>
                           <td><a href="add_student_selection_list.php?sid=<?php echo $data["SELECTION_LIST_ID"]; ?>"><button type="button" class="btn btn-sm btn-outline-success"><i class="fa fa-plus"></i></button></a> </td>
                           <td><a href="delete_shortlist.php?sid=<?php echo $data["SELECTION_LIST_ID"]; ?>"><button type="button" class="btn btn-sm btn-outline-danger"><i class="fa fa-trash"></i></button></a></td>
                           <td><a href="send_shortlist.php?sid=<?php echo $data["SELECTION_LIST_ID"]; ?>"><button type="button" class="btn btn-sm btn-outline-primary"><i class="fa fa-paper-plane"></i></button></a></td>

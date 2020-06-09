@@ -7,19 +7,6 @@
   $cname= $data["COMPANY_NAME"];
 ?>
   <div class="content-wrapper header-info">
-      <div class="page-title">
-      <div class="row">
-          <div class="col-md-6">
-            <h3 class="mb-15 text-white">Welcome Back, <?php echo $cname; ?>! </h3><span class="mb-10 mb-md-30 text-white d-block">A something new is about to happen.</span>
-          </div>
-          <div class="col-md-6">
-          <div class="card">
-            <div class="btn-group info-drop header-info-button">
-              </div>
-            </div>
-           </div>
-          </div>
-        </div>
       <div class="mb-30">
            <div class="card h-100 ">
            <div class="card-body h-100">

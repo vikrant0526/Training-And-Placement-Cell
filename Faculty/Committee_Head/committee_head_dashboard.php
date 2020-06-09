@@ -27,7 +27,7 @@ wrapper -->
                   <a class="dropdown-item" href="#"><i class="text-dark ti-pencil-alt"></i>Leave app </a> 
                   <a class="dropdown-item" href="#"><i class="text-success ti-email"></i>New Message</a> 
                   <a class="dropdown-item" href="#"><i class="text-warning ti-user"></i>Edit Profile</a> 
-                  <a class="dropdown-item" href="#"><i class="text-info ti-settings"></i>Settings</a> 
+                   
                   <a class="dropdown-item" href="#"><i class="text-danger ti-unlock"></i>Logout</a> 
                 </div> -->
                     </div>

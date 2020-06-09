@@ -3,31 +3,7 @@
   include('header.php');
   $data=$_SESSION['Userdata'];
 ?>
-      <div class="row">
-        <div class="col-lg-12 mb-30">
-          <div class="card">
-            <div class="card-body">
-              <div class="user-bg" style="background: url(../Files/assets/images/user-bg.jpg);">
-                <div class="user-info">
-                  <div class="row">
-                    <div class="col-lg-6 align-self-center">
-                        <!-- <div style="width: 125px;height: 125px; position: relative; overflow: hidden;border-radius: 50%;">
-                                                <img src="Profile_pic/<?php echo $data['STUDENT_PROFILE_PIC']; ?>" onclick="triggerClick()" id="profileDisplay" style="display: block;margin: -5px auto;" class="w-100 h-100">
-                                                <input type="file" class="form-control" placeholder="Company L
-                                                    ogo" name="profileImage" id="profileImage" onchange="displayImage(this)" accept="image/*" style="display: none;" value="<?php echo $date['STUDENT_PROFILE_PIC'] ?>" required>
-                                            </div> -->
-                    </div>
-                    <!-- <div class="col-lg-6 text-right align-self-center">
-                        <button type="button" class="btn btn-sm btn-danger"><i class="ti-user pr-1"></i>Follow</button>
-                        <button type="button" class="btn btn-sm btn-success"><i class="ti-email pr-1"></i>Message</button>
-                    </div> -->
-                  </div>              
-                </div>              
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+<div class="content-wrapper header-info">
       <!-- widgets -->
       <div class="mb-30">
            <div class="card h-100 ">

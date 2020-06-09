@@ -1,12 +1,5 @@
 <?php
      session_start();   
-    if (!isset($_SESSION['femail'])) {
-        header('Location: ../Login/login.php');
-    }
-
-    if(isset($_SESSION['lid'])){
-        header('Location: ../Login/login.php');
-    }
 ?>
 
 

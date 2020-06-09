@@ -7,22 +7,10 @@
    include('../Files/PDO/dbcon.php');
 ?>
 <div class="content-wrapper header-info">
-      <div class="page-title">
-      <div class="row">
-          <div class="col-md-6">
-            <h3 class="mb-15 text-white"> Welcome back, <?php echo $sname; ?>! </h3>
-            <span class="mb-10 mb-md-30 text-white d-block">Hope you are having a good day.</span>
-          </div>
-          <div class="col-md-6">
-          <div class="card">
-            </div>
-           </div>
-          </div>
-        </div>
       <div class="mb-30">
            <div class="card h-100 ">
            <div class="card-body h-100">
-             <h4 class="card-title"></h4>
+             <h4 class="card-title">Upload Resume</h4>
              <!-- action group -->
              <form action="#" method="post" enctype="multipart/form-data">
              <div class="scrollbar">

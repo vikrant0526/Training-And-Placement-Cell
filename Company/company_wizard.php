@@ -1,17 +1,6 @@
 <?php
      ob_start();
-
-       session_start();
-     
-    if (!isset($_SESSION['cpemail'])) {
-        header('Location: ../Login/login.php');
-    }
-
-    if(isset($_SESSION['lid'])){
-        header('Location: ../Login/login.php');
-    }
-
-
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -566,11 +555,11 @@
                 $_SESSION['datamess'] = "Your Registration is Completed<br>Please Login";
              }else {
                   ?>
-<script>
-alert('Your Details Are Not Save!!..');
-window.open('company_wizard.php', '_self');
-</script>
-<?php
+                    <script>
+                    alert('Your Details Are Not Save!!..');
+                    window.open('company_wizard.php', '_self');
+                    </script>
+                <?php
              }
         }catch(Exception $e)
         {

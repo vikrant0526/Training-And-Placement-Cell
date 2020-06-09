@@ -9,40 +9,7 @@
  <!--=================================
 wrapper -->
     <div class="content-wrapper header-info">
-      <div class="page-title">
-      <div class="row">
-          <div class="col-md-6">
-            <h3 class="mb-15 text-white"> Welcome back, <?php echo $data['COMPANY_NAME']; ?>! </h3>
-            <span class="mb-10 mb-md-30 text-white d-block">Hope you are having a good day.</span>
-          </div>
-          <div class="col-md-6">
-          <div class="card">
-            </div>
-           </div>
-          </div>
-        </div>
-                    <form action="#" method="POST" enctype="multipart/form-data">
-        <div class="row">
-        <div class="col-lg-12 mb-30">
-          <div class="card">
-            <div class="card-body">
-              <div class="user-bg" style="background: url(../Files/assets/images/user-bg.jpg);">
-                <div class="user-info">
-                  <div class="row">
-                    <div class="col-lg-6 align-self-center">
-                     
-                    <div id="vikTest"></div>
-                    <!-- <div class="col-lg-6 text-right align-self-center">
-                        <button type="button" class="btn btn-sm btn-danger"><i class="ti-user pr-1"></i>Follow</button>
-                        <button type="button" class="btn btn-sm btn-success"><i class="ti-email pr-1"></i>Message</button>
-                    </div> -->  
-                  </div>              
-                </div>              
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+        <form action="#" method="POST" enctype="multipart/form-data">
       <!-- widgets -->
       <div class="mb-30">
            <div class="card h-100 ">

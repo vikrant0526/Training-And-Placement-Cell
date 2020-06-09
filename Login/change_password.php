@@ -1,5 +1,6 @@
 <?php
     session_start();
+    error_reporting(0);
   $roldpass = $rrpass = $rnewp="";
   $upassmess="";
   if(isset($_REQUEST['Submit']))
@@ -214,40 +215,6 @@
       <div class="login-box-main-middle">
         <div class="container">
           <div class="row justify-content-center no-gutter">
-            <div class="col-lg-2 col-md-4">
-              <div class="login-box-left  white-bg">
-                <img class="logo-small" src="../Files/images/logo-5.png" alt="">
-                  <ul class="nav">
-                    <li class="nav-item"><a class="nav-link" href="../index.php"> <i class="fa fa-home"></i>Home</a></li>
-                    <li class="nav-item active"><a class="nav-link" href="../Login/login.php"> <i class="fa fa-sign-in"></i> Login</a></li>
-                    <li class="nav-item dropdown"><a class="nav-link" href="#" id="navbardrop" data-toggle="dropdown"><i class="fa fa-user-plus"></i>Sign-Up</a>
-                      <div class="dropdown-menu">
-                        <a class="dropdown-item" href="../Sign_Up/student_reg.php"><i class="fa fa-user"></i>Student</a>
-                        <a class="dropdown-item" href="../Sign_Up/company_reg.php"><i class="fa fa-users"></i>Company</a>
-                        <a class="dropdown-item" href="../Sign_Up/faculty_reg.php"><i class="fa fa-university"></i>Faculty</a>
-                      </div>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="../about_us.php"> <i class="fa fa-info-circle"></i>About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../contact_us.php"> <i class="fa fa-phone"></i>Contact Us</a></li>
-                  </ul>
-                  <div class="social-icons color-hover clearfix pos-bot pb-30 pl-30">
-                    <ul>
-                      <li class="social-facebook"><a href="https://www.facebook.com/utu.malibacampus/"><i class="fa fa-facebook"></i></a></li>
-                      <li class="social-youtube"><a href="https://www.youtube.com/channel/UC2N7bQCLyHnUnMfTwA8MgMw/"><i class="fa fa-youtube-play"></i></a></li>
-                      <li class="social-instagram"><a href="https://www.instagram.com/utu.malibacampus/"><i class="fa fa-instagram"></i></a></li>
-                    </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 theme-bg">
-              <div class="login-box pos-r text-white login-box-theme">
-                <h2 class="text-white mb-16">Uka Tarsadia University</h2>
-                <p class="mb-10 text-white pl-1">Empowering Your Knowledge </p>          
-                <ul class="list-unstyled pos-bot">
-                  <h3 class="text-white pt-8 pb-1">Training and<br>Placement Cell</h3>
-                </ul>
-              </div>
-            </div>
             <div class="col-md-4">
               <div class="login-box pb-50 clearfix white-bg">
                 <h3 class="mb-30">Change Password</h3>

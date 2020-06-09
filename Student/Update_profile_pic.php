@@ -6,18 +6,6 @@
   $sid = $data["STUDENT_ID"];
 ?>
   <div class="content-wrapper header-info">
-      <div class="page-title">
-      <div class="row">
-          <div class="col-md-6">
-            <h3 class="mb-15 text-white"> Welcome back, <?php echo $data['STUDENT_FIRST_NAME']; ?>! </h3>
-            <span class="mb-10 mb-md-30 text-white d-block">Hope you are having a good day.</span>
-          </div>
-          <div class="col-md-6">
-          <div class="card">
-            </div>
-           </div>
-          </div>
-        </div>
         <div class="row">
         <div class="col-lg-12 mb-30">
           <div class="card">
@@ -32,8 +20,8 @@
                                                 <input type="file" class="form-control" name="student_pic" placeholder="Company L
                                                     ogo" name="profileImage" id="profileImage" onchange="displayImage(this)" accept="image/*" style="display: none;" value="<?php echo $date['STUDENT_PROFILE_PIC'] ?>" required>
                                             </div>
-                         <input type="submit" name="submit" class="finish btn"
-                                                style="background:#84BA3F;color: white;" value="Finish" />
+                         <input type="submit" name="submit" class="finish btn ml-0"
+                                                style="background:#84BA3F;color: white;" value="Upload Profile Pic" />
                     </form>
                     </div>
                     <!-- <div class="col-lg-6 text-right align-self-center">

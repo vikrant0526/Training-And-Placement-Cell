@@ -15,6 +15,7 @@ wrapper -->
         $stmt=$con->prepare("CALL VIEW_FUTURE_CANCELED_EVENT();");
         $stmt->execute();
   ?>
+  <div class="content-wrapper header-info">
       <!-- widgets -->
       <div class="mb-30">
            <div class="card h-100">

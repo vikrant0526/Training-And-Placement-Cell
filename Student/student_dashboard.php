@@ -3,11 +3,6 @@
   include('header.php');
   $userdata=$_SESSION['Userdata'];
 ?>
-<!--=================================
- Main content -->
-<!--=================================
-wrapper -->
-
 <div class="content-wrapper header-info">
     <div class="page-title">
         <div class="row">

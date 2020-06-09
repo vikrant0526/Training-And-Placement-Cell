@@ -36,6 +36,7 @@
     $data2=$stmt2->fetch(PDO::FETCH_ASSOC);
     $att=$data2['att'];
     if ($att=='1') {
+        if ($x==1) {
             ?>
     <tr>
         <td>
@@ -45,11 +46,49 @@
             <input type="checkbox" id="att_checked<?php echo $count; ?>" name="<?php echo $data['STUDENT_ID'];?>"
                 value="<?php echo $data['STUDENT_ID'];?>" onClick="att_check_evnt(this.id)" checked>
         </td>
-    </tr>
     <?php 
+        $x=2;
+        }
+        elseif ($x==2) {
+            ?>
+                <td>
+                    <label class="text-dark"><?php echo $data['STUDENT_ENROLLMENT_NUMBER']; ?></label>
+                </td>
+                <td class="d-flex justify-content-center">
+                    <input type="checkbox" id="att_checked<?php echo $count; ?>" name="<?php echo $data['STUDENT_ID'];?>"
+                        value="<?php echo $data['STUDENT_ID'];?>" onClick="att_check_evnt(this.id)" checked>
+                </td>
+            <?php   
+            $x=3;
+        }
+        elseif ($x==3) {
+            ?>
+                <td>
+                    <label class="text-dark"><?php echo $data['STUDENT_ENROLLMENT_NUMBER']; ?></label>
+                </td>
+                <td class="d-flex justify-content-center">
+                    <input type="checkbox" id="att_checked<?php echo $count; ?>" name="<?php echo $data['STUDENT_ID'];?>"
+                        value="<?php echo $data['STUDENT_ID'];?>" onClick="att_check_evnt(this.id)" checked>
+                </td>
+            <?php   
+            $x=4;
+        }elseif ($x==4) {
+            ?>
+                <td>
+                    <label class="text-dark"><?php echo $data['STUDENT_ENROLLMENT_NUMBER']; ?></label>
+                </td>
+                <td class="d-flex justify-content-center">
+                    <input type="checkbox" id="att_checked<?php echo $count; ?>" name="<?php echo $data['STUDENT_ID'];?>"
+                        value="<?php echo $data['STUDENT_ID'];?>" onClick="att_check_evnt(this.id)" checked>
+                </td>
+            </tr>
+            <?php   
+            $x=1;
+        }
         $count+=1;
     }
     else {
+        if ($x==1) {
         ?>
     <tr>
         <td>
@@ -59,8 +98,43 @@
             <input type="checkbox" id="att_unchecked<?php echo $count1; ?>" name="<?php echo $data['STUDENT_ID'];?>"
                 value="<?php echo $data['STUDENT_ID'];?>" onClick="att_uncheck_evnt(this.id)">
         </td>
-    </tr>
     <?php
+        $x=2;
+        }elseif ($x==2) {
+            ?>
+            <td>
+                <label class="text-dark"><?php echo $data['STUDENT_ENROLLMENT_NUMBER']; ?></label>
+            </td>
+            <td class="d-flex justify-content-center">
+                <input type="checkbox" id="att_unchecked<?php echo $count1; ?>" name="<?php echo $data['STUDENT_ID'];?>"
+                    value="<?php echo $data['STUDENT_ID'];?>" onClick="att_uncheck_evnt(this.id)">
+            </td>
+        <?php
+            $x=3;
+        }elseif ($x==3) {
+            ?>
+            <td>
+                <label class="text-dark"><?php echo $data['STUDENT_ENROLLMENT_NUMBER']; ?></label>
+            </td>
+            <td class="d-flex justify-content-center">
+                <input type="checkbox" id="att_unchecked<?php echo $count1; ?>" name="<?php echo $data['STUDENT_ID'];?>"
+                    value="<?php echo $data['STUDENT_ID'];?>" onClick="att_uncheck_evnt(this.id)">
+            </td>
+        <?php
+            $x=4;
+        }elseif ($x==4) {
+            ?>
+            <td>
+                <label class="text-dark"><?php echo $data['STUDENT_ENROLLMENT_NUMBER']; ?></label>
+            </td>
+            <td class="d-flex justify-content-center">
+                <input type="checkbox" id="att_unchecked<?php echo $count1; ?>" name="<?php echo $data['STUDENT_ID'];?>"
+                    value="<?php echo $data['STUDENT_ID'];?>" onClick="att_uncheck_evnt(this.id)">
+            </td>
+        </tr>
+        <?php
+            $x=1;
+        }
         $count1+=1; 
     }
     }

@@ -44,7 +44,7 @@
       <div class="mb-30">
            <div class="card h-100 ">
            <div class="card-body h-100">
-             <h4 class="card-title">Profile Update</h4>
+             <h4 class="card-title">Faculty Profile</h4>
              <!-- action group -->
              <div class="btn-group info-drop">
                 <button type="button" class="dropdown-toggle-split text-muted" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-more"></i></button>
@@ -59,6 +59,7 @@
               	  <li>
                   <div class="media">
                     <div class="media-body mb-2">
+                      <label>First Name</label>
                     	<input type="text" name="fname" class="form-control" placeholder="First Name" value="<?php echo $data["FACULTY_FIRST_NAME"]; ?>" disabled>
                     </div>
                   </div>
@@ -66,6 +67,7 @@
                 <li>
                   <div class="media">
                     <div class="media-body mb-2">
+                      <label>Last Name</label>
                     	<input type="text" name="lname" class="form-control" placeholder="Last Name" value="<?php echo $data["FACULTY_LAST_NAME"]; ?>" disabled>
                     </div>
                   </div>
@@ -73,26 +75,21 @@
                 <?php $gender = $data["FACULTY_GENDER"]; ?>
                 <li>
 					<?php if($gender == 'M'){ ?>
-					<div class="row m-3">
-						<label class="col-2 text-light font-weight-bold text-nowrap">Gender :</label>
-						<input class="col-1 mt-1" type="radio" name="gender" class="form-control" checked value="M">
-						<label class="col-2">Male</label>
-						<input class="col-1 mt-1" type="radio" name="gender" class="form-control" value="F">
-						<label class="col-2">Female</label>
+            <div class="row m-3">
+          <label class="text-white">Gender&nbsp;: &nbsp;</label>
+						Male
 					</div>
 					<?php }else{ ?>
 					<div class="row m-3">
-						<label class="col-2 text-light font-weight-bold">Gender :</label>
-						<input class="col-1 mt-1" type="radio" name="gender" class="form-control" value="M">
-						<label class="col-2">Male</label>
-						<input class="col-1 mt-1" type="radio" name="gender" class="form-control" checked value="F">
-						<label class="col-2">Female</label>
+          <label class="text-white">Gender&nbsp;: &nbsp;</label>
+            Female
 					</div>
 					<?php } ?>
                 </li>  
                  <li>
                   <div class="media">
                     <div class="media-body mb-2">
+                    <label>Email</label>
                     	<input type="email" name="email" placeholder="Faculty email" class="form-control" value="<?php echo $data["FACULTY_EMAIL"]; ?>" disabled>
                     </div>
                   </div>
@@ -100,6 +97,7 @@
                  <li>
                   <div class="media">
                     <div class="media-body mb-2">
+                    <label>Phone Number</label>
                     <input type="text" name="num" placeholder="Faculty Number" class="form-control" value="<?php echo $data["FACULTY_PHONE_NUMBER"]; ?>" disabled>
                     </div>
                   </div>
@@ -107,6 +105,7 @@
                  <li>
                   <div class="media">
                     <div class="media-body mb-2">
+                      <label>About</label>
                     	<textarea name="about" rows="3" placeholder="Something about yourself........" class="form-control" disabled><?php echo $data["FACULTY_ABOUT"]; ?>
                     	</textarea>
                     </div>

@@ -13,19 +13,6 @@
 ?>
 
     <div class="content-wrapper header-info">
-      <div class="page-title">
-      <div class="row">
-          <div class="col-md-6">
-            <h3 class="mb-15 text-white"> Ohoo, <?php echo $data['STUDENT_FIRST_NAME']." ".$data['STUDENT_LAST_NAME']; ?>! </h3><span class="mb-10 mb-md-30 text-white d-block">So it that time now.</span>
-          </div>
-          <div class="col-md-6">
-          <div class="card">
-            <div class="btn-group info-drop header-info-button">
-              </div>
-            </div>
-           </div>
-          </div>
-        </div>
       <!-- widgets -->
       <div class="mb-30">
            <div class="card h-100 ">

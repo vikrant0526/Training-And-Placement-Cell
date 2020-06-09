@@ -1,9 +1,9 @@
 <?php 
   ob_start();
   include('header.php');
- 
   $data=$_SESSION['Userdata'];
   $cid=$_SESSION['lid'];
+  error_reporting(0);
 ?>
 
 <?php
@@ -14,25 +14,11 @@
 	?>
 
 <div class="content-wrapper header-info">
-    <div class="page-title">
-        <div class="row">
-            <div class="col-md-6">
-                <h3 class="mb-15 text-white"> Hey, <?php echo $data['COMPANY_NAME']; ?>! </h3>
-                <span class="mb-10 mb-md-30 text-white d-block">These events have already happend.</span>
-            </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="btn-group info-drop header-info-button">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- widgets -->
     <div class="mb-30">
         <div class="card h-100">
             <div class="card-body h-100">
-                <h4 class="card-title">Company</h4>
+                <h4 class="card-title">Recommendation Student</h4>
                 <!-- action group -->
                 <ul class="list-unstyled">
                     <li>

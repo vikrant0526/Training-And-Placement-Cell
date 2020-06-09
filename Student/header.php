@@ -71,23 +71,7 @@
     <li class="nav-item fullscreen">
       <a id="btnFullscreen" href="#" class="nav-link" ><i class="ti-fullscreen"></i></a>
     </li>
-    <li class="nav-item dropdown ">
-      <a class="nav-link top-nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true"> <i class=" ti-view-grid"></i> </a>
-      <div class="dropdown-menu dropdown-menu-right dropdown-big">
-        <div class="dropdown-header">
-          <strong>Quick Links</strong>
-        </div>
-        <div class="dropdown-divider"></div> 
-        <div class="nav-grid">
-          <a href="#" class="nav-grid-item"><i class="ti-files text-primary"></i><h5>New Task</h5></a>
-          <a href="#" class="nav-grid-item"><i class="ti-check-box text-success"></i><h5>Assign Task</h5></a>
-        </div>
-        <div class="nav-grid">
-          <a href="#" class="nav-grid-item"><i class="ti-pencil-alt text-warning"></i><h5>Add Orders</h5></a>
-          <a href="#" class="nav-grid-item"><i class="ti-truck text-danger "></i><h5>New Orders</h5></a>
-        </div>
-      </div>
-    </li>
+    
     <li class="nav-item dropdown mr-30">
       <a class="nav-link nav-pill user-avatar" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
         <img src="Profile_pic/<?php echo $data['STUDENT_PROFILE_PIC'] ?>" alt="avatar">
@@ -102,13 +86,13 @@
           </div>
         </div>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#"><i class="text-secondary ti-reload"></i>Activity</a>
+        
         <a class="dropdown-item" href="../Login/change_password.php"><i class="text-success ti-email"></i>Change Password</a>
         <a class="dropdown-item" href="student_profile.php"><i class="text-warning ti-user"></i>Profile</a>
         <a class="dropdown-item" href="Update_profile_pic.php"><i class="text-warning ti-user"></i>Profile Pic</a>
-        <a class="dropdown-item" href="#"><i class="text-dark ti-layers-alt"></i>Projects <span class="badge badge-info">6</span> </a>
+        
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#"><i class="text-info ti-settings"></i>Settings</a>
+        
         <a class="dropdown-item" href="../Login/logout.php"><i class="text-danger ti-unlock"></i>Logout</a>
       </div>
     </li>
@@ -129,28 +113,28 @@
       <ul class="nav navbar-nav side-menu" id="sidebarnav">
         <li>
           <a href="student_dashboard.php">
-            <div class="pull-left"><i class="ti-home"></i><span class="right-nav-text">Home</span></div><div class="clearfix"></div>
+            <div class="pull-left"><i class="fa fa-home"></i><span class="right-nav-text">Home</span></div><div class="clearfix"></div>
           </a>
         </li>
         <li>
           <a href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard">
-            <div class="pull-left"><i class="fa fa-calendar"></i><span class="right-nav-text">Resume</span></div>
+            <div class="pull-left"><i class="fa fa-edit"></i><span class="right-nav-text">Resume</span></div>
             <div class="clearfix"></div>
           </a>
           <ul id="dashboard" class="collapse" data-parent="#sidebarnav">
-            <li> <a href="academic_details.php"><i class="fa fa-plus"></i>Academic Details</a> </li>
-            <li> <a href="resume_details.php"><i class="fa fa-hourglass"></i>Resume Details</a> </li>
-            <li> <a href="Bulid_resume.php"><i class="fa fa-hourglass"></i>Bulid Resume</a> </li>
-            <li> <a href="view_Student_resume_details.php"><i class="fa fa-hourglass"></i>Show Resume Details</a> </li>
+            <li> <a href="academic_details.php"><i class="fa fa-university"></i>Academic Details</a> </li>
+            <li> <a href="resume_details.php"><i class="fa fa-graduation-cap"></i>Resume Details</a> </li>
+            <li> <a href="Bulid_resume.php"><i class="fa fa-edit"></i>Bulid Resume</a> </li>
+            <li> <a href="view_Student_resume_details.php"><i class="fa fa-eye"></i>Show Resume Details</a> </li>
           </ul>
         </li>
         <li>
           <a href="Upload_resume.php">
-            <div class="pull-left"><i class="ti-home"></i><span class="right-nav-text">Upload Resume</span></div><div class="clearfix"></div>
+            <div class="pull-left"><i class="fa fa-upload"></i><span class="right-nav-text">Upload Resume</span></div><div class="clearfix"></div>
           </a>
         </li>
         <li>
-          <a href="materials.php"><i class="ti-home"></i><span class="right-nav-text">Materials</span></div><div class="clearfix"></a>
+          <a href="materials.php"><i class="fa fa-file"></i><span class="right-nav-text">Materials</span></div><div class="clearfix"></a>
         </li>
     </ul>
   </div> 
