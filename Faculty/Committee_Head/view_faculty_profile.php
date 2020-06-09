@@ -16,18 +16,6 @@
         ?>
   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>      
   <div class="content-wrapper header-info">
-      <div class="page-title">
-      <div class="row">
-          <div class="col-md-6">
-            <h3 class="mb-15 text-white"> Welcome back, <?php echo $datahead['FACULTY_FIRST_NAME']; ?>! </h3>
-            <span class="mb-10 mb-md-30 text-white d-block">Hope you are having a good day.</span>
-          </div>
-          <div class="col-md-6">
-          <div class="card">
-            </div>
-           </div>
-          </div>
-        </div>
         <div class="row">
         <div class="col-lg-12 mb-30">
           <div class="card">

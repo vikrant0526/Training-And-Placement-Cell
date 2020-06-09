@@ -5,30 +5,6 @@
 ?>
 
     <div class="content-wrapper header-info">
-      <div class="page-title">
-      <div class="row">
-          <div class="col-md-6">
-            <h3 class="mb-15 text-white"> Wow, <?php echo $data['FACULTY_FIRST_NAME']; ?>! </h3><span class="mb-10 mb-md-30 text-white d-block">A something new is about to happen.</span>
-          </div>
-          <div class="col-md-6">
-          <div class="card">
-            <div class="btn-group info-drop header-info-button">
-                <!-- <button type="button" class="dropdown-toggle-split  button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Add new <i class="ti-plus"></i></button>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#"><i class="text-dark ti-layers-alt"></i>Add Project </a>
-                  <a class="dropdown-item" href="#"><i class="text-primary ti-files"></i>Add Task </a> 
-                  <a class="dropdown-item" href="#"><i class="text-warning ti-id-badge"></i>Add team </a> 
-                  <a class="dropdown-item" href="#"><i class="text-dark ti-pencil-alt"></i>Leave app </a> 
-                  <a class="dropdown-item" href="#"><i class="text-success ti-email"></i>New Message</a> 
-                  <a class="dropdown-item" href="#"><i class="text-warning ti-user"></i>Edit Profile</a> 
-                  <a class="dropdown-item" href="#"><i class="text-info ti-settings"></i>Settings</a> 
-                  <a class="dropdown-item" href="#"><i class="text-danger ti-unlock"></i>Logout</a> 
-                </div> -->
-              </div>
-            </div>
-           </div>
-          </div>
-        </div>
       <!-- widgets -->
       <div class="mb-30">
            <div class="card h-100 ">

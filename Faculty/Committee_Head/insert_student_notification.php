@@ -9,7 +9,7 @@
     $facultydata = $stmt->fetch(PDO::FETCH_ASSOC);
     $email = $facultydata["FACULTY_EMAIL"];
     $faculty_id= $facultydata["FACULTY_ID"];
-    $sen_type="CH";
+    $sen_type=$facultydata["FACULTY_ROLE"];
     $rec_type="ST";
     $type="TROF";
     $des="You Have Traning Offer";
