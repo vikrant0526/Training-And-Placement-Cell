@@ -6,5 +6,5 @@ Repair resume builder flow.
 Student Show Company
 New Test Only Upcoming.
 Update event redirect.
-deny Button on Company Recommendation
+
 Committee Member-Faculty Dashboard
