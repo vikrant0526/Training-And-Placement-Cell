@@ -111,7 +111,7 @@
         }
         function event_bind(){ 
             var xmlhttp=new XMLHttpRequest();
-            xmlhttp.open("GET","eventbind.php?dept="+document.getElementById("dept").value+"&"+"degree="+document.getElementById("degree").value+"&"+"pyear="+document.getElementById("pyear").value,false);
+            xmlhttp.open("GET","test_eventbind.php?dept="+document.getElementById("dept").value+"&"+"degree="+document.getElementById("degree").value+"&"+"pyear="+document.getElementById("pyear").value,false);
             xmlhttp.send(null);
             document.getElementById("event").innerHTML=xmlhttp.responseText;
         }
