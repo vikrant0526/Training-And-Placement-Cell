@@ -6,7 +6,7 @@
 
     //$dept ="BMIIT";
    
-     $stmt=$con->prepare("CALL GET_TEST_EVENT_BY_BATCH(:dept,:degree,:pyear)");
+     $stmt=$con->prepare("CALL GET_EVENT_BY_BATCH(:dept,:degree,:pyear)");
      $stmt->bindParam(':dept',$dept);
      $stmt->bindParam(':degree',$degree);
      $stmt->bindParam(':pyear',$pyear);
