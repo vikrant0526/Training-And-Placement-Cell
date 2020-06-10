@@ -58,9 +58,15 @@
                   <div class="media">
                     <div class="media-body mb-2">
                       <select name="eventfor" class="form-control p-1 pl-3" id="eventfor" onchange="event_for()">
+                      <?php if(isset($xdata['EVENT_COMPANY_ID'])) {?>
                             <option>Select Event For</option>
                             <option value="PRE">PRE-PLACEMENT</option>
+                            <option selected value="IN">IN-PLACEMENT</option>
+                        <?php }else{ ?>       
+                            <option>Select Event For</option>
+                            <option selected value="PRE">PRE-PLACEMENT</option>
                             <option value="IN">IN-PLACEMENT</option>
+                            <?php }?>   
                       </select>
                     </div>
                   </div>
@@ -112,12 +118,32 @@
                 <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                      <select name="etype" class="form-control p-1 pl-3" id="type" >
+                      <select name="etype" class="form-control p-1 pl-3" id="type">
+                      <?php if($xdata['EVENT_TYPE'] == "SM") {?>
+                            <option value="-1">Select Event Type</option>
+                            <option selected value="SM">Seminar</option>
+                            <option value="TS">Test</option>
+                            <option value="CM">Company Visit</option>
+                            <option value="WS">Workshop</option>
+                      <?php }elseif($xdata['EVENT_TYPE'] == "TS"){ ?>
+                            <option value="-1">Select Event Type</option>
+                            <option value="SM">Seminar</option>
+                            <option selected value="TS">Test</option>
+                            <option value="CM">Company Visit</option>
+                            <option value="WS">Workshop</option>
+                      <?php }elseif($xdata['EVENT_TYPE'] == "CM"){ ?>
+                            <option value="-1">Select Event Type</option>
+                            <option value="SM">Seminar</option>
+                            <option value="TS">Test</option>
+                            <option selected value="CM">Company Visit</option>
+                            <option value="WS">Workshop</option>
+                      <?php }else{ ?>     
                             <option value="-1">Select Event Type</option>
                             <option value="SM">Seminar</option>
                             <option value="TS">Test</option>
                             <option value="CM">Company Visit</option>
-                            <option value="WS">Workshop</option>
+                            <option selected value="WS">Workshop</option>
+                      <?php } ?>
                       </select>
                     </div>
                   </div>
@@ -126,9 +152,16 @@
                   <div class="media">
                     <div class="media-body mb-2">
                       <select name="ecat" class="form-control p-1 pl-3" id="cate">
+                          <?php if($xdata['EVENT_CATEGORY'] == "1") {?>
+                            <option value="-1">Select Event Category</option>
+                            <option selected value="1">Mandatory</option>
+                            <option value="0">Voluntary</option>
+                          <?php }else{ ?>
                             <option value="-1">Select Event Category</option>
                             <option value="1">Mandatory</option>
-                            <option value="0">Voluntary</option>
+                            <option selected value="0">Voluntary</option>
+                          <?php }
+                          $cid=$xdata['EVENT_COMPANY_ID'];?>
                       </select>
                     </div>
                   </div>
@@ -168,6 +201,16 @@
             xmlhttp.send(null);
             document.getElementById("cmp_id").innerHTML=xmlhttp.responseText;
         }
+
+        if(document.getElementById("eventfor").value == "IN"){
+              var xmlhttp=new XMLHttpRequest();
+              xmlhttp.open("GET","company_id.php?eve="+document.getElementById("eventfor").value,false);
+              xmlhttp.send(null);
+              document.getElementById("cmp_id").innerHTML=xmlhttp.responseText;
+        }
+        var cid = <?php echo json_encode($cid); ?>;
+        alert(cid);
+        document.getElementById("cmp").value = cid;
         </script>
 
 <?php 
