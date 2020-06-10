@@ -3,12 +3,7 @@
   include('header.php');
   $data=$_SESSION['Userdata'];
 ?>
-<!--=================================
- Main content -->
-
- <!--=================================
-wrapper -->
-    <div class="content-wrapper header-info">
+  <div class="content-wrapper header-info">
         <form action="#" method="POST" enctype="multipart/form-data">
       <!-- widgets -->
       <div class="mb-30">
@@ -288,6 +283,15 @@ wrapper -->
       $stmt->bindParam(":hrnum",$hrnum);
       $stmt->execute();
       header('Refresh:0');
+      
+      $stmt5=$con->prepare("CALL GET_COMPANY(:cid);");
+      $stmt5->bindparam(":cid",$cid);
+      $stmt5->execute();
+      $stmt5=$con->prepare("CALL GET_COMPANY(:cid);");
+      $stmt5->bindparam(":cid",$cid);
+      $stmt5->execute();
+      $companydata = $stmt5->fetch(PDO::FETCH_ASSOC);
+      $_SESSION['Userdata'] = $companydata;
     }
   }
  ?>

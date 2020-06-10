@@ -66,9 +66,18 @@
 
          $stmt=$con->prepare("CALL UPDATE_STUDENT_PROFILE_PIC(:ppic,:sid)");
          $stmt->bindParam(":ppic",$imgname);
-		 $stmt->bindParam(":sid",$sid);
+		     $stmt->bindParam(":sid",$sid);
          $stmt->execute();
          header('Refresh:0');
+
+         $stmt5=$con->prepare("CALL GET_STUDENT_DETAILS(:sid);");
+         $stmt5->bindparam(":sid",$sid);
+         $stmt5->execute();
+         $stmt5=$con->prepare("CALL GET_STUDENT_DETAILS(:sid);");
+         $stmt5->bindparam(":sid",$sid);
+         $stmt5->execute();
+         $studdata = $stmt5->fetch(PDO::FETCH_ASSOC);
+         $_SESSION['Userdata'] = $studdata;
 	}
 
  ?>

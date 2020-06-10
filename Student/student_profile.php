@@ -3,12 +3,7 @@
   include('header.php');
   $data=$_SESSION['Userdata'];
 ?>
-<!--=================================
- Main content -->
-
- <!--=================================
-wrapper -->
-    <div class="content-wrapper header-info">
+  <div class="content-wrapper header-info">
       <!-- widgets -->
       <div class="mb-30">
            <div class="card h-100 ">
@@ -251,7 +246,16 @@ wrapper -->
       $stmt->bindParam(":pemail",$pemail);
       $stmt->execute();
       header('Refresh:0');
-    }
+
+      $stmt5=$con->prepare("CALL GET_STUDENT_DETAILS(:sid);");
+      $stmt5->bindparam(":sid",$sid);
+      $stmt5->execute();
+      $stmt5=$con->prepare("CALL GET_STUDENT_DETAILS(:sid);");
+      $stmt5->bindparam(":sid",$sid);
+      $stmt5->execute();
+      $studdata = $stmt5->fetch(PDO::FETCH_ASSOC);
+      $_SESSION['Userdata'] = $studdata;
+   }
 	}
 
  ?>

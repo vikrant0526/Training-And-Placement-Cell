@@ -65,8 +65,16 @@
 		     $stmt->bindParam(":company_logo_nam",$imgname);
          $stmt->execute();
          header('Refresh:0');
-	}
 
+         $stmt5=$con->prepare("CALL GET_COMPANY(:cid);");
+         $stmt5->bindparam(":cid",$cid);
+         $stmt5->execute();
+         $stmt5=$con->prepare("CALL GET_COMPANY(:cid);");
+         $stmt5->bindparam(":cid",$cid);
+         $stmt5->execute();
+         $companydata = $stmt5->fetch(PDO::FETCH_ASSOC);
+         $_SESSION['Userdata'] = $companydata;
+	}
  ?>
 <?php 
   include('footer.php');

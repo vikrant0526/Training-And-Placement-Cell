@@ -1,14 +1,7 @@
 <?php
   ob_start();
   include('header.php');
-  session_start();
 ?>
-<!--=================================
- Main content -->
-
-<!--=================================
-wrapper -->
-
 <div class="content-wrapper header-info">
     <div class="page-title">
         <div class="row">

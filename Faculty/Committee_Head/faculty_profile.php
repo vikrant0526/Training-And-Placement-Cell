@@ -158,6 +158,15 @@
       $stmt->bindParam(":email",$email);
       $stmt->execute();
       header('Refresh:0');
+
+      $stmt5=$con->prepare("CALL GET_FACULTY(:fid)");
+      $stmt5->bindparam(":fid",$fid);
+      $stmt5->execute();
+      $stmt5=$con->prepare("CALL GET_FACULTY(:fid)");
+      $stmt5->bindparam(":fid",$fid);
+      $stmt5->execute();
+      $facultdata = $stmt5->fetch(PDO::FETCH_ASSOC);
+      $_SESSION['Userdata'] = $facultdata;
     }
 	}
   ?>
