@@ -87,7 +87,7 @@
     $stmt3->bindparam(':studid', $sid);
     $stmt3->bindparam(':type', $type);
     $stmt3->execute();
- 
+    
 
     $stmt5=$con->prepare("CALL REMOVE_RECOMMENDATION(:rid)");
     $stmt5->bindparam(':rid', $rid);

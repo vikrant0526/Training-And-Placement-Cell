@@ -5,4 +5,6 @@ Student Show Company
 New Test Only Upcoming.
 Update event redirect.
 Update event reove batch.
+terminate message to CH
+Student For enterpreuner ship
 Committee Member-Faculty Dashboard
