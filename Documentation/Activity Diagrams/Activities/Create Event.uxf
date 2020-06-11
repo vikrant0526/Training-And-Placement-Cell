@@ -31,7 +31,9 @@
       <w>120</w>
       <h>120</h>
     </coordinates>
-    <panel_attributes>type=decision</panel_attributes>
+    <panel_attributes>type=decision
+[Select
+Event Nature]</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
