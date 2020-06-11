@@ -76,18 +76,17 @@
     
 
     $type = "SH";
-    $stmt3=$con->prepare("CALL INSERT_UPDATE_SHORTLIST(:rid,:select_id,:studid);");
+    $stmt3=$con->prepare("CALL INSERT_UPDATE_SHORTLIST(:rid,:select_id,:studid,:type);");
     $stmt3->bindparam(':rid', $rid);
     $stmt3->bindparam(':select_id', $select_id);
     $stmt3->bindparam(':studid', $sid);
     $stmt3->bindparam(':type', $type);
-    $stmt3=$con->prepare("CALL INSERT_UPDATE_SHORTLIST(:rid,:select_id,:studid);");
+    $stmt3=$con->prepare("CALL INSERT_UPDATE_SHORTLIST(:rid,:select_id,:studid,:type);");
     $stmt3->bindparam(':rid', $rid);
     $stmt3->bindparam(':select_id', $select_id);
     $stmt3->bindparam(':studid', $sid);
     $stmt3->bindparam(':type', $type);
     $stmt3->execute();
-    
 
     $stmt5=$con->prepare("CALL REMOVE_RECOMMENDATION(:rid)");
     $stmt5->bindparam(':rid', $rid);
