@@ -197,9 +197,9 @@
             <div class="pull-right font-weight-bold"><span class="right-nav-text"><i class="ti-plus"></i></span></div><div class="clearfix"></div>
           </a>
           <ul id="report" class="collapse" data-parent="#sidebarnav">
-            <li> <a href="r1.php"><i class="fas fa-hand-point-right"></i>Attendance</a></li>
-            <li> <a href="r2.php"><i class="fa fa-list"></i>Marks</a></li>
-            <li> <a href="r3.php"><i class="fa fa-hand-point-right"></i>Recommendations</a></li>
+            <li> <a href="attendance_report.php"><i class="fas fa-hand-point-right"></i>Attendance</a></li>
+            <li> <a href="marks_report.php"><i class="fa fa-list"></i>Marks</a></li>
+            <li> <a href="placed_student_report.php"><i class="fa fa-hand-point-right"></i>Placed Students</a></li>
           </ul>
         </li>
     </ul>

@@ -1,6 +1,7 @@
 <?php
-     ob_start();
+    ob_start();
     session_start();
+    include('../Files/PDO/dbcon.php');        
 ?>
 
 <!DOCTYPE html>
@@ -497,9 +498,6 @@
     }
     </script>
 </body>
-
-<!-- Mirrored from themes.potenzaglobalsolutions.com/html/webster-responsive-multi-purpose-html5-template/login-09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 19 Dec 2019 09:41:57 GMT -->
-
 </html>
 
 <?php
@@ -525,42 +523,75 @@
 
         move_uploaded_file($imgtempname, "com_logo/$imgname");
         try{
-            include('../Files/PDO/dbcon.php');
-            $cemailid=$_SESSION['cpemail'];
-            $pass=$_SESSION['cppass'];
-            $rpass=$_SESSION['cprpass'];
-            $imges="null";
-            $stmt=$con->prepare("CALL INSERT_COMPANY(:name,:ryear,:address,:email,:pn1,:pn2,:website,:password,:logo,:about,:tech,:noe,:maximum_pack,:minimum_pack,:hr_name,:hr_email)");   
-            $stmt->bindParam(':name',$cnmae);
-            $stmt->bindParam(':ryear',$ryear);
-            $stmt->bindParam(':address',$address);
-            $stmt->bindParam(':email',$cemailid);
-            $stmt->bindParam(':pn1',$contactno);
-            $stmt->bindParam(':pn2',$contactnoalt);
-            $stmt->bindParam(':website',$cweb);
-            $stmt->bindParam(':password',$pass);
-            $stmt->bindParam(':logo',$imgname);
-            $stmt->bindParam(':about',$about);
-            $stmt->bindParam(':tech',$t);
-            $stmt->bindParam(':noe',$noe);
-            $stmt->bindParam(':maximum_pack',$maxpack);
-            $stmt->bindParam(':minimum_pack',$minpack);
-            $stmt->bindParam(':hr_name',$hrname);
-            $stmt->bindParam(':hr_email',$hremail);
-            $stmt->execute();
-            if($stmt == TRUE){
-                header("Location: ../Login/login.php");
-                session_destroy();
-                session_start();
-                $_SESSION['datamess'] = "Your Registration is Completed<br>Please Login";
-             }else {
-                  ?>
-                    <script>
-                    alert('Your Details Are Not Save!!..');
-                    window.open('company_wizard.php', '_self');
-                    </script>
-                <?php
-             }
+
+            $stmt1=$con->prepare("CALL CHECK_USER_PHONE(:pnum)");
+            $stmt1->bindParam(':pnum',$contactno);
+            $stmt1->execute();
+            $stmt1=$con->prepare("CALL CHECK_USER_PHONE(:pnum)");
+            $stmt1->bindParam(':pnum',$contactno);
+            $stmt1->execute();
+            $rowsdata1 = $stmt1->fetch(PDO::FETCH_ASSOC);
+            $phone_user="";
+            if(isset($rowsdata1)){
+            $phone_user = $rowsdata1['LOGIN_USER_PHONE_NUMBER'];
+            }
+
+            if($phone_user == $contactno){
+                echo "<script>alert('Phone Number Exist')</script>";
+            }else{
+                        $cemailid=$_SESSION['cpemail'];
+                        $pass=$_SESSION['cppass'];
+                        $rpass=$_SESSION['cprpass'];
+                        $stmt=$con->prepare("CALL INSERT_COMPANY(:name,:ryear,:address,:email,:pn1,:pn2,:website,:password,:logo,:about,:tech,:noe,:maximum_pack,:minimum_pack,:hr_name,:hr_email)");   
+                        $stmt->bindParam(':name',$cnmae);
+                        $stmt->bindParam(':ryear',$ryear);
+                        $stmt->bindParam(':address',$address);
+                        $stmt->bindParam(':email',$cemailid);
+                        $stmt->bindParam(':pn1',$contactno);
+                        $stmt->bindParam(':pn2',$contactnoalt);
+                        $stmt->bindParam(':website',$cweb);
+                        $stmt->bindParam(':password',$pass);
+                        $stmt->bindParam(':logo',$imgname);
+                        $stmt->bindParam(':about',$about);
+                        $stmt->bindParam(':tech',$t);
+                        $stmt->bindParam(':noe',$noe);
+                        $stmt->bindParam(':maximum_pack',$maxpack);
+                        $stmt->bindParam(':minimum_pack',$minpack);
+                        $stmt->bindParam(':hr_name',$hrname);
+                        $stmt->bindParam(':hr_email',$hremail);
+                        $stmt->execute();
+                        $stmt=$con->prepare("CALL INSERT_COMPANY(:name,:ryear,:address,:email,:pn1,:pn2,:website,:password,:logo,:about,:tech,:noe,:maximum_pack,:minimum_pack,:hr_name,:hr_email)");   
+                        $stmt->bindParam(':name',$cnmae);
+                        $stmt->bindParam(':ryear',$ryear);
+                        $stmt->bindParam(':address',$address);
+                        $stmt->bindParam(':email',$cemailid);
+                        $stmt->bindParam(':pn1',$contactno);
+                        $stmt->bindParam(':pn2',$contactnoalt);
+                        $stmt->bindParam(':website',$cweb);
+                        $stmt->bindParam(':password',$pass);
+                        $stmt->bindParam(':logo',$imgname);
+                        $stmt->bindParam(':about',$about);
+                        $stmt->bindParam(':tech',$t);
+                        $stmt->bindParam(':noe',$noe);
+                        $stmt->bindParam(':maximum_pack',$maxpack);
+                        $stmt->bindParam(':minimum_pack',$minpack);
+                        $stmt->bindParam(':hr_name',$hrname);
+                        $stmt->bindParam(':hr_email',$hremail);
+                        $stmt->execute();
+                        if($stmt == TRUE){
+                            header("Location: ../Login/login.php");
+                            session_destroy();
+                            session_start();
+                            $_SESSION['datamess'] = "Your Registration is Completed<br>Please Login";
+                        }else {
+                            ?>
+                                <script>
+                                alert('Your Details Are Not Save!!..');
+                                window.open('company_wizard.php', '_self');
+                                </script>
+                            <?php
+                        }
+                    }
         }catch(Exception $e)
         {
             die($e);

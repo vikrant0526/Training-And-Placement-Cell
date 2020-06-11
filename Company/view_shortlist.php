@@ -46,16 +46,16 @@
     				    			$stmt2->bindParam(":studid",$studid);     
     				    			$stmt2->execute(); 
     				    			while ($studdata = $stmt2->fetch(PDO::FETCH_ASSOC)) {
-                      $student_id=$studdata["STUDENT_ID"];
-                      $stmt3=$con->prepare("CALL GET_STIPEND_STUDENT(:studid,:selection_list_id)");
-                      $stmt3->bindParam(":studid",$student_id);   
-                      $stmt3->bindParam(":selection_list_id",$selection_list_id);   
-                      $stmt3->execute();
-                      $stmt3=$con->prepare("CALL GET_STIPEND_STUDENT(:studid,:selection_list_id)");
-                      $stmt3->bindParam(":studid",$student_id);   
-                      $stmt3->bindParam(":selection_list_id",$selection_list_id);   
-                      $stmt3->execute();
-                      ?>
+                                    $student_id=$studdata["STUDENT_ID"];
+                                    $stmt3=$con->prepare("CALL GET_STIPEND_STUDENT(:studid,:selection_list_id)");
+                                    $stmt3->bindParam(":studid",$student_id);   
+                                    $stmt3->bindParam(":selection_list_id",$selection_list_id);   
+                                    $stmt3->execute();
+                                    $stmt3=$con->prepare("CALL GET_STIPEND_STUDENT(:studid,:selection_list_id)");
+                                    $stmt3->bindParam(":studid",$student_id);   
+                                    $stmt3->bindParam(":selection_list_id",$selection_list_id);   
+                                    $stmt3->execute();
+                                    ?>
                                     <tr>
                                         <td><img src="../Student/Profile_pic/<?php echo $studdata["STUDENT_PROFILE_PIC"]; ?>"
                                                 style="height: 120px;width: 120px;"></td>

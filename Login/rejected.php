@@ -77,7 +77,7 @@
                 <br>
                 <hr style="border-top: 1px solid white">
                 <br>
-                <p class="mb-10 text-white pl-1 text-capitalize text-justify">looks like your account is <strong>not rejected </strong>by the committee head. for more details fill the contact form with subject <strong>"I am Rejected!"</strong>.</p>
+                <p class="mb-10 text-white pl-1 text-capitalize text-justify">looks like your account is <strong>rejected </strong>by the committee head. for more details fill the contact form with subject <strong>"I am Rejected!"</strong>.</p>
                 <br>
                 <a href="logout.php"><button class="btn btn-outline-light float-right">Back to Login</button></a>
                 <a href="../contact_us.php"><button class="btn btn-outline-light float-left">Contact Us</button></a>

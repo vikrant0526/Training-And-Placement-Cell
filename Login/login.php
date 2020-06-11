@@ -167,9 +167,15 @@
                 $stmt2->execute();
                 $data = $stmt2->fetch(PDO::FETCH_ASSOC);
                 $_SESSION['Userdata']=$data;
-                  header('Location: ../Student/student_dashboard.php');
+                //   header('Location: ../Student/student_dashboard.php');
                 // print_r($_SESSION['Userdata']);
-              
+                if ($data['STUDENT_STATUS']=='0') {
+                    header('Location: ../Student/student_dashboard.php');
+                }
+                else
+                {
+                    header('Location: student_end.php');
+                }
           }
            ob_flush();
         }

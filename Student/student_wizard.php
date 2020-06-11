@@ -468,7 +468,6 @@
         }
 
         
-
         $stmt2=$con->prepare("CALL CHECK_ENROLLMENT_NUMBER(:eno)");
         $stmt2->bindParam(':eno',$enum);
         $stmt2->execute();

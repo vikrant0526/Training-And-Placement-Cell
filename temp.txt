@@ -1,9 +1,8 @@
-Login Code remaining
-All Page titles
 Sweet Alerts
 Broadcast PLacement Schedule
 Repair resume builder flow.
 Student Show Company
 New Test Only Upcoming.
 Update event redirect.
+Update event reove batch.
 Committee Member-Faculty Dashboard
