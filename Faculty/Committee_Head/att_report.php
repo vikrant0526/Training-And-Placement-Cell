@@ -34,6 +34,7 @@
                 <table class="table table-responsive">
                 <tr>
                     <td>Sr.No</td>
+                    <td>Enrollment Number</td>
                     <td>Student</td>
                     <td>Attendance</td>
                 </tr>
@@ -44,6 +45,7 @@
                 ?>
                     <tr>
                         <td><?php echo $sr_cnt;?></td>
+                        <td><?php echo $x["STUDENT_ENROLLMENT_NUMBER"];?></td>
                         <td><?php echo $x['STUDENT_FIRST_NAME'];?> <?php echo $x['STUDENT_FIRST_NAME'];?></td>
                         <td>
                             <?php 
@@ -64,7 +66,7 @@
     }
 if ($cnt==1) {
     ?>
-<a href="attendance_pdf_report.php?cid=<?php echo $cid;?>&dept=<?php echo $dept;?>&degree=<?php echo $degree;?>&pyear=<?php echo $pyear;?>"><button class="btn btn-outline-warning btn-block"><i class="fa fa-download" aria-hidden="true"></i> Download</button></a>
+<a href="attendance_pdf_report.php?cid=<?php echo $cid;?>&dept=<?php echo $dept;?>&degree=<?php echo $degree;?>&pyear=<?php echo $pyear;?>"><button type="button" class="btn btn-outline-warning btn-block"><i class="fa fa-download" aria-hidden="true"></i> Download</button></a>
 <?php
 }
 ?>

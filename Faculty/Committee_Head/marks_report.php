@@ -88,8 +88,10 @@
         }
         function get_marks(){ 
             var xmlhttp=new XMLHttpRequest();
-            xmlhttp.open("GET","mrk_report.php?tid="+document.getElementById("tests").value,false);
+            xmlhttp.open("GET","mrk_report.php?tid="+document.getElementById("tests").value+"&"+"dept="+document.getElementById("dept").value+"&"+
+                              "degree="+document.getElementById("degree").value+"&"+"pyear="+document.getElementById("pyear").value,false);
             xmlhttp.send(null);
+            // alert(xmlhttp.responseText);
             document.getElementById("marks").innerHTML=xmlhttp.responseText;
         }
         </script>
