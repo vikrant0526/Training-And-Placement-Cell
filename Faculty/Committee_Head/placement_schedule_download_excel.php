@@ -1,14 +1,14 @@
-<?php 
-  ob_start();
-  include('header.php');
- 
-  $data=$_SESSION['Userdata'];
+<?php
+    header("Content-type: application/vnd.ms-excel");
+    header("Content-Disposition: attachment; filename=Placement_schedule.xlsx");
 
-  include('../../Files/PDO/dbcon.php'); 
-  $stmt=$con->prepare("CALL GET_PLACMENT_SCHEDULE()");
-  $stmt->execute();
-?>
-    <div class="content-wrapper header-info">
+    session_start();
+    $data=$_SESSION['Userdata'];
+    include('../../Files/PDO/dbcon.php'); 
+    $stmt=$con->prepare("CALL GET_PLACMENT_SCHEDULE()");
+    $stmt->execute();
+ ?>
+<div class="content-wrapper header-info">
       <!-- widgets -->
       <div class="mb-30">
            <div class="card h-100">
@@ -44,14 +44,8 @@
                   }
                   ?>
                </table>
-               <td><a href="placement_schedule_download.php"><button class="btn btn-outline-warning"><i class="fa fa-download"></i>Download</button></a></td>
-               <td><a href="placement_schedule_download_excel.php"><button class="btn btn-outline-warning"><i class="fa fa-download"></i>Download</button></a></td>      
               </li>
             </ul>
            </div>
           </div>
         </div>
-<?php 
-  include('footer.php');
-  ob_flush();
-?>      

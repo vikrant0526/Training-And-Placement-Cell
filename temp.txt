@@ -1,10 +1,9 @@
 Sweet Alerts
-Broadcast PLacement Schedule
 Repair resume builder flow.
 Student Show Company
-New Test Only Upcoming.
 Update event redirect.
 Update event reove batch.
 terminate message to CH
 Student For enterpreuner ship
+
 Committee Member-Faculty Dashboard
