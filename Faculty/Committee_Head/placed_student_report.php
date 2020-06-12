@@ -24,8 +24,8 @@
                     	<select name="dept" class="form-control p-1 pl-3" id="dept" onchange="course()" autofocus>
                             <option>Select Report Pattern</option>
                             <option value="BMIIT">BMIIT</option>
-		                    <option value="SRIMCA">SRIMCA</option>
-							<option value="CGPIT">CGPIT</option>
+		                        <option value="SRIMCA">SRIMCA</option>
+							              <option value="CGPIT">CGPIT</option>
     					</select>
                     </div>
                   </div>
