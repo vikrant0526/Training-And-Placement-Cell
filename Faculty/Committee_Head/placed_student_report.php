@@ -11,7 +11,7 @@
     <div class="mb-30">
         <div class="card h-100 ">
             <div class="card-body h-100">
-                <h4 class="card-title">Fill Attendance</h4>
+                <h4 class="card-title">Pleacement Recode</h4>
                 <!-- action group -->
                 <div class="scrollbar">
                     <ul class="list-unstyled">
@@ -31,11 +31,6 @@
                         <div id="pattern_selector"></div>
                         <div id="data_display"></div>
                         <li>
-                          <div class="media">
-                            <div class="media-body mb-2">
-                            <input type="submit" name="submit" value="Submit" class="button button-border x-small">
-                            </div>
-                          </div>
                         </li>
                         </form>
                     </ul>

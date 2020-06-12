@@ -6,6 +6,8 @@
     $stmt=$con->prepare("CALL GET_COMPANY_FOR_REPORT(:year);");
     $stmt->bindParam(":year",$year);
     $stmt->execute();
+    $row=$stmt->rowcount();
+    if ($row>0) {
     ?>
     <table class="table table-responsive">
         <tr>
@@ -49,5 +51,13 @@
         </tr>
     <?php 
     }
+}
     ?>
 </table>
+<?php 
+    if ($row>0) {
+        ?>
+        <a href="place_stud_company.php?pyear=<?php echo $year; ?>"><button type="button" class="btn btn-sm btn-outline-warning"><i class="fa fa-download" aria-hidden="true"></i> Download</button></a>
+        <?php
+    }
+?>

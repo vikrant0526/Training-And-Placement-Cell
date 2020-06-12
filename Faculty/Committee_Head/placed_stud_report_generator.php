@@ -11,6 +11,7 @@
     $stmt->bindParam(":pyear",$pyear);
     $stmt->execute();
     $row=$stmt->rowcount();
+    if($row>0){
     ?>
         <table class="table table-responsive">
         <tr>
@@ -36,10 +37,13 @@
         </tr>
         <?php
     }
-    if ($row>0) {
-        ?>
-            <a href=""><button class="btn btn-sm btn-outline-warning"><i class="fa fa-download" aria-hidden="true"></i> Download</button></a>
-        <?php
-    }
+}
 ?>
 </table>
+<?php
+if ($row>0) {
+        ?>
+        <a href="place_stud.php?dept=<?php echo $dept;?>&degree=<?php echo $degree; ?>&pyear=<?php echo $pyear; ?>"><button type="button" class="btn btn-sm btn-outline-warning"><i class="fa fa-download" aria-hidden="true"></i> Download</button></a>
+        <?php
+}
+?>
