@@ -10,6 +10,7 @@
     $stmt->bindParam(":degree",$degree);
     $stmt->bindParam(":pyear",$pyear);
     $stmt->execute();
+    $row=$stmt->rowcount();
     ?>
         <table class="table table-responsive">
         <tr>
@@ -33,6 +34,11 @@
             <td><?php echo $data['TRAINING_OFFERED_STIPEND'];?></td>
             <td><?php echo $data['PLACEMENT_OFFERED_PACKAGE'];?></td>
         </tr>
+        <?php
+    }
+    if ($row>0) {
+        ?>
+            <a href=""><button class="btn btn-sm btn-outline-warning"><i class="fa fa-download" aria-hidden="true"></i> Download</button></a>
         <?php
     }
 ?>
