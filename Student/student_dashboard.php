@@ -142,7 +142,11 @@
                                         <a
                                             href="accept_training.php?nid=<?php echo $data['NOTIFICATION_ID']; ?>&slid=<?php echo $id; ?>"><button
                                                 class="btn btn-sm btn-outline-success float-right mb-2"><i
-                                                    class="fa fa-check"></i> Accept</button></a></p>
+                                                    class="fa fa-check"></i> Accept</button></a>
+                                        <a
+                                            href="Company_profile.php?cid=<?php echo $companydata['COMPANY_ID']; ?>"><button
+                                                class="btn btn-sm btn-outline-info float-right mb-2"><i
+                                                    class="fa fa-eye"></i> View</button></a></p>
                                     <div>
                                         <hr style="border-top: 1px solid #495057">
                                     </div>
@@ -199,6 +203,28 @@
                             </div>
                         </li>
                         <?php
+                }
+                elseif ($data['NOTIFICATION_TYPE'] == 'TRREG') {
+                  ?>
+                        <li class="">
+                            <div class="media">
+                                <div class="media-body">
+                                    <h6 class="mt-0">Hey!!<small
+                                            class="float-right"><?php echo $data['NOTIFICATION_TIME_STAMP']; ?></small>
+                                    </h6>
+                                    <p><?php echo $data['NOTIFICATION_DESCRPTION']; ?>
+
+                                        <a href="remove_notficaton.php?nid=<?php echo $data['NOTIFICATION_ID']; ?>"><button
+                                                class="btn btn-sm btn-outline-secondary float-right mb-2"><i
+                                                    class="fa fa-times"></i> Remove</button></a></p>
+                                    <div>
+                                        <hr style="border-top: 1px solid #495057">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <?php
+                        
                 }
                }
                 ?>

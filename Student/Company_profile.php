@@ -6,7 +6,7 @@
 ?>
 <?php
                 $count=0;
-                include('../../Files/PDO/dbcon.php');
+                include('../Files/PDO/dbcon.php');
                 $id=$_SESSION['lid'];
                 $type=$_SESSION['lut'];
                 $stmt=$con->prepare("CALL GET_COMPANY(:cid);");
@@ -25,7 +25,7 @@
                   <div class="row">
                     <div class="col-lg-6 align-self-center">
                          <div style="width: 125px;height: 125px; position: relative; overflow: hidden;border-radius: 50%;">
-                                                <img src="../../Company/com_logo/<?php echo $data['COMPANY_LOGO']; ?>"  id="profileDisplay" style="display: block;margin: -5px auto;" class="w-100 h-100">
+                         <img src="../Company/com_logo/<?php echo $data['COMPANY_LOGO']; ?>"  id="profileDisplay" style="display: block;margin: -5px auto;" class="w-100 h-100">
                                             </div>
                     </div>
                     <!-- <div class="col-lg-6 text-right align-self-center">

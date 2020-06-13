@@ -63,8 +63,6 @@
 					</div>
 					<?php } ?>
                 </li>  
-
-
                  <li>
                   <div class="media">
                     <div class="media-body mb-2">

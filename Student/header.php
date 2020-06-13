@@ -98,13 +98,6 @@
     </li>
   </ul>
 </nav>
-
-<!--=================================
- header End-->
-
-<!--=================================
- Main content -->
- 
 <div class="container-fluid">
   <div class="row">
     <!-- Left Sidebar -->
@@ -116,6 +109,7 @@
             <div class="pull-left"><i class="fa fa-home"></i><span class="right-nav-text">Home</span></div><div class="clearfix"></div>
           </a>
         </li>
+        
         <li>
           <a href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard">
             <div class="pull-left"><i class="fa fa-edit"></i><span class="right-nav-text">Resume</span></div>
@@ -131,6 +125,11 @@
         <li>
           <a href="Upload_resume.php">
             <div class="pull-left"><i class="fa fa-upload"></i><span class="right-nav-text">Upload Resume</span></div><div class="clearfix"></div>
+          </a>
+        </li>
+        <li>
+          <a href="terminate_process_request.php">
+            <div class="pull-left"><i class="fa fa-times-circle"></i><span class="right-nav-text">Termination Request</span></div><div class="clearfix"></div>
           </a>
         </li>
         <li>

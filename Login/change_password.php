@@ -221,7 +221,7 @@
                 <form action="#" method="post">
                   <div class="section-field mb-20">
                     <label class="mb-10 text-dark font-weight-bold"for="name">Old Password<label class="text-danger">*</label></label>
-                    <input id="password2" class="Password form-control" type="password" placeholder="Password" name="old_pswd" required>
+                    <input id="password2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" class="Password form-control" type="password" placeholder="Password" name="old_pswd" required>
                     <span class="error"><?php echo $roldpass;?></span> 
                   </div>
                   <div class="section-field mb-20">
@@ -232,7 +232,7 @@
                   </div>
                   <div class="section-field mb-20">
                     <label class="mb-10 text-dark font-weight-bold" for="name">Re-Type Password<label class="text-danger">*</label></label>
-                    <input id="confirm2" class="Password form-control" type="password" placeholder="Re-Type Password" name="rpswd" onkeyup="checkPass();" required>
+                    <input id="confirm2" class="Password form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" type="password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Re-Type Password" name="rpswd" onkeyup="checkPass();" required>
                     <span class="error"><?php echo $rrpass;?></span> 
                      <span class="error"><?php echo $upassmess;?></span> 
                     <span id="confirm-message2" class="confirm-message"></span>

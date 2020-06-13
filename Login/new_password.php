@@ -214,7 +214,8 @@ function checkPass()
                   </div>
                   <div class="section-field mb-20">
                     <label class="mb-10 text-dark font-weight-bold" for="name">Re-Type Password<label class="text-danger">*</label></label>
-                    <input id="confirm2" class="Password form-control" type="password" placeholder="Re-Type Password" name="rpswd" onkeyup="checkPass();" required>
+                    <input id="confirm2" class="Password form-control" type="password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                     title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Re-Type Password" name="rpswd" onkeyup="checkPass();" required>
                     <span id="confirm-message2" class="confirm-message"></span>
                   </div>
                   <br><br>

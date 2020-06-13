@@ -53,17 +53,9 @@
       $stmt=$con->prepare("CALL LOGIN_AUTHENTICATION(:uname,:pass)");
       $stmt->bindParam(':uname',$uname);
       $stmt->bindParam(':pass',$pass);
-      //$stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $stmt->execute();
-      //This will used for fetch all row of my pdo select query
-      // $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
-      // print_r($row);
-      //print_r($rowsdata);
-        $row =$stmt->rowCount();
-      //echo $row;
-
-         $rowsdata = $stmt->fetch(PDO::FETCH_ASSOC);
-      
+      $stmt->execute();
+      $row =$stmt->rowCount();
+      $rowsdata = $stmt->fetch(PDO::FETCH_ASSOC);
          
          if( $rowsdata > 0){
          $lid  = $rowsdata['LOGIN_REFERENCE_ID'];
@@ -359,7 +351,7 @@
                                     <div class="section-field mb-20">
                                         <label class="mb-10 text-dark font-weight-bold" for="Password">Password<label
                                                 class="text-danger">*</label></label>
-                                        <input id="Password" class="Password form-control" type="password"
+                                        <input id="Password" class="Password form-control"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  type="password"
                                             placeholder="Password" name="pass">
                                         <span class="error"><?php echo $passeorr;?></span>
                                         <span class="error"><?php echo $upinvalid;?></span>

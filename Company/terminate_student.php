@@ -10,8 +10,6 @@
     $facultydata=$stmt5->fetch(PDO::FETCH_ASSOC); 
     $chid = $facultydata["FACULTY_ID"];
 
-
-
     $stmt3=$con->prepare("CALL TERMINATE_STUDENT_UNDER_TRAINING(:sid,:cid,:chid)");
     $stmt3->bindParam(":sid",$sid); 
     $stmt3->bindParam(":cid",$cid); 
