@@ -61,6 +61,7 @@
       $stmt5->execute();
       $facultydata=$stmt5->fetch(PDO::FETCH_ASSOC); 
       $chid = $facultydata["FACULTY_ID"];
+      // print_r($stmt5->errorinfo());
 
       $stmt=$con->prepare("CALL TERMINATION_REQUEST(:sid,:type,:reason,:chid)");
       $stmt->bindParam(":sid",$sid);
@@ -74,6 +75,7 @@
       $stmt->bindParam(":reason",$des);
       $stmt->bindParam(":chid",$chid);
       $stmt->execute();  
+      // print_r($stmt->errorinfo());
       if($stmt == TRUE){
           echo "<script>alert('Your Termination Request Will be Send To Committee Head')</script>";
       }else{

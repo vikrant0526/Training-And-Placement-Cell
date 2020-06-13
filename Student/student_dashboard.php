@@ -214,7 +214,7 @@
                                     </h6>
                                     <p><?php echo $data['NOTIFICATION_DESCRPTION']; ?>
 
-                                        <a href="remove_notficaton.php?nid=<?php echo $data['NOTIFICATION_ID']; ?>"><button
+                                        <a href="remove_notification.php?nid=<?php echo $data['NOTIFICATION_ID']; ?>"><button
                                                 class="btn btn-sm btn-outline-secondary float-right mb-2"><i
                                                     class="fa fa-times"></i> Remove</button></a></p>
                                     <div>

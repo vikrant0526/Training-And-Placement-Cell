@@ -56,9 +56,9 @@
     
     $email = $data1['COMPANY_EMAIL'];
 
-    setcookie($cnt, $msg, time() + (10), "/");
-    setcookie("subject".$cnt, $_REQUEST['subject'], time() + (10), "/");
-    setcookie("email".$cnt, $data1['COMPANY_EMAIL'], time() + (10), "/");
+    setcookie($cnt, $msg, time() + (360), "/");
+    setcookie("subject".$cnt, $_REQUEST['subject'], time() + (360), "/");
+    setcookie("email".$cnt, $data1['COMPANY_EMAIL'], time() + (360), "/");
 
     ?>
     <script type="text/javascript">

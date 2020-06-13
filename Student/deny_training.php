@@ -42,5 +42,6 @@
     $stmt7->bindParam(":stud_id",$sid);
     $stmt7->execute();
 
-    header("location: student_dashboard.php");
+    header("Location: ../Login/logout.php");    
+    
 ?>

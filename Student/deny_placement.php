@@ -17,5 +17,5 @@
     $stmt6->bindParam(":nid",$nid);
     $stmt6->execute();
 
-    header("location: student_dashboard.php");    
+    header("Location: ../Login/logout.php");    
 ?>
