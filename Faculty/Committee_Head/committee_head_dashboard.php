@@ -170,8 +170,39 @@ wrapper -->
                             </div>
                         </li>
                         <?php
+                  }elseif ($data['NOTIFICATION_TYPE'] == 'TRMNT') {
+                    $cid=$data['NOTIFICATION_SENDER_ID'];
+                    $type='CP';
+                    $stmt5=$con->prepare(" CALL GET_USERNAME(:cid, :type);");
+                    $stmt5->bindparam(":cid",$cid);
+                    $stmt5->bindparam(":type",$type);
+                    $stmt5->execute();
+                    $stmt5=$con->prepare(" CALL GET_USERNAME(:cid, :type);");
+                    $stmt5->bindparam(":cid",$cid);
+                    $stmt5->bindparam(":type",$type);
+                    $stmt5->execute();
+                    $companydata=$stmt5->fetch(PDO::FETCH_ASSOC); 
+                    $cmpny_name=$companydata["uname"];
+                    ?>
+                        <li class="">
+                            <div class="media">
+                                <div class="media-body">
+                                    <h6 class="mt-0"><?php echo $cmpny_name; ?><small
+                                            class="float-right"><?php echo $data['NOTIFICATION_TIME_STAMP']; ?></small>
+                                    </h6>
+                                    <p><?php echo $data['NOTIFICATION_DESCRPTION']; ?>
+                                        <a href="remove_notification.php?nid=<?php echo $data['NOTIFICATION_ID']; ?>"><button
+                                                class="btn btn-sm btn-outline-secondary float-right ml-2 mb-2"><i
+                                                    class="fa fa-times"></i> Remove</button></a>
+                                    </p>
+                                    <div>
+                                        <hr>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <?php
                   }
-                
                 }
                 ?>
                     </ul>

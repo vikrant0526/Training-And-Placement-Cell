@@ -207,10 +207,9 @@
               xmlhttp.open("GET","company_id.php?eve="+document.getElementById("eventfor").value,false);
               xmlhttp.send(null);
               document.getElementById("cmp_id").innerHTML=xmlhttp.responseText;
+              var cid = <?php echo json_encode($cid); ?>;
+              document.getElementById("cmp").value = cid;
         }
-        var cid = <?php echo json_encode($cid); ?>;
-        alert(cid);
-        document.getElementById("cmp").value = cid;
         </script>
 
 <?php 
@@ -280,7 +279,7 @@
           $stmt->execute();
           ?>
             <script type="text/javascript">
-              window.location.replace("update_event_reloader.php?eid=<?php echo $eid; ?>");
+              window.location.replace("upcoming_events.php");
             </script>
           <?php
       }
