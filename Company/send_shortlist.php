@@ -41,6 +41,7 @@
        $stmt8=$con->prepare("CALL GET_STUDENT_DETAILS(:sid)");
    		 $stmt8->bindParam(":sid",$student_id);     
        $stmt8->execute(); 
+       $stipend_cnt=0;
    	  //print_r($stmt8->errorinfo());		  
 			while ($studdata = $stmt8->fetch(PDO::FETCH_ASSOC)) {
                 $student_id=$studdata["STUDENT_ID"];
@@ -52,9 +53,11 @@
                   $stmt9->bindParam(":studid",$student_id);   
                   $stmt9->bindParam(":selection_list_id",$selection_list_id);        
                   $stmt9->execute();
-                  print_r($stmt9->errorinfo());
                   while ($stipentdata = $stmt9->fetch(PDO::FETCH_ASSOC)) {
-                    $stipend[$i]  = $stipentdata["TRAINING_OFFERED_STIPEND"];
+                    if (isset($stipentdata['TRAINING_OFFERED_STIPEND'])) {
+                      $stipend_cnt=1;
+                    }
+                    $stipend[$i]  = $stipentdata["TRAINING_OFFERED_STIPEND"]; 
                   }
                 $student_name = $studdata["STUDENT_FIRST_NAME"]." ".$studdata["STUDENT_LAST_NAME"];
 			    			$sname[$i] = $student_name;
@@ -127,26 +130,26 @@
                   $rec_type="CH";
                   $type="CSL";
                   $des="New Event: ".$company_name." Short List";
-                  $stmt22=$con->prepare("CALL INSERT_SHORTLIST_NOTIFICATION(:senderid,:rec_id,:sender_type,:rec_type,:type,:des,:short_id)"); 
-                  $stmt22->bindParam(":senderid",$cid);
-                  $stmt22->bindParam(":rec_id",$faculty_id);  
-                  $stmt22->bindParam(":sender_type",$sen_type);  
-                  $stmt22->bindParam(":rec_type",$rec_type);  
-                  $stmt22->bindParam(":type",$type);  
-                  $stmt22->bindParam(":des",$des);   
-                  $stmt22->bindParam(":short_id",$selection_list_id);   
-                  $stmt22->execute();   
-                  $stmt22=$con->prepare("CALL INSERT_SHORTLIST_NOTIFICATION(:senderid,:rec_id,:sender_type,:rec_type,:type,:des,:short_id)"); 
-                  $stmt22->bindParam(":senderid",$cid);
-                  $stmt22->bindParam(":rec_id",$faculty_id);  
-                  $stmt22->bindParam(":sender_type",$sen_type);  
-                  $stmt22->bindParam(":rec_type",$rec_type);  
-                  $stmt22->bindParam(":type",$type);  
-                  $stmt22->bindParam(":des",$des);   
-                  $stmt22->bindParam(":short_id",$selection_list_id);   
-                  $stmt22->execute();
 
-              if(!empty($stipend) && !empty($sname)){                
+              if($stipend_cnt==1 && !empty($sname)){             
+                $stmt22=$con->prepare("CALL INSERT_SHORTLIST_NOTIFICATION(:senderid,:rec_id,:sender_type,:rec_type,:type,:des,:short_id)"); 
+                $stmt22->bindParam(":senderid",$cid);
+                $stmt22->bindParam(":rec_id",$faculty_id);  
+                $stmt22->bindParam(":sender_type",$sen_type);  
+                $stmt22->bindParam(":rec_type",$rec_type);  
+                $stmt22->bindParam(":type",$type);  
+                $stmt22->bindParam(":des",$des);   
+                $stmt22->bindParam(":short_id",$selection_list_id);   
+                $stmt22->execute();   
+                $stmt22=$con->prepare("CALL INSERT_SHORTLIST_NOTIFICATION(:senderid,:rec_id,:sender_type,:rec_type,:type,:des,:short_id)"); 
+                $stmt22->bindParam(":senderid",$cid);
+                $stmt22->bindParam(":rec_id",$faculty_id);  
+                $stmt22->bindParam(":sender_type",$sen_type);  
+                $stmt22->bindParam(":rec_type",$rec_type);  
+                $stmt22->bindParam(":type",$type);  
+                $stmt22->bindParam(":des",$des);   
+                $stmt22->bindParam(":short_id",$selection_list_id);   
+                $stmt22->execute();   
                     if($mail->send())
                     {
                               header('Location: show_shortlist.php');
@@ -155,6 +158,7 @@
                       {
                               echo "<script>alert('Mail Not Send')</script>";  
                       }	
+                    // echo "<script>alert('no error');</script>";
               }else{
                 $_SESSION["errorforstipend"]="Student Stipend Not Entred Or Student Not Added";  
                 header('Location: show_shortlist.php');

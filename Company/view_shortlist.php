@@ -31,15 +31,13 @@
                                         <td>En No.</td>
                                         <td>Name</td>
                                         <td>Stipend</td>
-                                        <!-- <td>Documents</td> -->
                                         <td>Delete</td>
                                     </tr>
                                     <?php 
 						     $x=1;
 						     while ($data = $stmt->fetch(PDO::FETCH_ASSOC)) {
 						     		$studid=$data["SHORTLIST_STUDENT_ID"];	
-                    // echo "$studid";
-						     		  $stmt2=$con->prepare("CALL GET_STUDENT_DETAILS(:studid)");
+ 						     		$stmt2=$con->prepare("CALL GET_STUDENT_DETAILS(:studid)");
     				    			$stmt2->bindParam(":studid",$studid);     
     				    			$stmt2->execute(); 
     				    			$stmt2=$con->prepare("CALL GET_STUDENT_DETAILS(:studid)");
@@ -47,14 +45,14 @@
     				    			$stmt2->execute(); 
     				    			while ($studdata = $stmt2->fetch(PDO::FETCH_ASSOC)) {
                                     $student_id=$studdata["STUDENT_ID"];
-                                    $stmt3=$con->prepare("CALL GET_STIPEND_STUDENT(:studid,:selection_list_id)");
-                                    $stmt3->bindParam(":studid",$student_id);   
-                                    $stmt3->bindParam(":selection_list_id",$selection_list_id);   
-                                    $stmt3->execute();
-                                    $stmt3=$con->prepare("CALL GET_STIPEND_STUDENT(:studid,:selection_list_id)");
-                                    $stmt3->bindParam(":studid",$student_id);   
-                                    $stmt3->bindParam(":selection_list_id",$selection_list_id);   
-                                    $stmt3->execute();
+                                        $stmt3=$con->prepare("CALL GET_STIPEND_STUDENT(:studid,:selection_list_id)");
+                                        $stmt3->bindParam(":studid",$student_id);   
+                                        $stmt3->bindParam(":selection_list_id",$selection_list_id);   
+                                        $stmt3->execute();
+                                        $stmt3=$con->prepare("CALL GET_STIPEND_STUDENT(:studid,:selection_list_id)");
+                                        $stmt3->bindParam(":studid",$student_id);   
+                                        $stmt3->bindParam(":selection_list_id",$selection_list_id);   
+                                        $stmt3->execute();
                                     ?>
                                     <tr>
                                         <td><img src="../Student/Profile_pic/<?php echo $studdata["STUDENT_PROFILE_PIC"]; ?>"
@@ -74,8 +72,7 @@
                                     <?php
                             }
                       while ($stipentdata = $stmt3->fetch(PDO::FETCH_ASSOC)) {
-                         //print_r($stipentdata);
-						        ?>
+                      	        ?>
                                     <?php
                           if($stipentdata["TRAINING_OFFERED_STIPEND"] == "0"){
                             ?>

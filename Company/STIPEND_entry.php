@@ -4,6 +4,7 @@
    $data=$_SESSION['Userdata'];
    $cid = $data["COMPANY_ID"];
    $cname= $data["COMPANY_NAME"];
+   error_reporting(0);
    include('../Files/PDO/dbcon.php');
    $selection_list_id=$_GET["sid"];
    $_SESSION["selection_list_id"]=$_GET["sid"]; 
@@ -44,20 +45,46 @@
     				    			$stmt2->execute(); 
     				    			$stmt2=$con->prepare("CALL GET_STUDENT_DETAILS(:studid)");
     				    			$stmt2->bindParam(":studid",$studid);     
-    				    			$stmt2->execute(); 
+									$stmt2->execute(); 	
+									
     				    			while ($studdata = $stmt2->fetch(PDO::FETCH_ASSOC)) {
-						        ?>
-						         <tr>
-						            <td><img src="../Student/Profile_pic/<?php echo $studdata["STUDENT_PROFILE_PIC"]; ?>" style="height: 120px;width: 120px;"></td>
-						            <td><?php echo $studdata["STUDENT_ENROLLMENT_NUMBER"]; ?></td>
-						            <td><?php echo $studdata["STUDENT_FIRST_NAME"]." ".$studdata["STUDENT_LAST_NAME"]; ?></td>
-                       				<td>
-                       					<input type="text" class="form-control" name="stipend_student<?php echo $count;?>" required>
-                       					<input type="hidden" class="form-control"name="student_id<?php echo $count;?>"
-                       					value="<?php echo $studdata['STUDENT_ID'];?>" required>
-                       				</td>
-						        </tr>
-						        <?php 
+										$student_id = $studdata['STUDENT_ID'];
+										$stmt3=$con->prepare("CALL GET_STIPEND_STUDENT(:studid,:selection_list_id)");
+										$stmt3->bindParam(":studid",$student_id);   
+										$stmt3->bindParam(":selection_list_id",$selection_list_id);   
+										$stmt3->execute();
+										$stmt3=$con->prepare("CALL GET_STIPEND_STUDENT(:studid,:selection_list_id)");
+										$stmt3->bindParam(":studid",$student_id);   
+										$stmt3->bindParam(":selection_list_id",$selection_list_id);   
+										$stmt3->execute();
+										$stipenddata = $stmt3->fetch(PDO::FETCH_ASSOC);
+										if($stipenddata["TRAINING_OFFERED_STIPEND"] == 0){
+											?>
+											<tr>
+												<td><img src="../Student/Profile_pic/<?php echo $studdata["STUDENT_PROFILE_PIC"]; ?>" style="height: 120px;width: 120px;"></td>
+												<td><?php echo $studdata["STUDENT_ENROLLMENT_NUMBER"]; ?></td>
+												<td><?php echo $studdata["STUDENT_FIRST_NAME"]." ".$studdata["STUDENT_LAST_NAME"]; ?></td>
+												<td>
+													<input type="text" class="form-control" name="stipend_student<?php echo $count;?>" required>
+													<input type="hidden" class="form-control"name="student_id<?php echo $count;?>"
+													value="<?php echo $studdata['STUDENT_ID'];?>" required>
+												</td>
+											</tr>
+											<?php 	
+										}else{
+											?>
+											<tr>
+												<td><img src="../Student/Profile_pic/<?php echo $studdata["STUDENT_PROFILE_PIC"]; ?>" style="height: 120px;width: 120px;"></td>
+												<td><?php echo $studdata["STUDENT_ENROLLMENT_NUMBER"]; ?></td>
+												<td><?php echo $studdata["STUDENT_FIRST_NAME"]." ".$studdata["STUDENT_LAST_NAME"]; ?></td>
+												<td>
+													<input type="text" class="form-control" name="stipend_student<?php echo $count;?>" value="<?php echo $stipenddata["TRAINING_OFFERED_STIPEND"]; ?>" required>
+													<input type="hidden" class="form-control"name="student_id<?php echo $count;?>"
+													value="<?php echo $studdata['STUDENT_ID'];?>" required>
+												</td>
+											</tr>
+											<?php
+										}
 						        	$count+=1;
 						    	} ?>	
 						        <?php
