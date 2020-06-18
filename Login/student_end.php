@@ -77,7 +77,7 @@
                 <br>
                 <hr style="border-top: 1px solid white">
                 <br>
-                <p class="mb-10 text-white pl-1 text-capitalize text-justify">looks like your <strong>training and placement</strong> procedure is <strong>completed</strong>.</p>
+                <p class="mb-10 text-white pl-1 text-capitalize text-justify">looks like your <strong>training and placement</strong> procedure is <strong>completed</strong> or your account is <strong>Deactivated</strong>.</p>
                 <br>
                 <a href="logout.php"><button class="btn btn-outline-light float-right">Back to Login</button></a>
                 <br>

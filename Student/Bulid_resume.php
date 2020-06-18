@@ -16,8 +16,6 @@
                   <select class="form-control" name="resume">
                       <option value="Temp1">Templete1</option>
                       <option value="Temp2">Templete2</option>
-                      <option value="Temp3">Templete3</option>
-                      <option value="Temp4">Templete4</option>
                    </select>
                      <br>
                     <li>
@@ -34,7 +32,6 @@
 <?php 
   include('footer.php');
 ?> 
-
 <?php 
   if(isset($_REQUEST['submit'])){
       include('../Files/PDO/dbcon.php');
@@ -48,7 +45,7 @@
       $degree = $datauser["BATCH_DEGREE"];
       $d2d = $datauser["BATCH_D2D"];
       $type = $datauser["BATCH_TYPE"]; 
-      //echo "<script>alert('$type,$d2d,$degree')</script>"; 
+      echo "<script>alert('$type,$d2d,$degree')</script>"; 
       $stmt1=$con->prepare("CALL GET_STUDENT_DIP_12TH(:sid);");
       $stmt1->bindParam(":sid",$sid);  
       $stmt1->execute();
@@ -61,7 +58,7 @@
       $twid = $data5["ACADEMIC_DETAILS_12TH_ID"];
 
       if($tname == "Temp1"){
-            if($d2d == 1){
+            if($d2d == '1'){
                 $stmt5=$con->prepare("CALL CHECK_RESUME_DETAILS(:sid);");
                 $stmt5->bindParam(":sid",$sid);
                 $stmt5->execute();
@@ -88,7 +85,8 @@
                         }
                     }
               }
-             }elseif($d2d == 0){
+             }
+             elseif($d2d == '0'){
                 if($type == "BA"){
                   header('Location: Resume_templete/temp_B6.php');
                 }elseif($type == "MA"){

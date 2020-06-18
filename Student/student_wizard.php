@@ -491,6 +491,7 @@
 </html>
 
 <?php
+        // print_r($_REQUEST);
 if(isset($_REQUEST['submit'])){
         $fname = $_REQUEST['fname'];
         $lname = $_REQUEST['lname']; 
@@ -506,15 +507,12 @@ if(isset($_REQUEST['submit'])){
         $address = $_REQUEST['address'];
         $dept= $_REQUEST['dept'];
         $yoa=$_REQUEST['yoa'];
-        $yop=$_REQUEST['yop'];
+        $yop=$_REQUEST['pyear'];
         $about=$_REQUEST['about'];
         $imgname=$_FILES['profileImage']['name'];
         $imgtempname=$_FILES['profileImage']['tmp_name'];   
         $degree = $_REQUEST['degree'];
         // $degree = "MSC(IT)";
-
-
-   
         move_uploaded_file($imgtempname, "Profile_pic/$imgname");
         include('../Files/PDO/dbcon.php');
         $email = $_SESSION['semail'];
@@ -532,7 +530,6 @@ if(isset($_REQUEST['submit'])){
         if(isset($rowsdata1)){
         $phone_user = $rowsdata1['LOGIN_USER_PHONE_NUMBER'];
         }
-
         
         $stmt2=$con->prepare("CALL CHECK_ENROLLMENT_NUMBER(:eno)");
         $stmt2->bindParam(':eno',$enum);
@@ -570,7 +567,6 @@ if(isset($_REQUEST['submit'])){
           $stmt->bindParam(':pyear',$yop);
           $stmt->bindParam(':ayear',$yoa);
           $stmt->execute();
-
           $stmt=$con->prepare("CALL INSERT_STUDENT(:fn,:ln,:en,:email,:pn,:dob,:gender,:password,:pname,:ppnum,:pemail,:ppic,:about,:address,:dept,:degree,:pyear,:ayear)");   
           $stmt->bindParam(':fn',$fname);
           $stmt->bindParam(':ln',$lname);
@@ -591,6 +587,7 @@ if(isset($_REQUEST['submit'])){
           $stmt->bindParam(':pyear',$yop);
           $stmt->bindParam(':ayear',$yoa);
           $stmt->execute();
+          print_r($stmt->errorinfo());
            if($stmt == TRUE){
             //  print_r($stmt->errorinfo());
                 header("Location: ../Login/login.php");
@@ -605,7 +602,7 @@ if(isset($_REQUEST['submit'])){
                     </script>
                     <?php
              }
-            }  
+        }  
      }   
      ob_flush();
 ?>
