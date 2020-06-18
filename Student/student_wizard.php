@@ -15,8 +15,6 @@
     <meta name="author" content="potenzaglobalsolutions.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <title>UTU | T&PCell | Registration</title>
-
-    <!-- Favicon -->
     <link rel="shortcut icon" href="../Files/images/logo-5.png" type="images/png" />
 
     <!-- font -->
@@ -104,6 +102,27 @@
         }
 
     }
+
+    
+    function isInputChar(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/[A-Za-z]/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+
+    function isInputCharSpace(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/^[a-zA-Z ]*$/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
     </script>
     <!-- End Google Tag Manager -->
 </head>
@@ -124,12 +143,6 @@
             <img src="../Files/images/pre-loader/loader-01.svg" alt="">
         </div>
 
-        <!--=================================
-     preloader -->
-
-        <!--=================================
-     login-->
-
         <section class="login-box-main height-100vh page-section-ptb"
             style="background: url(../Files/images/login/06.jpg); background-repeat: no-repeat; background-attachment: fixed;">
             <div class="login-box-main-middle">
@@ -147,9 +160,6 @@
                                         
                                         <form class="" action="#" method="post" enctype="multipart/form-data"
                                             id="default">
-                                            
-
-                                                <!-- <h5 class="mb-3">Step Title</h5> -->
                                                 <div class="form-group row">
                                                     <div
                                                         style="width: 125px;height: 125px; position: relative; overflow: hidden;border-radius: 50%;margin: auto auto">
@@ -167,15 +177,15 @@
                                                     <label class="col-sm-4 col-form-label col-form-label-sm">First
                                                         Name</label>
                                                     <div class="col-sm-8">
-                                                        <input type="text" name="fname" maxlength="20"
-                                                            class="form-control" placeholder="First Name" required>
+                                                        <input type="text" name="fname" onkeypress="isInputChar(event)" maxlength="20"
+                                                            class="form-control" patten="[A-Za-z]"  placeholder="First Name" required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label class="col-sm-4 col-form-label col-form-label-sm">Last
                                                         Name</label>
                                                     <div class="col-sm-8">
-                                                        <input type="text" name="lname" maxlength="20"
+                                                        <input type="text" name="lname" onkeypress="isInputChar(event)" maxlength="20"
                                                             class="form-control" placeholder="Last Name" required>
                                                     </div>
                                                 </div>
@@ -217,13 +227,11 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                
-                                            
                                                 <div class="form-group row">
                                                     <label class="col-sm-4 col-form-label col-form-label-sm">Parent's
                                                         Full Name</label>
                                                     <div class="col-sm-8">
-                                                        <input type="text" class="form-control" maxlength="20"
+                                                        <input type="text" onkeypress="isInputCharSpace(event)" class="form-control" maxlength="50"
                                                             name="pfname" placeholder="Parent's Full Name" required>
                                                     </div>
                                                 </div>
@@ -231,7 +239,8 @@
                                                     <label class="col-sm-4 col-form-label col-form-label-sm">Parent's
                                                         Email-ID</label>
                                                     <div class="col-sm-8">
-                                                        <input type="email" class="form-control" name="pemail"
+                                                        <input type="email" patten=(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\]) 
+                                                        class="form-control" maxlength="255" name="pemail"
                                                             placeholder="Parent's Email-ID" required>
                                                     </div>
                                                 </div>
@@ -240,8 +249,9 @@
                                                         Phone No.</label>
                                                     <div class="col-sm-8">
                                                         <input type="text" maxlength="10"
-                                                            onkeypress="isInputNumber(event)" class="form-control"
+                                                            onkeypress="isInputNumber(event)" id="mobile1" onkeyup="check1(); return false;" class="form-control"
                                                             name="ppno" placeholder="Parent's Phone Number" required>
+                                                            <span id="message1"></span>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -250,7 +260,8 @@
                                                     <div class="col-sm-8">
                                                         <input type="text" maxlength="10"
                                                             onkeypress="isInputNumber(event)" class="form-control"
-                                                            name="pnum" placeholder="Student's Phone Number" required>
+                                                            name="pnum" id="mobile" onkeyup="check(); return false;" placeholder="Student's Phone Number" required>
+                                                            <span id="message"></span>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -385,6 +396,64 @@
     <!--basic scripts initialization-->
     <script src="../Files/assets/js/scripts.js"></script>
     <script type="text/javascript">
+
+    
+    function check()
+    {
+        var pass1 = document.getElementById('mobile');
+
+
+        var message = document.getElementById('message');
+
+        var badColor = "#84BA3F";
+
+        if(mobile.value.length!=10){
+            // alert('aa');
+            // mobile.style.backgroundColor = badColor;
+            message.style.color = badColor;
+            message.innerHTML = "required 10 digits, match requested format!"
+        }    
+
+        if(mobile.value.length=='10'){
+            // mobile.style.backgroundColor = badColor;
+            message.style.color = badColor;
+            message.innerHTML = ""
+        }
+
+
+        // var res = pass1.match([6-9][0-9]{9});
+        // message.innerHTML = res;
+    }
+
+
+    function check1()
+    {
+        var pass1 = document.getElementById('mobile1');
+
+        var message = document.getElementById('message1');
+
+        var badColor = "#84BA3F";
+
+        if(mobile1.value.length!=10){
+            // alert('aa');
+            // mobile.style.backgroundColor = badColor;
+            message.style.color = badColor;
+            message.innerHTML = "required 10 digits, match requested format!"
+        }    
+
+        if(mobile1.value.length=='10'){
+            // mobile.style.backgroundColor = badColor;
+            message.style.color = badColor;
+            message.innerHTML = ""
+        }
+
+
+        // var res = pass1.match([6-9][0-9]{9});
+        // message.innerHTML = res;
+    }
+
+
+
     function triggerClick() {
         document.querySelector('#profileImage').click();
     }
@@ -422,10 +491,7 @@
 </html>
 
 <?php
-
-    //print_r($_REQUEST);
-
-    if(isset($_REQUEST['submit'])){
+if(isset($_REQUEST['submit'])){
         $fname = $_REQUEST['fname'];
         $lname = $_REQUEST['lname']; 
         $enum = $_REQUEST['enum'];   

@@ -125,7 +125,6 @@
                       $stmt4->bindparam(":stud_id",$studid);
                       $stmt4->execute();
                       $companydata=$stmt4->fetch(PDO::FETCH_ASSOC);
-                      // print_r($companydata);
                       $cmpny_name=$companydata["COMPANY_NAME"];
                     ?>
                         <li class="">
@@ -145,7 +144,7 @@
                                                     class="fa fa-check"></i> Accept</button></a>
                                         <a
                                             href="Company_profile.php?cid=<?php echo $companydata['COMPANY_ID']; ?>"><button
-                                                class="btn btn-sm btn-outline-info float-right mb-2"><i
+                                                class="btn btn-sm btn-outline-info float-right mb-2 mr-2"><i
                                                     class="fa fa-eye"></i> View</button></a></p>
                                     <div>
                                         <hr style="border-top: 1px solid #495057">
@@ -188,14 +187,17 @@
                                             class="float-right"><?php echo $data['NOTIFICATION_TIME_STAMP']; ?></small>
                                     </h6>
                                     <p><?php echo $data['NOTIFICATION_DESCRPTION']." Package:".$companydata["PLACEMENT_OFFERED_PACKAGE"]; ?>
+                                    <a href="accept_placement.php?nid=<?php echo $data['NOTIFICATION_ID']; ?>"><button
+                                                class="btn btn-sm btn-outline-success float-right ml-2"><i
+                                                    class="fa fa-check"></i> Accept</button></a>
                                         <a href="deny_placement.php?nid=<?php echo $data['NOTIFICATION_ID']; ?>"><button
                                                 class="btn btn-sm btn-outline-danger float-right ml-2 mb-2"><i
                                                     class="fa fa-times"></i> Deny</button></a>
                                                     <a href="../Company/Document_offer_letter/<?php echo $ol; ?>" download><button class="btn btn-sm btn-outline-warning float-right mb-2 ml-2"><i class="fa fa-download"></i>Offer Letter</button></a>
-                                                    <a href="../Company/Document_bond/<?php echo $bd; ?>" download><button class="btn btn-sm btn-outline-warning float-right mb-2 ml-2"><i class="fa fa-download"></i>Bond</button></a>
-                                        <a href="accept_placement.php?nid=<?php echo $data['NOTIFICATION_ID']; ?>"><button
-                                                class="btn btn-sm btn-outline-success float-right mb-2"><i
-                                                    class="fa fa-check"></i> Accept</button></a></p>
+                                                    <a href="../Company/Document_bond/<?php echo $bd; ?>" download><button class="btn btn-sm btn-outline-warning float-right mb-2 ml-2"><i class="fa fa-download"></i>Bond</button></a>     
+                                        <a href="Company_profile.php?cid=<?php echo $companydata['COMPANY_ID']; ?>"><button type="button"
+                                                class="btn btn-sm btn-outline-info float-right mb-2 mr-2"><i
+                                                    class="fa fa-eye"></i> View</button></a></p>  
                                     <div>
                                         <hr style="border-top: 1px solid #495057">
                                     </div>
