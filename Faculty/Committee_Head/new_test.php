@@ -4,6 +4,48 @@
   $data=$_SESSION['Userdata'];
 ?>
 
+<script>
+    function isInputNumber(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/[0-9]/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+
+    function isInputChar(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/[A-Za-z]/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+
+    function isInputCharSpace(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/^[a-zA-Z ]*$/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+
+    function isInputCharAndNumSpace(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/^[a-zA-Z0-9 ]*$/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+  
+  </script>
     <div class="content-wrapper header-info">
       <!-- widgets -->
       <div class="mb-30">
@@ -56,28 +98,28 @@
                 <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                    	<input type="text" name="tname" class="form-control" placeholder="Test Name">
+                    	<input type="text" name="tname" maxlength="20" onkeypress="isInputCharAndNumSpace(event)" class="form-control" placeholder="Test Name" required>
                     </div>
                   </div>
                 </li>
                 <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                    	<textarea name="tdes" class="form-control" rows="5" placeholder="Test Description"></textarea>
+                    	<textarea name="tdes" class="form-control" maxlength="255" rows="5" placeholder="Test Description" required></textarea>
                     </div>
                   </div>
                 </li>
                 <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                    	<input type="number" name="tmarks" class="form-control" placeholder="Total Marks" autofocus>
+                    	<input type="text" name="tmarks" class="form-control" maxlength="11"  onkeypress="isInputNumber(event)" placeholder="Total Marks" autofocus required>
                     </div>
                   </div>
                 </li>
                 <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                    	<input type="number" name="pmarks" class="form-control" placeholder="Passing Marks">
+                    	<input type="text" name="pmarks" class="form-control" maxlength="11" onkeypress="isInputNumber(event)" placeholder="Passing Marks" required>
                     </div>
                   </div>
                 </li>

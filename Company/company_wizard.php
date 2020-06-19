@@ -6,7 +6,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -266,7 +265,7 @@
                                                             <input type="file" class="form-control"
                                                                 placeholder="Company Logo" name="profileImage"
                                                                 id="profileImage" onchange="displayImage(this)"
-                                                                accept="image/*">
+                                                                accept="image/*" required>
                                                         </div>
                                                     </div>
                                                     <!-- <div class="form-group row">
@@ -373,8 +372,6 @@
                                                         </div>
                                                         
                                                     </div>
-                                               
-                                                
                                                     <div class="form-group row">
                                                         <label class="col-sm-4 col-form-label col-form-label-sm">HR
                                                             Name</label>

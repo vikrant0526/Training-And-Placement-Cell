@@ -11,7 +11,6 @@
 <table class="table text-dark table-responsive" style="table-layout: fixed;width: 100%;">
     <tr class="font-weight-bold">
         <td>Passing Year</td>
-        <td>Semester</td>
         <td>Students</td>
     </tr>
     <?php while($x = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -25,7 +24,6 @@
         ?>
     <tr>
         <td><?php echo $x["BATCH_PASSING_YEAR"]; ?></td>
-        <td><?php echo $x["BATCH_SEMESTER"]; ?></td>
         <td><?php echo $a["STUDENTS"]; ?></td>
     </tr>
     <?php } ?>

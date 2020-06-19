@@ -6,8 +6,49 @@
   $ftype=$data["FACULTY_ROLE"];
 ?>
 
+<script>
+    function isInputNumber(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/[0-9]/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+
+    function isInputChar(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/[A-Za-z]/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+
+    function isInputCharSpace(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/^[a-zA-Z ]*$/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+
+    function isInputCharAndNumSpace(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/^[a-zA-Z0-9 ]*$/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+  
+  </script>
     <div class="content-wrapper header-info">
-      <!-- widgets -->
       <div class="mb-30">
            <div class="card h-100 ">
            <div class="card-body h-100">
@@ -40,7 +81,7 @@
                 <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                      <input type="text" name="title" class="form-control" placeholder="Material Title">
+                      <input type="text" name="title" maxlength="255" onkeypress="isInputCharAndNumSpace(event)" class="form-control" placeholder="Material Title">
                     </div>
                   </div>
                 </li>

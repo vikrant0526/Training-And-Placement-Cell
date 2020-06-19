@@ -86,6 +86,25 @@
                 
             }
 
+    function isInputChar(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/[A-Za-z]/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+
+    function isInputCharSpace(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/^[a-zA-Z ]*$/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }           
 
     </script>
     <!-- End Google Tag Manager -->
@@ -131,29 +150,29 @@
                                     <div class="form-group row">
                                         <div style="width: 125px;height: 125px; position: relative; overflow: hidden;border-radius: 50%;margin: auto auto">
                                             <img src="../Files/images/myImages/default-profile-picture1.jpg" onclick="triggerClick()" id="profileDisplay" style="display: block;margin: -5px auto;" name="profileImage" class="w-100 h-100">  
-                                            <input type="file" class="form-control" id="profileImage" name="profileImage" onchange="displayImage(this)" style="display: none;">
+                                            <input type="file" class="form-control" id="profileImage" name="profileImage" onchange="displayImage(this)" style="display: none;" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">  
                                         <label class="col-sm-4 col-form-label col-form-label-sm">First Name</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" maxlength="20" name="fname" placeholder="First Name"  required>
+                                            <input type="text"  onkeypress="isInputChar(event)" class="form-control" maxlength="20" name="fname" placeholder="First Name"  required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label col-form-label-sm">Last Name</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" maxlength="20" name="lname" placeholder="Last Name" required>
+                                            <input type="text" class="form-control" onkeypress="isInputChar(event)" maxlength="20" name="lname" placeholder="Last Name" required>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label col-form-label-sm">Phone Number</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" maxlength="10" onkeypress="isInputNumber(event)" name="pnum" placeholder="Phone Number" required>
+                                            <input type="text"  id="mobile" onkeyup="check(); return false;" class="form-control" maxlength="10" onkeypress="isInputNumber(event)" name="pnum" placeholder="Phone Number" required>
+                                            <span id="message"></span>
                                         </div>
                                     </div>    
-
 
                                     <div class="form-group row">  
                                         <label class="col-sm-4 col-form-label col-form-label-sm">Gender</label>
@@ -305,6 +324,23 @@
                 reader.readAsDataURL(e.files[0]);
             }
         }
+
+    function check()
+    {
+        // alert("ff");
+        var pass1 = document.getElementById('mobile');
+        var message = document.getElementById('message');
+        var badColor = "#84BA3F";
+        if(mobile.value.length!=10){
+            // alert("ffrr");
+            message.style.color = badColor;
+            message.innerHTML = "required 10 digits, match requested format!"
+        }    
+        if(mobile.value.length=='10'){
+            message.style.color = badColor;
+            message.innerHTML = ""
+        }
+    }
     </script>
 </body>
 

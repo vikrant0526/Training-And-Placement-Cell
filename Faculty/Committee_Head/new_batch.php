@@ -3,7 +3,48 @@
   include('header.php');
   $data=$_SESSION['Userdata'];
 ?>
+  <script>
+    function isInputNumber(evt) {
 
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/[0-9]/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+
+    function isInputChar(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/[A-Za-z]/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+
+    function isInputCharSpace(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/^[a-zA-Z ]*$/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+
+    function isInputCharAndNumSpace(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/^[a-zA-Z0-9 ]*$/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+  
+  </script>
     <div class="content-wrapper header-info">
       <!-- widgets -->
       <div class="mb-30">
@@ -38,14 +79,14 @@
                 <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                      <input type="text" name="pyear" class="form-control" placeholder="Passing Year" value="<?php echo date('Y');?>">
+                      <input type="text" name="pyear" maxlength="4" onkeypress="isInputNumber(event)" class="form-control" placeholder="Passing Year" value="<?php echo date('Y');?>">
                     </div>
                   </div>
                 </li>
                 <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                      <input type="text" name="sem" class="form-control" placeholder="No. of Semister">
+                      <input type="text" name="sem" maxlength="2" onkeypress="isInputNumber(event)" class="form-control" placeholder="No. of Semister">
                     </div>
                   </div>
                 </li>
