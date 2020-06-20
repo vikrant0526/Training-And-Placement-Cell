@@ -1,10 +1,6 @@
 <?php
      session_start();   
 ?>
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<!-- Mirrored from themes.potenzaglobalsolutions.com/html/webster-responsive-multi-purpose-html5-template/login-09.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 19 Dec 2019 09:41:56 GMT -->
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -105,7 +101,6 @@
         }
 
     }           
-
     </script>
     <!-- End Google Tag Manager -->
   </head>

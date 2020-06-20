@@ -178,7 +178,7 @@
                                                         Name</label>
                                                     <div class="col-sm-8">
                                                         <input type="text" name="fname" onkeypress="isInputChar(event)" maxlength="20"
-                                                            class="form-control" patten="[A-Za-z]"  placeholder="First Name" required>
+                                                            class="form-control"  placeholder="First Name" required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
