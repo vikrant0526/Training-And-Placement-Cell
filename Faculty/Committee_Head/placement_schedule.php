@@ -9,8 +9,22 @@
       include('../../Files/PDO/dbcon.php'); 
       $stmt=$con->prepare("CALL VIEW_COMPANY();");
       $stmt->execute();
-  ?>
+?>
 
+<script>
+
+    function isInputNumber(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/[0-9]/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+
+
+</script>
 <div class="content-wrapper header-info">
     <!-- widgets -->
     <div class="mb-30">
@@ -109,7 +123,7 @@
                             <div class="media">
                                 <div class="media-body mb-2">
                                     <div class="input-group date" id="datepicker-top-left">
-                                        <input name="sdate" class="form-control" type="text" placeholder="Event Date">
+                                        <input name="sdate" class="form-control" type="text" placeholder="Event Date" required>
                                         <span class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </span>
@@ -120,9 +134,10 @@
                         <li>
                             <div class="media">
                                 <div class="media-body mb-2">
-                                    <input type="text" name="gap" class="form-control"
-                                        placeholder="No of Days Per Company">
-                                </div>
+                                    <input type="text" name="gap" maxlength="2" id="mobile1" onkeyup="checksem(); return false;" onkeypress="isInputNumber(event)" class="form-control"
+                                        placeholder="No of Days Per Company" required>
+                                        <span id="message1"></span>    
+                                </div>  
                             </div>
                         </li>
                         <li>
@@ -177,4 +192,19 @@
             //alert(xmlhttp.responseText);
         }
     }
+
+      function checksem()
+        {
+            var pass1 = document.getElementById('mobile1');
+            var message = document.getElementById('message1');
+            var badColor = "#84BA3F";
+            if(mobile1.value.length!=2 || mobile1.value.length!=1){
+                message.style.color = badColor;
+                message.innerHTML = "required 2 digits or 1 digits, match requested format!"
+            }    
+            if(mobile1.value.length==2 || mobile1.value.length==1){
+                message.style.color = badColor;
+                message.innerHTML = ""
+            }
+        }
     </script>

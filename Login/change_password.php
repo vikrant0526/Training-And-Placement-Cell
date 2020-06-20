@@ -197,20 +197,9 @@
   <!-- End Google Tag Manager (noscript) -->
 
   <div class="wrapper">
-
-  <!--=================================
-   preloader -->
-
     <div id="pre-loader">
     <img src="../Files/images/pre-loader/loader-01.svg" alt="">
     </div>
-
-    <!--=================================
-     preloader -->
-
-    <!--=================================
-     login-->
-
     <section class="login-box-main height-100vh page-section-ptb" style="background: url(../Files/images/login/06.jpg);">
       <div class="login-box-main-middle">
         <div class="container">

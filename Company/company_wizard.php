@@ -252,9 +252,6 @@
                                         <div class="card-body">
                                             <form class="" action="#" method="post" enctype="multipart/form-data"
                                                 id="default">
-                                                
-
-                                                    <!-- <h5 class="mb-3">Step Title</h5> -->
                                                     <div class="form-group row">
                                                         <div
                                                             style="width: 125px;height: 125px; position: relative; overflow: hidden;border-radius: 50%;margin: auto auto">
@@ -268,10 +265,6 @@
                                                                 accept="image/*" required>
                                                         </div>
                                                     </div>
-                                                    <!-- <div class="form-group row">
-                                                        <label class="btn btn-light col-4 offset-4" id="profileDisplay"
-                                                            onclick="triggerClick()">Choose A Logo</label>
-                                                    </div> -->
                                                     <div class="form-group row">
                                                         <label
                                                             class="col-sm-4 col-form-label col-form-label-sm">Comapany
