@@ -101,7 +101,8 @@
                  <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                    <input type="text" name="num" maxlength="10" onkeypress="isInputNumber(event)" placeholder="Faculty Number" class="form-control" value="<?php echo $data["FACULTY_PHONE_NUMBER"]; ?>">
+                    <input type="text" name="num"  id="mobile" onkeyup="check(); return false;" maxlength="10" onkeypress="isInputNumber(event)" placeholder="Faculty Number" class="form-control" value="<?php echo $data["FACULTY_PHONE_NUMBER"]; ?>">
+                    <span id="message"></span>  
                     </div>
                   </div>
                 </li>
@@ -127,8 +128,26 @@
                       </li>	  
       
               </form>
+              <script>
+                
+                function check()
+                {
+                    // alert("ff");
+                    var pass1 = document.getElementById('mobile');
+                    var message = document.getElementById('message');
+                    var badColor = "#84BA3F";
+                    if(mobile.value.length!=10){
+                        // alert("ffrr");
+                        message.style.color = badColor;
+                        message.innerHTML = "required 10 digits, match requested format!"
+                    }    
+                    if(mobile.value.length=='10'){
+                        message.style.color = badColor;
+                        message.innerHTML = ""
+                    }
+                }
+              </script>
 <?php 
-
 	if(isset($_REQUEST['Update']))
 	{
 		$fid=$data["FACULTY_ID"]; 
