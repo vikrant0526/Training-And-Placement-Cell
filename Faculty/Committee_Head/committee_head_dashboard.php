@@ -121,8 +121,7 @@ wrapper -->
                                         <a href="remove_notification.php?nid=<?php echo $data['NOTIFICATION_ID']; ?>"><button
                                                 class="btn btn-sm btn-outline-secondary float-right ml-2 mb-2"><i
                                                     class="fa fa-times"></i> Remove</button></a>
-                                        <a
-                                            href="view_company_shortlist.php?sid=<?php echo $data['NOTIFICATION_EVENT_ID']; ?>"><button
+                                        <a href="view_company_shortlist.php?sid=<?php echo $data['NOTIFICATION_EVENT_ID']; ?>"><button
                                                 class="btn btn-sm btn-outline-info float-right ml-2 mb-2"><i
                                                     class="fa fa-eye"></i> View</button></a>
                                     </p>
@@ -157,8 +156,7 @@ wrapper -->
                                         <a href="remove_notification.php?nid=<?php echo $data['NOTIFICATION_ID']; ?>"><button
                                                 class="btn btn-sm btn-outline-secondary float-right ml-2 mb-2"><i
                                                     class="fa fa-times"></i> Remove</button></a>
-                                        <a
-                                            href="view_company_placement_list.php?cid=<?php echo $data['NOTIFICATION_SENDER_ID']; ?>"><button
+                                        <a href="view_company_placement_list.php?cid=<?php echo $data['NOTIFICATION_SENDER_ID']; ?>"><button
                                                 class="btn btn-sm btn-outline-info float-right ml-2 mb-2"><i
                                                     class="fa fa-eye"></i> View</button></a>
                                     </p>
@@ -225,8 +223,7 @@ wrapper -->
                                         <a href="remove_termination.php?nid=<?php echo $data['NOTIFICATION_ID']; ?>&sid=<?php echo $data['NOTIFICATION_SENDER_ID']; ?>"><button
                                                 class="btn btn-sm btn-outline-danger float-right ml-2 mb-2"><i
                                                     class="fa fa-times"></i> Deny</button></a>
-                                        <a
-                                            href="approve_termination.php?sid=<?php echo $data['NOTIFICATION_SENDER_ID']; ?>&nid=<?php echo $data['NOTIFICATION_ID']; ?>"><button
+                                        <a href="approve_termination.php?sid=<?php echo $data['NOTIFICATION_SENDER_ID']; ?>&nid=<?php echo $data['NOTIFICATION_ID']; ?>"><button
                                                 class="btn btn-sm btn-outline-success float-right ml-2 mb-2"><i
                                                     class="fa fa-check"></i> Accept</button></a>
                                     </p>
