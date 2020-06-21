@@ -3,6 +3,37 @@
   include('header.php');
   $data=$_SESSION['Userdata'];
 ?>
+  <script>
+  function isInputNumber(evt){
+                
+          var ch = String.fromCharCode(evt.which);
+          
+          if(!(/[0-9]/.test(ch))){
+              evt.preventDefault();
+          }
+          
+      }
+
+    function isInputChar(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/[A-Za-z]/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+
+    function isInputCharSpace(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/^[a-zA-Z ]*$/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }           
+    </script>
   <div class="content-wrapper header-info">
       <!-- widgets -->
       <div class="mb-30">
@@ -18,7 +49,7 @@
               </div>
              <div class="scrollbar">
               <ul class="list-unstyled">
-                <?php
+              <?php
                 $count=0;
                 include('../Files/PDO/dbcon.php');
                 $id=$_SESSION['lid'];
@@ -32,35 +63,38 @@
               	  <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                    	<input type="text" name="fname" class="form-control" placeholder="First Name" value="<?php echo $data["STUDENT_FIRST_NAME"]; ?>">
+                    	<input type="text" name="fname" onkeypress="isInputChar(event)" maxlength="20" class="form-control" placeholder="First Name" value="<?php echo $data["STUDENT_FIRST_NAME"]; ?>">
                     </div>
                   </div>
                 </li>
                 <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                    	<input type="text" name="lname" class="form-control" placeholder="Last Name" value="<?php echo $data["STUDENT_LAST_NAME"]; ?>">
+                    	<input type="text" name="lname" onkeypress="isInputChar(event)" maxlength="20" class="form-control" placeholder="Last Name" value="<?php echo $data["STUDENT_LAST_NAME"]; ?>">
                     </div>
                   </div>
                 </li>
                 <li>
                    <div class="media">
                     <div class="media-body mb-2">
-                    	<input type="text" name="enum" class="form-control" placeholder="Enrollment Number" value="<?php echo $data["STUDENT_ENROLLMENT_NUMBER"]; ?>">
+                    	<input type="text" name="enum" maxlength="15" onkeypress="isInputNumber(event)" class="form-control" placeholder="Enrollment Number" value="<?php echo $data["STUDENT_ENROLLMENT_NUMBER"]; ?>">
                     </div>
                   </div>
                 </li>
                  <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                    	<input type="email" name="email" placeholder="Student Email" class="form-control" value="<?php echo $data["STUDENT_EMAIL"]; ?>">
+                    	<input type="email" name="email" maxlength="255" pattern=(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\]) 
+                       placeholder="Student Email" class="form-control" value="<?php echo $data["STUDENT_EMAIL"]; ?>">
                     </div>
                   </div>
                 </li> 
                  <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                    	<input type="text" name="pnum" class="form-control" placeholder="Phone number" value="<?php echo $data["STUDENT_PHONE_NUMBER"]; ?>">
+                    	<input type="text" name="pnum" maxlength="10"
+                                                            onkeypress="isInputNumber(event)" id="mobile" onkeyup="check(); return false;" class="form-control" placeholder="Phone number" value="<?php echo $data["STUDENT_PHONE_NUMBER"]; ?>">
+                                                            <span id="message"></span>                                      
                     </div>
                   </div>
                 </li> 
@@ -101,21 +135,24 @@
                  <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                    	<input type="text" name="pname" placeholder="Parent Name" class="form-control" value="<?php echo $data["STUDENT_PARENT_NAME"]; ?>">
+                    	<input type="text" name="pname" onkeypress="isInputCharSpace(event)"  maxlength="50" placeholder="Parent Name" class="form-control" value="<?php echo $data["STUDENT_PARENT_NAME"]; ?>">
                     </div>
                   </div>
                 </li>
                  <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                    	<input type="text" name="pnumber" placeholder="Parent Number" class="form-control" value="<?php echo $data["STUDENT_PARENT_PHONE_NUMBER"]; ?>">
+                    	<input type="text" name="pnumber" maxlength="10"
+                                                            onkeypress="isInputNumber(event)" id="mobile1" onkeyup="check1(); return false;" placeholder="Parent Number" class="form-control" value="<?php echo $data["STUDENT_PARENT_PHONE_NUMBER"]; ?>">
+                                                            <span id="message1"></span>
                     </div>
                   </div>
                 </li>
                  <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                    	<input type="email" name="pemail" placeholder="Parent email" class="form-control" value="<?php echo $data["STUDENT_PARENT_EMAIL"]; ?>">
+                    	<input type="email" name="pemail" maxlength="255" pattern=(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\]) 
+                       placeholder="Parent email" class="form-control" value="<?php echo $data["STUDENT_PARENT_EMAIL"]; ?>">
                     </div>
                   </div>
                 </li>
@@ -152,6 +189,61 @@
                       </li>	  
               </form>
 <script type="text/javascript" >
+    function check()
+    {
+        var pass1 = document.getElementById('mobile');
+
+
+        var message = document.getElementById('message');
+
+        var badColor = "#84BA3F";
+
+        if(mobile.value.length!=10){
+            // alert('aa');
+            // mobile.style.backgroundColor = badColor;
+            message.style.color = badColor;
+            message.innerHTML = "required 10 digits, match requested format!"
+        }    
+
+        if(mobile.value.length=='10'){
+            // mobile.style.backgroundColor = badColor;
+            message.style.color = badColor;
+            message.innerHTML = ""
+        }
+
+
+        // var res = pass1.match([6-9][0-9]{9});
+        // message.innerHTML = res;
+    }
+
+
+    function check1()
+    {
+        var pass1 = document.getElementById('mobile1');
+
+        var message = document.getElementById('message1');
+
+        var badColor = "#84BA3F";
+
+        if(mobile1.value.length!=10){
+            // alert('aa');
+            // mobile.style.backgroundColor = badColor;
+            message.style.color = badColor;
+            message.innerHTML = "required 10 digits, match requested format!"
+        }    
+
+        if(mobile1.value.length=='10'){
+            // mobile.style.backgroundColor = badColor;
+            message.style.color = badColor;
+            message.innerHTML = ""
+        }
+
+
+        // var res = pass1.match([6-9][0-9]{9});
+        // message.innerHTML = res;
+    }
+
+
         function triggerClick() {
             document.querySelector('#profileImage').click();
         }

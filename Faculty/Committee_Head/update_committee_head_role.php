@@ -33,7 +33,8 @@
                 <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                    	<input type="password" name="pass" class="form-control" placeholder="Confirm Your Password">
+                    	<input type="password" name="pass" class="form-control" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Confirm Your Password">
                     </div>
                   </div>
                 </li>

@@ -3,18 +3,45 @@
   include('header.php');
   $data=$_SESSION['Userdata'];
 ?>
+<script>
+    function isInputNumber(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/[0-9]/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+
+    
+    function isInputChar(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/[A-Za-z]/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+
+    function isInputCharSpace(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/^[a-zA-Z ]*$/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+    </script>
 <div class="content-wrapper header-info">
-      <!-- widgets -->
       <div class="mb-30">
            <div class="card h-100 ">
            <div class="card-body h-100">
              <h4 class="card-title">Profile Update</h4>
-             <!-- action group -->
              <div class="btn-group info-drop">
                 <button type="button" class="dropdown-toggle-split text-muted" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-more"></i></button>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item text-white" href="#"><i class="text-danger ti-trash"></i>Clear All</a>
-                </div>
               </div>
              <div class="scrollbar">
               <ul class="list-unstyled">
@@ -32,14 +59,14 @@
               	  <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                    	<input type="text" name="fname" class="form-control" placeholder="First Name" value="<?php echo $data["FACULTY_FIRST_NAME"]; ?>">
+                    	<input type="text" name="fname" maxlength="20" class="form-control" onkeypress="isInputChar(event)" placeholder="First Name" value="<?php echo $data["FACULTY_FIRST_NAME"]; ?>">
                     </div>
                   </div>
                 </li>
                 <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                    	<input type="text" name="lname" class="form-control" placeholder="Last Name" value="<?php echo $data["FACULTY_LAST_NAME"]; ?>">
+                    	<input type="text" name="lname" maxlength="20" class="form-control" onkeypress="isInputChar(event)" placeholder="Last Name" value="<?php echo $data["FACULTY_LAST_NAME"]; ?>">
                     </div>
                   </div>
                 </li>
@@ -66,14 +93,16 @@
                  <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                    	<input type="email" name="email" placeholder="Faculty email" class="form-control" value="<?php echo $data["FACULTY_EMAIL"]; ?>">
+                    	<input type="email" name="email" maxlength="255" pattern=(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])  
+                      placeholder="Faculty email" class="form-control" value="<?php echo $data["FACULTY_EMAIL"]; ?>">
                     </div>
                   </div>
                 </li>
                  <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                    <input type="text" name="num" placeholder="Faculty Number" class="form-control" value="<?php echo $data["FACULTY_PHONE_NUMBER"]; ?>">
+                    <input type="text" name="num"  id="mobile" onkeyup="check(); return false;" maxlength="10" onkeypress="isInputNumber(event)" placeholder="Faculty Number" class="form-control" value="<?php echo $data["FACULTY_PHONE_NUMBER"]; ?>">
+                    <span id="message"></span>  
                     </div>
                   </div>
                 </li>
@@ -99,10 +128,26 @@
                       </li>	  
       
               </form>
-
-
+              <script>
+                
+                function check()
+                {
+                    // alert("ff");
+                    var pass1 = document.getElementById('mobile');
+                    var message = document.getElementById('message');
+                    var badColor = "#84BA3F";
+                    if(mobile.value.length!=10){
+                        // alert("ffrr");
+                        message.style.color = badColor;
+                        message.innerHTML = "required 10 digits, match requested format!"
+                    }    
+                    if(mobile.value.length=='10'){
+                        message.style.color = badColor;
+                        message.innerHTML = ""
+                    }
+                }
+              </script>
 <?php 
-
 	if(isset($_REQUEST['Update']))
 	{
 		$fid=$data["FACULTY_ID"]; 
@@ -168,10 +213,6 @@
     }
 	}
   ?>
-
-
-  
-              
 <?php 
   include('footer.php');
   ob_flush();

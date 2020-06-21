@@ -83,10 +83,10 @@
         $stmt3->bindparam(':des', $des);
         $stmt3->execute();
 
-    if($stmt3){
-       header("location: send_recommendation.php");
-    }else{
-        echo "<script>alert('Recommendation Not Student Completed')</script>";
-    }
+        if($stmt3){
+        header("location: send_recommendation.php");
+        }else{
+            echo "<script>alert('Recommendation Not Student Completed')</script>";
+        }
 }
 ?>

@@ -3,6 +3,58 @@
   include('header.php');
   $data=$_SESSION['Userdata'];
 ?>
+    <script>
+    function isInputNumber(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/[0-9]/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+
+    
+    function isInputChar(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/[A-Za-z]/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+
+    function isInputChar(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/[A-Za-z]/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+
+    function isInputCharSpace(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/^[a-zA-Z ]*$/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+    
+    function isInputCharSpaceWithdot(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/^[0-9.]*$/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+    </script>
     <div class="content-wrapper header-info">
       <!-- widgets -->
       <div class="mb-30">
@@ -61,8 +113,8 @@
                         <option value="West Bengal State Board">West Bengal State Board</option>
                         <option value="Others">Others</option>
                    </select>
-                   <input type="text" name="10thper" class="form-control mt-2" placeholder="10th Percentage">
-                  <input type='text' name='10thschool' class='form-control mt-2' placeholder='10th School Name'>
+                   <input type="text" minlength="4" maxlength="10" onkeypress="isInputCharSpaceWithdot(event)" name="10thper" class="form-control mt-2" placeholder="10th Percentage">
+                  <input type='text'  name='10thschool' maxlength="255" onkeypress="isInputCharSpace(event)" class='form-control mt-2' placeholder='10th School Name'>
                 </li>
                 <div>
                   <hr style="border-top: 1px solid #495057">
@@ -150,8 +202,8 @@
                                 <option value='OTHERS'>OTHERS</option>
                               </select>
                                <div id='sptext'></div>
-                                <input type='text' name='12thper' class='form-control mt-2' placeholder='12th Percentage'>
-                               <input type='text' name='12thpassschool' class='form-control mt-2' placeholder='12th School Name'>
+                                <input type='text' minlength="4" maxlength="10" onkeypress="isInputCharSpaceWithdot(event)" name='12thper' class='form-control mt-2' placeholder='12th Percentage'>
+                               <input type='text' name='12thpassschool' maxlength="255" onkeypress="isInputCharSpace(event)" class='form-control mt-2' placeholder='12th School Name'>
                              </li>      
                         <div>
                           <hr style="border-top: 1px solid #495057">
@@ -161,12 +213,12 @@
                         ?>        
                         <h4 class="card-title">BACHELOR</h4>
                         <li>
-                            <input type='text' name='bach1semba' class='form-control mt-2' placeholder='Sem 1'>  
-                            <input type='text' name='bach2semba' class='form-control mt-2' placeholder='Sem 2'>  
-                            <input type='text' name='bach3semba' class='form-control mt-2' placeholder='Sem 3'>  
-                            <input type='text' name='bach4semba' class='form-control mt-2' placeholder='Sem 4'>  
-                            <input type='text' name='bach5semba' class='form-control mt-2' placeholder='Sem 5'>  
-                            <input type='text' name='bach6semba' class='form-control mt-2' placeholder='Sem 6'>  
+                            <input type='text' name='bach1semba' minlength="4" maxlength="10" onkeypress="isInputCharSpaceWithdot(event)" class='form-control mt-2' placeholder='Sem 1'>  
+                            <input type='text' name='bach2semba' minlength="4" maxlength="10" onkeypress="isInputCharSpaceWithdot(event)" class='form-control mt-2' placeholder='Sem 2'>  
+                            <input type='text' name='bach3semba' minlength="4" maxlength="10" onkeypress="isInputCharSpaceWithdot(event)" class='form-control mt-2' placeholder='Sem 3'>  
+                            <input type='text' name='bach4semba' minlength="4" maxlength="10" onkeypress="isInputCharSpaceWithdot(event)" class='form-control mt-2' placeholder='Sem 4'>  
+                            <input type='text' name='bach5semba' minlength="4" maxlength="10" onkeypress="isInputCharSpaceWithdot(event)" class='form-control mt-2' placeholder='Sem 5'>  
+                            <input type='text' name='bach6semba' minlength="4" maxlength="10" onkeypress="isInputCharSpaceWithdot(event)" class='form-control mt-2' placeholder='Sem 6'>  
                           </li>
                             <select name='bunamema' class='form-control mt-2'>
                           <?php include('university.php'); ?>
@@ -180,8 +232,8 @@
                            <option value="OTHERS">Other</option>
                        </select>
                         <div id="bsptext"></div>
-                        <input type='text' name='degreesp' class='form-control mt-2' placeholder='Degree Specialization'>
-                       <input type='text' name='bmainstitute' class='form-control mt-2' placeholder='Institute / College Name'>
+                        <input type='text' name='degreesp' maxlength="255" onkeypress="isInputCharSpace(event)" class='form-control mt-2' placeholder='Degree Specialization'>
+                       <input type='text' name='bmainstitute' maxlength="255" onkeypress="isInputCharSpace(event)" class='form-control mt-2' placeholder='Institute / College Name'>
                           <div>
                           <hr style="border-top: 1px solid #495057">
                         </div>
@@ -194,12 +246,12 @@
                           <hr style="border-top: 1px solid #495057">
                         </div>
                          <li>
-                            <input type='text' name='b1semma' class='form-control mt-2' placeholder='Sem 1'>  
-                            <input type='text' name='b2semma' class='form-control mt-2' placeholder='Sem 2'>  
-                            <input type='text' name='b3semma' class='form-control mt-2' placeholder='Sem 3'>  
-                            <input type='text' name='b4semma' class='form-control mt-2' placeholder='Sem 4'>  
-                            <input type='text' name='b5semma' class='form-control mt-2' placeholder='Sem 5'>  
-                            <input type='text' name='b6semma' class='form-control mt-2' placeholder='Sem 6'>  
+                            <input type='text' name='b1semma' minlength="4" maxlength="10" onkeypress="isInputCharSpaceWithdot(event)" class='form-control mt-2' placeholder='Sem 1'>  
+                            <input type='text' name='b2semma' minlength="4" maxlength="10" onkeypress="isInputCharSpaceWithdot(event)" class='form-control mt-2' placeholder='Sem 2'>  
+                            <input type='text' name='b3semma' minlength="4" maxlength="10" onkeypress="isInputCharSpaceWithdot(event)" class='form-control mt-2' placeholder='Sem 3'>  
+                            <input type='text' name='b4semma' minlength="4" maxlength="10" onkeypress="isInputCharSpaceWithdot(event)" class='form-control mt-2' placeholder='Sem 4'>  
+                            <input type='text' name='b5semma' minlength="4" maxlength="10" onkeypress="isInputCharSpaceWithdot(event)" class='form-control mt-2' placeholder='Sem 5'>  
+                            <input type='text' name='b6semma' minlength="4" maxlength="10" onkeypress="isInputCharSpaceWithdot(event)" class='form-control mt-2' placeholder='Sem 6'>  
                           </li>
                        <select name='bunamema' class='form-control mt-2'>
                           <?php include('university.php'); ?>
@@ -213,17 +265,17 @@
                            <option value="OTHERS">Other</option>
                        </select>
                         <div id="bsptext"></div>
-                        <input type='text' name='degreesp' class='form-control mt-2' placeholder='Degree Specialization'>
-                       <input type='text' name='bmainstitute' class='form-control mt-2' placeholder='Institute / College Name'>
+                        <input type='text' name='degreesp' maxlength="255" onkeypress="isInputCharSpace(event)" class='form-control mt-2' placeholder='Degree Specialization'>
+                       <input type='text' name='bmainstitute' maxlength="255" onkeypress="isInputCharSpace(event)" class='form-control mt-2' placeholder='Institute / College Name'>
                         <div>
                           <hr style="border-top: 1px solid #495057">
                         </div>
                          <h4 class="card-title">MASTER</h4>
                          <li>
-                            <input type='text' name='m1sem' class='form-control mt-2' placeholder='Sem 1'>  
-                            <input type='text' name='m2sem' class='form-control mt-2' placeholder='Sem 2'>  
-                            <input type='text' name='m3sem' class='form-control mt-2' placeholder='Sem 3'>  
-                            <input type='text' name='m4sem' class='form-control mt-2' placeholder='Sem 4'>    
+                            <input type='text' name='m1sem' minlength="4" maxlength="10" onkeypress="isInputCharSpaceWithdot(event)" class='form-control mt-2' placeholder='Sem 1'>  
+                            <input type='text' name='m2sem' minlength="4" maxlength="10" onkeypress="isInputCharSpaceWithdot(event)" class='form-control mt-2' placeholder='Sem 2'>  
+                            <input type='text' name='m3sem' minlength="4" maxlength="10" onkeypress="isInputCharSpaceWithdot(event)" class='form-control mt-2' placeholder='Sem 3'>  
+                            <input type='text' name='m4sem' minlength="4" maxlength="10" onkeypress="isInputCharSpaceWithdot(event)" class='form-control mt-2' placeholder='Sem 4'>    
                           </li>
                         <select name='masteruname' class='form-control mt-2'>
                           <?php include('university.php'); ?>
@@ -237,8 +289,8 @@
                              <option value="OTHERS">Other</option>
                          </select>
                           <div id="mastertext"></div>
-                          <input type='text' name='mastersp' class='form-control mt-2' placeholder='Degree Specialization'>
-                         <input type='text' name='masterins' class='form-control mt-2' placeholder='Institute / College Name'>
+                          <input type='text' name='mastersp' maxlength="255" onkeypress="isInputCharSpace(event)" class='form-control mt-2' placeholder='Degree Specialization'>
+                         <input type='text' name='masterins' maxlength="255" onkeypress="isInputCharSpace(event)" class='form-control mt-2' placeholder='Institute / College Name'>
                          <div>
                             <hr style="border-top: 1px solid #495057">
                           </div>
@@ -251,16 +303,16 @@
                             <hr style="border-top: 1px solid #495057">
                           </div>
                            <li>
-                              <input type='text' name='i1sem' class='form-control mt-2' placeholder='Sem 1'>  
-                              <input type='text' name='i2sem' class='form-control mt-2' placeholder='Sem 2'>  
-                              <input type='text' name='i3sem' class='form-control mt-2' placeholder='Sem 3'>  
-                              <input type='text' name='i4sem' class='form-control mt-2' placeholder='Sem 4'>
-                              <input type='text' name='i5sem' class='form-control mt-2' placeholder='Sem 5'>
-                              <input type='text' name='i6sem' class='form-control mt-2' placeholder='Sem 6'>
-                              <input type='text' name='i7sem' class='form-control mt-2' placeholder='Sem 7'>
-                              <input type='text' name='i8sem' class='form-control mt-2' placeholder='Sem 8'>
-                              <input type='text' name='i9sem' class='form-control mt-2' placeholder='Sem 9'>
-                              <input type='text' name='i10sem' class='form-control mt-2' placeholder='Sem 10'>    
+                              <input type='text' name='i1sem' minlength="4" maxlength="10" onkeypress="isInputCharSpaceWithdot(event)" class='form-control mt-2' placeholder='Sem 1'>  
+                              <input type='text' name='i2sem' minlength="4" maxlength="10" onkeypress="isInputCharSpaceWithdot(event)" class='form-control mt-2' placeholder='Sem 2'>  
+                              <input type='text' name='i3sem' minlength="4" maxlength="10" onkeypress="isInputCharSpaceWithdot(event)" class='form-control mt-2' placeholder='Sem 3'>  
+                              <input type='text' name='i4sem' minlength="4" maxlength="10" onkeypress="isInputCharSpaceWithdot(event)" class='form-control mt-2' placeholder='Sem 4'>
+                              <input type='text' name='i5sem' minlength="4" maxlength="10" onkeypress="isInputCharSpaceWithdot(event)" class='form-control mt-2' placeholder='Sem 5'>
+                              <input type='text' name='i6sem' minlength="4" maxlength="10" onkeypress="isInputCharSpaceWithdot(event)" class='form-control mt-2' placeholder='Sem 6'>
+                              <input type='text' name='i7sem' minlength="4" maxlength="10" onkeypress="isInputCharSpaceWithdot(event)" class='form-control mt-2' placeholder='Sem 7'>
+                              <input type='text' name='i8sem' minlength="4" maxlength="10" onkeypress="isInputCharSpaceWithdot(event)" class='form-control mt-2' placeholder='Sem 8'>
+                              <input type='text' name='i9sem' minlength="4" maxlength="10" onkeypress="isInputCharSpaceWithdot(event)" class='form-control mt-2' placeholder='Sem 9'>
+                              <input type='text' name='i10sem' minlength="4" maxlength="10" onkeypress="isInputCharSpaceWithdot(event)" class='form-control mt-2' placeholder='Sem 10'>    
                             </li>
                          <select name='masteruname' class='form-control mt-2'>
                           <?php include('university.php'); ?>
@@ -274,8 +326,8 @@
                              <option value="OTHERS">Other</option>
                          </select>
                           <div id="mastertext"></div>
-                          <input type='text' name='mastersp' class='form-control mt-2' placeholder='Degree Specialization'>
-                         <input type='text' name='masterins' class='form-control mt-2' placeholder='Institute / College Name'>
+                          <input type='text' name='mastersp' maxlength="255" onkeypress="isInputCharSpace(event)" class='form-control mt-2' placeholder='Degree Specialization'>
+                         <input type='text' name='masterins' maxlength="255" onkeypress="isInputCharSpace(event)" class='form-control mt-2' placeholder='Institute / College Name'>
                           <div>
                             <hr style="border-top: 1px solid #495057">
                           </div>
@@ -298,7 +350,7 @@
             if(sp == "OTHERS")
             {
               var xmlhttp=new XMLHttpRequest();
-              document.getElementById("sptext").innerHTML='<input type="text" name="others_sp_d2d_n_12th" class="form-control mt-2" placeholder="Specify Your Specialzation">';
+              document.getElementById("sptext").innerHTML='<input type="text" maxlength="255" onkeypress="isInputCharSpace(event)" name="others_sp_d2d_n_12th" class="form-control mt-2" placeholder="Specify Your Specialzation">';
             }
             else{
               var xmlhttp=new XMLHttpRequest();
@@ -310,7 +362,7 @@
             if(sp == "OTHERS")
             {
               var xmlhttp=new XMLHttpRequest();
-              document.getElementById("sptext").innerHTML='<input type="text" name="others_sp_ba_12th" class="form-control mt-2" placeholder="Specify Your Specialzation">';
+              document.getElementById("sptext").innerHTML='<input type="text" maxlength="255" onkeypress="isInputCharSpace(event)" name="others_sp_ba_12th" class="form-control mt-2" placeholder="Specify Your Specialzation">';
             }
             else{
               var xmlhttp=new XMLHttpRequest();
@@ -322,7 +374,7 @@
             if(sp == "OTHERS")
             {
               var xmlhttp=new XMLHttpRequest();
-              document.getElementById("bsptext").innerHTML='<input type="text" name="others_sp_bach_ma" class="form-control mt-2" placeholder="Specify Your Degree">';
+              document.getElementById("bsptext").innerHTML='<input type="text" maxlength="255" onkeypress="isInputCharSpace(event)" name="others_sp_bach_ma" class="form-control mt-2" placeholder="Specify Your Degree">';
             }
             else{
               var xmlhttp=new XMLHttpRequest();
@@ -335,7 +387,7 @@
             if(sp == "OTHERS")
             {
               var xmlhttp=new XMLHttpRequest();
-              document.getElementById("mastertext").innerHTML='<input type="text" name="others_sp_master_type_ma" class="form-control mt-2" placeholder="Specify Your Degree">';
+              document.getElementById("mastertext").innerHTML='<input type="text" maxlength="255" onkeypress="isInputCharSpace(event)" name="others_sp_master_type_ma" class="form-control mt-2" placeholder="Specify Your Degree">';
             }
             else{
               var xmlhttp=new XMLHttpRequest();
@@ -348,7 +400,7 @@
             if(sp == "OTHERS")
             {
               var xmlhttp=new XMLHttpRequest();
-              document.getElementById("msptext").innerHTML='<input type="text" name="others_sp_master" class="form-control mt-2" placeholder="Specify Your Specialzation">';
+              document.getElementById("msptext").innerHTML='<input type="text" maxlength="255" onkeypress="isInputCharSpace(event)" name="others_sp_master" class="form-control mt-2" placeholder="Specify Your Specialzation">';
             }
             else{
               var xmlhttp=new XMLHttpRequest();
@@ -372,7 +424,7 @@
                     if(sp == "OTHERS")
                     {
                       var xmlhttp=new XMLHttpRequest();
-                      document.getElementById("dsptext").innerHTML='<input type="text" name="others_sp_dip" class="form-control mt-2" placeholder="Specify Your Specialzation">';
+                      document.getElementById("dsptext").innerHTML='<input type="text" maxlength="255" onkeypress="isInputCharSpace(event)" name="others_sp_dip" class="form-control mt-2" placeholder="Specify Your Specialzation">';
                     }
                     else{
                       var xmlhttp=new XMLHttpRequest();
@@ -386,7 +438,7 @@
                     if(sp == "OTHERS")
                     {
                       var xmlhttp=new XMLHttpRequest();
-                      document.getElementById("dsptext").innerHTML='<input type="text" name="others_sp_dip_y_ba" class="form-control mt-2" placeholder="Specify Your Specialzation">';
+                      document.getElementById("dsptext").innerHTML='<input type="text" maxlength="255" onkeypress="isInputCharSpace(event)" name="others_sp_dip_y_ba" class="form-control mt-2" placeholder="Specify Your Specialzation">';
                     }
                     else{
                       var xmlhttp=new XMLHttpRequest();
@@ -400,7 +452,7 @@
                     if(sp == "OTHERS")
                     {
                       var xmlhttp=new XMLHttpRequest();
-                      document.getElementById("bachsptext").innerHTML='<input type="text" name="others_sp_bach_n_d2d_ba" class="form-control mt-2" placeholder="Specify Your Degree">';
+                      document.getElementById("bachsptext").innerHTML='<input type="text" maxlength="255" onkeypress="isInputCharSpace(event)" name="others_sp_bach_n_d2d_ba" class="form-control mt-2" placeholder="Specify Your Degree">';
                     }
                     else{
                       var xmlhttp=new XMLHttpRequest();
@@ -412,7 +464,7 @@
                     if(sp == "OTHERS")
                     {
                       var xmlhttp=new XMLHttpRequest();
-                      document.getElementById("bachsptext").innerHTML='<input type="text" name="others_sp_bach_d2dY" class="form-control mt-2" placeholder="Specify Your Degree">';
+                      document.getElementById("bachsptext").innerHTML='<input type="text" maxlength="255" onkeypress="isInputCharSpace(event)" name="others_sp_bach_d2dY" class="form-control mt-2" placeholder="Specify Your Degree">';
                     }
                     else{
                       var xmlhttp=new XMLHttpRequest();
@@ -424,7 +476,7 @@
                     if(sp == "OTHERS")
                     {
                       var xmlhttp=new XMLHttpRequest();
-                      document.getElementById("mastersptext").innerHTML='<input type="text" name="other_for_master_dip_y" class="form-control mt-2" placeholder="Specify Your Degree">';
+                      document.getElementById("mastersptext").innerHTML='<input type="text" maxlength="255" onkeypress="isInputCharSpace(event)"  name="other_for_master_dip_y" class="form-control mt-2" placeholder="Specify Your Degree">';
                     }
                     else{
                       var xmlhttp=new XMLHttpRequest();
@@ -437,7 +489,7 @@
                     if(sp == "OTHERS")
                     {
                       var xmlhttp=new XMLHttpRequest();
-                      document.getElementById("mastersptext").innerHTML='<input type="text" name="others_sp_master" class="form-control mt-2" placeholder="Specify Your Specialzation">';
+                      document.getElementById("mastersptext").innerHTML='<input type="text" maxlength="255" onkeypress="isInputCharSpace(event)" name="others_sp_master" class="form-control mt-2" placeholder="Specify Your Specialzation">';
                     }
                     else{
                       var xmlhttp=new XMLHttpRequest();
@@ -449,9 +501,6 @@
   include('footer.php');
   ob_flush();
 ?>      
-
-
-
 
 
 

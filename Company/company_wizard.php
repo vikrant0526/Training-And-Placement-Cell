@@ -6,7 +6,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -222,21 +221,10 @@
     <!-- End Google Tag Manager (noscript) -->
 
     <div class="wrapper">
-
-        <!--=================================
-   preloader -->
-
-        <div id="pre-loader">
+    <div id="pre-loader">
             <img src="../Files/images/pre-loader/loader-01.svg" alt="">
         </div>
-
-        <!--=================================
-     preloader -->
-
-        <!--=================================
-     login-->
-
-        <section class="login-box-main height-100vh page-section-ptb"
+     <section class="login-box-main height-100vh page-section-ptb"
             style="background: url(../Files/images/login/06.jpg); background-repeat: no-repeat; background-attachment: fixed;">
             <div class="login-box-main-middle">
                 <div class="container">
@@ -253,9 +241,6 @@
                                         <div class="card-body">
                                             <form class="" action="#" method="post" enctype="multipart/form-data"
                                                 id="default">
-                                                
-
-                                                    <!-- <h5 class="mb-3">Step Title</h5> -->
                                                     <div class="form-group row">
                                                         <div
                                                             style="width: 125px;height: 125px; position: relative; overflow: hidden;border-radius: 50%;margin: auto auto">
@@ -266,13 +251,9 @@
                                                             <input type="file" class="form-control"
                                                                 placeholder="Company Logo" name="profileImage"
                                                                 id="profileImage" onchange="displayImage(this)"
-                                                                accept="image/*">
+                                                                accept="image/*" required>
                                                         </div>
                                                     </div>
-                                                    <!-- <div class="form-group row">
-                                                        <label class="btn btn-light col-4 offset-4" id="profileDisplay"
-                                                            onclick="triggerClick()">Choose A Logo</label>
-                                                    </div> -->
                                                     <div class="form-group row">
                                                         <label
                                                             class="col-sm-4 col-form-label col-form-label-sm">Comapany
@@ -373,8 +354,6 @@
                                                         </div>
                                                         
                                                     </div>
-                                               
-                                                
                                                     <div class="form-group row">
                                                         <label class="col-sm-4 col-form-label col-form-label-sm">HR
                                                             Name</label>

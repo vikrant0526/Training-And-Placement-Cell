@@ -1,8 +1,6 @@
 <?php
     include('../../Files/PDO/dbcon.php');
      $tid = $_GET['tid'];
-
-    //$dept ="BMIIT";
      $stmt=$con->prepare("CALL  GET_TOTAL_MARKS(:tid)");
      $stmt->bindParam(":tid",$tid);
      $stmt->execute();
@@ -33,7 +31,7 @@
                 <label class="text-dark text-nowrap"><?php echo $data['STUDENT_ENROLLMENT_NUMBER']; ?></label>
             </td>
              <td>
-                <input class="form-control" type="number" max="<?php echo $tMarks['TEST_TOTAL_MARKS']; ?>" name="<?php echo $data['STUDENT_ID'] ?>" min="0">
+                <input class="form-control" type="number" max="<?php echo $tMarks['TEST_TOTAL_MARKS']; ?>" name="<?php echo $data['STUDENT_ID'] ?>" required min="0">
             </td>
             <td>
                 <label>/<?php echo $tMarks['TEST_TOTAL_MARKS']; ?></label>
@@ -47,7 +45,7 @@
                 <label class="text-dark text-nowrap"><?php echo $data['STUDENT_ENROLLMENT_NUMBER']; ?></label>
             </td>
              <td>
-                <input class="form-control" type="number" max="<?php echo $tMarks['TEST_TOTAL_MARKS']; ?>" name="<?php echo $data['STUDENT_ID'] ?>" min="0">
+                <input class="form-control" type="number" max="<?php echo $tMarks['TEST_TOTAL_MARKS']; ?>" name="<?php echo $data['STUDENT_ID'] ?>" required min="0">
             </td>
             <td>
                 <label>/<?php echo $tMarks['TEST_TOTAL_MARKS']; ?></label>
@@ -62,7 +60,7 @@
                 <label class="text-dark text-nowrap"><?php echo $data['STUDENT_ENROLLMENT_NUMBER']; ?></label>
             </td>
              <td>
-                <input class="form-control" type="number" max="<?php echo $tMarks['TEST_TOTAL_MARKS']; ?>" name="<?php echo $data['STUDENT_ID'] ?>" min="0">
+                <input class="form-control" type="number" max="<?php echo $tMarks['TEST_TOTAL_MARKS']; ?>" name="<?php echo $data['STUDENT_ID'] ?>" required min="0">
             </td>
             <td>
                 <label>/<?php echo $tMarks['TEST_TOTAL_MARKS']; ?></label>

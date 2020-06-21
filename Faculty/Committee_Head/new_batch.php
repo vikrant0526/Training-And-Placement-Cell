@@ -3,7 +3,48 @@
   include('header.php');
   $data=$_SESSION['Userdata'];
 ?>
+  <script>
+    function isInputNumber(evt) {
 
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/[0-9]/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+
+    function isInputChar(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/[A-Za-z]/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+
+    function isInputCharSpace(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/^[a-zA-Z ]*$/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+
+    function isInputCharAndNumSpace(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/^[a-zA-Z0-9 ]*$/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+  
+  </script>
     <div class="content-wrapper header-info">
       <!-- widgets -->
       <div class="mb-30">
@@ -38,14 +79,16 @@
                 <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                      <input type="text" name="pyear" class="form-control" placeholder="Passing Year" value="<?php echo date('Y');?>">
+                      <input type="text" name="pyear" maxlength="4" id="mobile" onkeyup="check(); return false;" onkeypress="isInputNumber(event)" class="form-control" placeholder="Passing Year" value="<?php echo date('Y');?>">
+                      <span id="message"></span>
                     </div>
                   </div>
                 </li>
                 <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                      <input type="text" name="sem" class="form-control" placeholder="No. of Semister">
+                      <input type="text" name="sem" maxlength="2" id="mobile1" onkeyup="checksem(); return false;" onkeypress="isInputNumber(event)" class="form-control" placeholder="No. of Semister">
+                      <span id="message1"></span>
                     </div>
                   </div>
                 </li>
@@ -64,12 +107,42 @@
           </div>
         </div>
         <script type="text/javascript"> 
-    function course(){
+        function course(){
             var xmlhttp=new XMLHttpRequest();
             xmlhttp.open("GET","degreebind.php?dept="+document.getElementById("dept").value,false);
             xmlhttp.send(null);
             //alert(xmlhttp.responseText);  
             document.getElementById("degree").innerHTML=xmlhttp.responseText;
+        }
+
+        function check()
+        {
+            var pass1 = document.getElementById('mobile');
+            var message = document.getElementById('message');
+            var badColor = "#84BA3F";
+            if(mobile.value.length!=4){
+                message.style.color = badColor;
+                message.innerHTML = "required 4 digits, match requested format!"
+            }    
+            if(mobile.value.length==4){
+                message.style.color = badColor;
+                message.innerHTML = ""
+            }
+        }
+
+        function checksem()
+        {
+            var pass1 = document.getElementById('mobile1');
+            var message = document.getElementById('message1');
+            var badColor = "#84BA3F";
+            if(mobile1.value.length!=2 || mobile1.value.length!=1){
+                message.style.color = badColor;
+                message.innerHTML = "required 2 digits or 1 digits, match requested format!"
+            }    
+            if(mobile1.value.length==2 || mobile1.value.length==1){
+                message.style.color = badColor;
+                message.innerHTML = ""
+            }
         }
         </script>
 
@@ -78,14 +151,10 @@
 ?>
 
 <?php
-
   if($_SERVER["REQUEST_METHOD"] == "POST"){
-
       if(isset($_REQUEST["Submit"])){
-
           $dept = $_REQUEST["dept"];
           $degree = $_REQUEST["degree"];
-          
 
           if ($degree == 'BCA' || $degree == 'BSC(IT)') {
               $d2d=0;

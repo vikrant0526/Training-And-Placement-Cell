@@ -9,13 +9,22 @@
    $selection_list_id=$_GET["sid"];
    $_SESSION["selection_list_id"]=$_GET["sid"]; 
 ?>
+	<script>
+	function isInputNumber(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/[0-9]/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+	</script>
 	<div class="content-wrapper header-info">
-      <!-- widgets -->
       <div class="mb-30">
            <div class="card h-100 ">
            <div class="card-body h-100">
              <h4 class="card-title">Stipend Enter</h4>
-             <!-- action group -->
              <form action="#" method="post">
              <div class="scrollbar">
               <ul class="list-unstyled">
@@ -31,9 +40,8 @@
 						            <td>Profile Pic</td>
 						            <td>En No.</td>
 						            <td>Name</td>
-                       	<td>Stipend</td>
-                        <!-- <td>Delete</td> -->
-						        </tr>
+                      			 	<td>Stipend</td>
+                                </tr>
 						     <?php
 						     $count=0; 
 						     $x=1;
@@ -65,7 +73,7 @@
 												<td><?php echo $studdata["STUDENT_ENROLLMENT_NUMBER"]; ?></td>
 												<td><?php echo $studdata["STUDENT_FIRST_NAME"]." ".$studdata["STUDENT_LAST_NAME"]; ?></td>
 												<td>
-													<input type="text" class="form-control" name="stipend_student<?php echo $count;?>" required>
+													<input type="text" class="form-control" maxlength="11" onkeypress="isInputNumber(event)" name="stipend_student<?php echo $count;?>" required>
 													<input type="hidden" class="form-control"name="student_id<?php echo $count;?>"
 													value="<?php echo $studdata['STUDENT_ID'];?>" required>
 												</td>
@@ -78,7 +86,7 @@
 												<td><?php echo $studdata["STUDENT_ENROLLMENT_NUMBER"]; ?></td>
 												<td><?php echo $studdata["STUDENT_FIRST_NAME"]." ".$studdata["STUDENT_LAST_NAME"]; ?></td>
 												<td>
-													<input type="text" class="form-control" name="stipend_student<?php echo $count;?>" value="<?php echo $stipenddata["TRAINING_OFFERED_STIPEND"]; ?>" required>
+													<input type="text" class="form-control" maxlength="11" onkeypress="isInputNumber(event)" name="stipend_student<?php echo $count;?>" value="<?php echo $stipenddata["TRAINING_OFFERED_STIPEND"]; ?>" required>
 													<input type="hidden" class="form-control"name="student_id<?php echo $count;?>"
 													value="<?php echo $studdata['STUDENT_ID'];?>" required>
 												</td>

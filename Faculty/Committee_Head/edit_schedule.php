@@ -13,9 +13,9 @@
            <div class="card-body h-100">
              <h4 class="card-title">Placment Schedule</h4>
              <!-- action group -->
-             <div class="btn-group info-drop">
+             <!-- <div class="btn-group info-drop">
                   <a class="dropdown-item text-white" href="edit_schedule.php"><i class="text-info fa fa-edit"></i></a>
-              </div>
+              </div> -->
             <ul class="list-unstyled">
             <form method="POST" action="#">
               <li>
@@ -37,7 +37,6 @@
                           </div>
                     </td>
                     <td><?php echo $x['COMPANY_NAME']; ?></td>
-                    <td><?php echo $x['COMPANY_ID']; ?></td>
                     <td>
                         <div class="input-group date" id="datepicker-top-left">
                             <input type="hidden" name="company_id<?php echo $count; ?>" value="<?php echo $x['COMPANY_ID']; ?>">
@@ -79,9 +78,7 @@
   include('footer.php');
 ?>      
 
-
 <?php
-
     if(isset($_REQUEST["submit"]))
      {
          for($i=0;$i<$count;$i++){

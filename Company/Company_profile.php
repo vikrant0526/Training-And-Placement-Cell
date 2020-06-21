@@ -3,6 +3,38 @@
   include('header.php');
   $data=$_SESSION['Userdata'];
 ?>
+  <script>
+    function isInputNumber(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/[0-9]/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+
+    
+    function isInputChar(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/[A-Za-z]/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+
+    function isInputCharSpace(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/^[a-zA-Z ]*$/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+  </script>
   <div class="content-wrapper header-info">
         <form action="#" method="POST" enctype="multipart/form-data">
       <!-- widgets -->
@@ -29,98 +61,63 @@
                 $stmt->execute();
                 $data = $stmt->fetch(PDO::FETCH_ASSOC);
               ?>
-              
                   <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                      <input type="text" name="cname" class="form-control" placeholder="Company Name" value="<?php echo $data["COMPANY_NAME"]; ?>">
+                      <input type="text" name="cname" maxlength="30" class="form-control" placeholder="Company Name" value="<?php echo $data["COMPANY_NAME"]; ?>">
                     </div>
                   </div>
                 </li>
                  <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                      <input type="email" name="cemail" placeholder="Company Email" class="form-control" value="<?php echo $data["COMPANY_EMAIL"]; ?>">
+                      <input type="email" name="cemail" maxlength="255" pattern=(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])
+                      placeholder="Company Email"  class="form-control" value="<?php echo $data["COMPANY_EMAIL"]; ?>">
                     </div>
                   </div>
                 </li> 
                  <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                      <input type="text" name="cnum" class="form-control" placeholder="Company Phone number" value="<?php echo $data["COMPANY_PHONE_NUMBER_1"]; ?>">
+                      <input type="text" name="cnum" onkeyup="check1(); return false;" id="mobile1" maxlength="10" onkeypress="isInputNumber(event)" class="form-control" placeholder="Company Phone number" value="<?php echo $data["COMPANY_PHONE_NUMBER_1"]; ?>">
+                      <span id="message1"></span>
                     </div>
                   </div>
                 </li> 
-                <!-- <li>
-
-                  <div class="media">
-                    <div class="media-body mb-2">
-                        <select class="form-control select2-hidden-accessible" style="width: 100%" id="option_s3" name="param[]" multiple="" required="">
-                            <optgroup label="Desktop Software">
-                                <option value="CShrap">C#(.net)</option>
-                                <option value="Java">JAVA</option>
-                                <option value="C+">C++</option> 
-                                <option value="Python">Python</option> 
-                            </optgroup>
-                            <optgroup label="Website">
-                                <option value="php">PHP</option>
-                                <option value="nodejs">Node JS</option>
-                                <option value="angjs">Angular JS</option>
-                                <option value="ruby">Ruby</option>
-                                <option value="django">Django</option>
-                                <option value="mj">Magento</option>
-                            </optgroup>
-                            <optgroup label="Mobile App">
-                                <option value="Android">Android(Java)(Kotlin)</option>
-                                <option value="IOS">IOS(Swift)</option>
-                            </optgroup>
-                            <optgroup label="Others">
-                                <option value="wp">Wordpress</option>
-                                <option value="laravel">Laravel(PHP)</option>
-                                <option value="CakePHP">CakePHP</option>
-                                <option value="CodeIgniter">CodeIgniter</option>
-                            </optgroup>
-                        </select>
-                    </div>
-                  </div>
-                </li> -->
                 <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                      <div class="input-group date" id="datepicker-top-left">
-                        <input name="creg" class="form-control" type="text" placeholder="Company Registered Year" value="<?php echo $data["COMPANY_REGISTERED_YEAR"]; ?>">
-                        <span class="input-group-addon">
-                          <i class="fa fa-calendar"></i>
-                        </span>
-                    </div>
+                        <input type="text" name="creg" class="form-control" maxlength="4" onkeypress="isInputNumber(event)" type="text" placeholder="Company Registered Year" value="<?php echo $data["COMPANY_REGISTERED_YEAR"]; ?>">
                     </div>
                   </div>
                 </li>  
                  <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                      <input type="text" name="hrname" placeholder="HR Name" class="form-control" value="<?php echo $data["COMPANY_HR_NAME"]; ?>">
+                      <input type="text" name="hrname" placeholder="HR Name" onkeypress="isInputCharSpace(event)" maxlength="50" class="form-control" value="<?php echo $data["COMPANY_HR_NAME"]; ?>">
                     </div>
                   </div>
                 </li>
                 <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                      <input type="text" name="hrnum" class="form-control" placeholder="HR Phone number" value="<?php echo $data["COMPANY_PHONE_NUMBER_2"]; ?>">
+                      <input type="text" name="hrnum" id="mobile" onkeyup="check(); return false;" maxlength="10" onkeypress="isInputNumber(event)" class="form-control" placeholder="HR Phone number" value="<?php echo $data["COMPANY_PHONE_NUMBER_2"]; ?>">
+                      <span id="message"></span>
                     </div>
                   </div>
                 </li>
                 <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                      <input type="email" name="hremail" placeholder="HR Email" class="form-control" value="<?php echo $data["COMPANY_HR_EMAIL"]; ?>">
+                      <input type="email" name="hremail" pattern=(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])
+                      maxlength="255" placeholder="HR Email" class="form-control" value="<?php echo $data["COMPANY_HR_EMAIL"]; ?>">
                     </div>
                   </div>
                 </li>
                  <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                      <input type="text" name="cweb" placeholder="Company Website" class="form-control" value="<?php echo $data["COMPANY_WEBSITE"]; ?>">
+                      <input type="url" maxlength="100" name="cweb" placeholder="https: or http:/www.yourcompanywebsite.domains" class="form-control" value="<?php echo $data["COMPANY_WEBSITE"]; ?>">
                     </div>
                   </div>
                 </li>
@@ -143,21 +140,22 @@
                 <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                      <input type="text" name="cemp" class="form-control" placeholder="No. of Employess in Company" value="<?php echo $data["COMPANY_NO_OF_EMPLOYEES"]; ?>">
+                      <input type="text" name="cemp" onkeypress="isInputNumber(event)" class="form-control" placeholder="No. of Employess in Company" value="<?php echo $data["COMPANY_NO_OF_EMPLOYEES"]; ?>">
                     </div>
                   </div>
                 </li>
                 <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                      <input type="text" name="cmax" class="form-control" placeholder="Company's Maximum Package" value="<?php echo $data["COMPANY_MAXIMUM_PACKAGE"]; ?>">
+                      <input type="text" name="cmax" id="maxval" minlength="5" onkeyup="packagecheck(); return false;" onkeypress="isInputNumber(event)" class="form-control" placeholder="Company's Maximum Package" value="<?php echo $data["COMPANY_MAXIMUM_PACKAGE"]; ?>">
                     </div>
                   </div>
                 </li>
                 <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                      <input type="text" name="cmin" class="form-control" placeholder="Company's Minimum Package" value="<?php echo $data["COMPANY_MINIMUM_PACKAGE"]; ?>">
+                      <input type="text" name="cmin" id="minval" minlength="5" onkeyup="packagecheck(); return false;" onkeypress="isInputNumber(event)" class="form-control" placeholder="Company's Minimum Package" value="<?php echo $data["COMPANY_MINIMUM_PACKAGE"]; ?>">
+                      <span id="packagemessage"></span>
                     </div>
                   </div>
                 </li>
@@ -207,6 +205,56 @@
             //alert(xmlhttp.responseText);  
             document.getElementById("degree").innerHTML=xmlhttp.responseText;
         }
+        function check()
+    {
+        // alert("ff");
+        var pass1 = document.getElementById('mobile');
+        var message = document.getElementById('message');
+        var badColor = "#84BA3F";
+        if(mobile.value.length!=10){
+            // alert("ffrr");
+            message.style.color = badColor;
+            message.innerHTML = "required 10 digits, match requested format!"
+        }    
+        if(mobile.value.length=='10'){
+            message.style.color = badColor;
+            message.innerHTML = ""
+        }
+    }
+
+
+    function check1()
+    {
+        var pass1 = document.getElementById('mobile1');
+        var message = document.getElementById('message1');
+        var badColor = "#84BA3F";
+        if(mobile1.value.length!=10){
+            message.style.color = badColor;
+            message.innerHTML = "required 10 digits, match requested format!"
+        }    
+        if(mobile1.value.length=='10'){
+            message.style.color = badColor;
+            message.innerHTML = ""
+        }
+    }
+
+    
+    function packagecheck()
+    {
+        // alert("This");
+        var min = document.getElementById('minval');
+        var max = document.getElementById('maxval');
+        var message = document.getElementById('packagemessage');
+        var badColor = "#84BA3F";
+        if(parseInt(min.value) > parseInt(max.value)){
+            // alert('This if');    
+            message.style.color = badColor;
+            message.innerHTML = "Min Package must be less than Max Package";
+        }else{
+            message.style.color = badColor;
+            message.innerHTML = "";
+        }    
+    }
     </script>
 
 <?php 

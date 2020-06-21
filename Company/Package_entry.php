@@ -32,10 +32,18 @@
   $facultydata = $stmt8->fetch(PDO::FETCH_ASSOC);
   $email = $facultydata["FACULTY_EMAIL"];
   $faculty_id= $facultydata["FACULTY_ID"];
-
-
 ?>
+<script>
+	function isInputNumber(evt) {
 
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/[0-9]/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+	</script>
 <div class="content-wrapper header-info">
       <!-- widgets -->
       <div class="mb-30">
@@ -67,7 +75,7 @@
                               <div class="row">
                                 <label for="" class="m-2 mt-3 col-2"><?php echo $x['STUDENT_ENROLLMENT_NUMBER']; ?></label>
                                 <label for="" class="m-2 mt-3 col-2"><?php echo $x['STUDENT_FIRST_NAME']." ".$x['STUDENT_LAST_NAME']; ?></label>
-                                <input type="text" name="<?php echo $x['STUDENT_ID']; ?>" class="col-6 m-2 form-control" required>
+                                <input type="text" maxlength="11" onkeypress="isInputNumber(event)" name="<?php echo $x['STUDENT_ID']; ?>" class="col-6 m-2 form-control" required>
                               </div>
                             <?php 
                           }
