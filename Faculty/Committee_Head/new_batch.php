@@ -79,7 +79,7 @@
                 <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                      <input type="text" name="pyear" maxlength="4" id="mobile" onkeyup="check(); return false;" onkeypress="isInputNumber(event)" class="form-control" placeholder="Passing Year" value="<?php echo date('Y');?>">
+                      <input type="text" name="pyear" maxlength="4" id="mobile" onkeyup="check(); return false;" onkeypress="isInputNumber(event)" class="form-control" placeholder="Passing Year" value="<?php echo date('Y');?>" required>
                       <span id="message"></span>
                     </div>
                   </div>
@@ -87,7 +87,7 @@
                 <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                      <input type="text" name="sem" maxlength="2" id="mobile1" onkeyup="checksem(); return false;" onkeypress="isInputNumber(event)" class="form-control" placeholder="No. of Semister">
+                      <input type="text" name="sem" maxlength="2" id="mobile1" onkeyup="checksem(); return false;" onkeypress="isInputNumber(event)" class="form-control" placeholder="No. of Semister" required>
                       <span id="message1"></span>
                     </div>
                   </div>

@@ -20,6 +20,6 @@
     $stmt3->bindParam(":cid",$cid); 
     $stmt3->bindParam(":chid",$chid);  
     $stmt3->execute();
-    print_r($stmt3->errorinfo());
+    // print_r($stmt3->errorinfo());
     header("location: traning.php");
  ?>

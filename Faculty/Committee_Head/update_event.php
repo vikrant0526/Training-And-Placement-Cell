@@ -58,7 +58,7 @@
                   <div class="media">
                     <div class="media-body mb-2">
                       <select name="eventfor" class="form-control p-1 pl-3" id="eventfor" onchange="event_for()">
-                      <?php if(isset($xdata['EVENT_COMPANY_ID'])) {?>
+                      <?php if($xdata['EVENT_COMPANY_ID'] != '0') {?>
                             <option>Select Event For</option>
                             <option value="PRE">PRE-PLACEMENT</option>
                             <option selected value="IN">IN-PLACEMENT</option>

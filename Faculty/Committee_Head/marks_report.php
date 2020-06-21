@@ -13,7 +13,7 @@
     <div class="mb-30">
         <div class="card h-100 ">
             <div class="card-body h-100">
-                <h4 class="card-title">Fill Attendance</h4>
+                <h4 class="card-title">Marks Report</h4>
                 <!-- action group -->
                 <div class="scrollbar">
                     <ul class="list-unstyled">

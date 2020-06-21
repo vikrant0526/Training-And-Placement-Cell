@@ -112,14 +112,15 @@
                 <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                    	<input type="text" name="tmarks" class="form-control" maxlength="11"  onkeypress="isInputNumber(event)" placeholder="Total Marks" autofocus required>
+                    	<input type="text" name="tmarks" onkeyup="checktotmarks(); return false;" id="maxval" class="form-control" maxlength="11"  onkeypress="isInputNumber(event)" placeholder="Total Marks" autofocus required>
                     </div>
                   </div>
                 </li>
                 <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                    	<input type="text" name="pmarks" class="form-control" maxlength="11" onkeypress="isInputNumber(event)" placeholder="Passing Marks" required>
+                    	<input type="text" name="pmarks" onkeyup="checktotmarks(); return false;" id="minval" class="form-control" maxlength="11" onkeypress="isInputNumber(event)" placeholder="Passing Marks" required>
+                      <span id="packagemessage"></span>
                     </div>
                   </div>
                 </li>
@@ -157,6 +158,24 @@
             xmlhttp.send(null);
             document.getElementById("event").innerHTML=xmlhttp.responseText;
         }
+
+        
+    function checktotmarks()
+    {
+        // alert("This");
+        var min = document.getElementById('minval');
+        var max = document.getElementById('maxval');
+        var message = document.getElementById('packagemessage');
+        var badColor = "#84BA3F";
+        if(parseInt(min.value) > parseInt(max.value)){
+            // alert('This if');    
+            message.style.color = badColor;
+            message.innerHTML = "Passing marks must not exceed total marks";
+        }else{
+            message.style.color = badColor;
+            message.innerHTML = "";
+        }    
+    }
         </script>
 
 <?php 

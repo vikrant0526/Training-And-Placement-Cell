@@ -193,7 +193,8 @@
                   </div>
                   <div class="section-field mb-20 row">
                     <label class="mt-10 text-dark font-weight-bold col-4"  for="Password">Re-Type Password<label class="text-danger">*</label></label>
-                    <input id="confirm2" class="Password form-control col-8" onkeyup="checkPass();" type="password" placeholder="Re-Type Password" name="rpass"  required>
+                    <input id="confirm2" class="Password form-control col-8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onkeyup="checkPass();" 
+                    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" type="password" placeholder="Re-Type Password" name="rpass"  required>
                      <span id="confirm-message2" class="confirm-message"></span>  
                   </div><br><br>
                   <!-- <div class="section-field">
