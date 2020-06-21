@@ -95,8 +95,7 @@
                                         <a href="deny.php?nid=<?php echo $data['NOTIFICATION_ID']; ?>"><button
                                                 class="btn btn-sm btn-outline-danger float-right ml-2 mb-2"><i
                                                     class="fa fa-times"></i> Deny</button></a>
-                                        <a
-                                            href="allow.php?nid=<?php echo $data['NOTIFICATION_ID']; ?>&sid=<?php echo $data['NOTIFICATION_RECEIVER_ID'];?>&eid=<?php echo $uname['EVENT_ID']; ?>"><button
+                                        <a href="allow.php?nid=<?php echo $data['NOTIFICATION_ID']; ?>&sid=<?php echo $data['NOTIFICATION_RECEIVER_ID'];?>&eid=<?php echo $uname['EVENT_ID']; ?>"><button
                                                 class="btn btn-sm btn-outline-success float-right mb-2"><i
                                                     class="fa fa-check"></i> Accept</button></a>
 
@@ -134,16 +133,13 @@
                                             class="float-right"><?php echo $data['NOTIFICATION_TIME_STAMP']; ?></small>
                                     </h6>
                                     <p><?php echo $data['NOTIFICATION_DESCRPTION']." Stipend:".$companydata["TRAINING_OFFERED_STIPEND"]; ?>
-                                        <a
-                                            href="deny_training.php?nid=<?php echo $data['NOTIFICATION_ID']; ?>&slid=<?php echo $id; ?>"><button
+                                        <a href="deny_training.php?nid=<?php echo $data['NOTIFICATION_ID']; ?>&slid=<?php echo $id; ?>"><button
                                                 class="btn btn-sm btn-outline-danger float-right ml-2 mb-2"><i
                                                     class="fa fa-times"></i> Deny</button></a>
-                                        <a
-                                            href="accept_training.php?nid=<?php echo $data['NOTIFICATION_ID']; ?>&slid=<?php echo $id; ?>"><button
+                                        <a href="accept_training.php?nid=<?php echo $data['NOTIFICATION_ID']; ?>&slid=<?php echo $id; ?>"><button
                                                 class="btn btn-sm btn-outline-success float-right mb-2"><i
                                                     class="fa fa-check"></i> Accept</button></a>
-                                        <a
-                                            href="Company_profile.php?cid=<?php echo $companydata['COMPANY_ID']; ?>"><button
+                                        <a href="Company_profile.php?cid=<?php echo $companydata['COMPANY_ID']; ?>"><button
                                                 class="btn btn-sm btn-outline-info float-right mb-2 mr-2"><i
                                                     class="fa fa-eye"></i> View</button></a></p>
                                     <div>
