@@ -5,9 +5,7 @@
   $data=$_SESSION['Userdata'];
   $sid = $data["STUDENT_ID"];
 ?>
-
-    <div class="content-wrapper header-info">
-      <!-- widgets -->
+   <div class="content-wrapper header-info">
       <div class="mb-30">
            <div class="card h-100 ">
            <div class="card-body h-100">
