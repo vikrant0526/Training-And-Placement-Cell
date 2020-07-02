@@ -1,15 +1,18 @@
 <?php 
     require "../../Files/fpdf.php";
     $con =  new PDO("mysql:host=localhost;dbname=ntpcell","root","");	
-    class myPDF extends FPDF{    
+    class myPDF extends FPDF{ 
         function header(){
+                $syear=date('Y')-1;
+                $eyear=date('Y');
+                $aca_year='Academic Year '.$syear."-".$eyear;
                 // $new_year=mktime(0,0,0,date('m'),date('d'),date('Y')-1);
                 $this->Image('../../Files/images/logo-mini.png',10,6);
                 $this->SetFont('Helvetica','B',45);
                 $this->Cell(320,20,'PLACEMENT SCHEDULE',0,0,'C');
                 $this->Ln();
                 $this->SetFont('Helvetica','B',25);
-                $this->Cell(276,10,'Academic Year '.date('Y'),0,0,'C');
+                $this->Cell(276,10,$aca_year,0,0,'C');
                 $this->Ln();
                 $this->Ln();
                 $this->Ln();
