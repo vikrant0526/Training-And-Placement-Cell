@@ -1,19 +1,15 @@
 <?php 
   ob_start();
   include('header.php');
- 
   $data=$_SESSION['Userdata'];
-
   include('../../Files/PDO/dbcon.php'); 
   $stmt=$con->prepare("CALL GET_PLACMENT_SCHEDULE()");
   $stmt->execute();
   $rows=$stmt->rowCount();
 ?>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<!-- <script src="jquery-2.1.4.js"></script> -->
 <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
 <script src="http://cdn.jsdelivr.net/g/filesaver.js"></script>
-<!-- <script lang="javascript" src="FileSaver.min.js"></script> -->
     <div class="content-wrapper header-info">
       <div class="mb-30">
            <div class="card h-100">
