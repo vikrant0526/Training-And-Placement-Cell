@@ -7,8 +7,9 @@
   $stmt->execute();
 ?>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+<script src="http://cdn.jsdelivr.net/g/filesaver.js"></script>
 <div class="content-wrapper header-info">
-    
     <!-- widgets -->
     <div class="mb-30">
         <div class="card h-100 ">
@@ -94,8 +95,7 @@
             // alert(xmlhttp.responseText);
             document.getElementById("marks").innerHTML=xmlhttp.responseText;
         }
-        </script>
-
+    </script>     
     <?php 
 	include('footer.php');
     ob_flush();

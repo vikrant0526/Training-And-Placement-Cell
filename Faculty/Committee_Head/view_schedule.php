@@ -91,7 +91,7 @@
           }
           ?>
         </table>
-        <script>
+      <script>
         var wb = XLSX.utils.table_to_book(document.getElementById('schedule_download'), {sheet:"Placement-Schedule"});
         var wbout = XLSX.write(wb, {bookType:'xlsx', bookSST:true, type: 'binary'});
         function s2ab(s) {
@@ -103,7 +103,7 @@
         $("#button-a").click(function(){
         saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), 'Placement-Schedule.xlsx');
         });
-        </script>     
+      </script>     
 
 <?php 
   include('footer.php');

@@ -10,7 +10,7 @@
         $row =$stmt->rowCount();
         if ($row>0) {
 	?>
-<table class="table text-dark table-responsive" style="table-layout: fixed;width: 100%;">
+    <table class="table text-dark table-responsive" style="table-layout: fixed;width: 100%;">
     <tr class="font-weight-bold">
         <td>Enrollment Number</td>
         <td>Name</td>
@@ -41,6 +41,7 @@
 <?php } 
 ?>
     </table>
-    <a href="marks_pdf_report.php?tid=<?php echo $tid;?>&dept=<?php echo $dept;?>&degree=<?php echo $degree;?>&pyear=<?php echo $pyear;?>&tname=<?php echo $tname; ?>"><button type="button" class="btn btn-outline-warning btn-block"><i class="fa fa-download" aria-hidden="true"></i> Download</button></a>
+    <a href="marks_pdf_report.php?tid=<?php echo $tid;?>&dept=<?php echo $dept;?>&degree=<?php echo $degree;?>&pyear=<?php echo $pyear;?>&tname=<?php echo $tname; ?>"><button type="button" class="btn btn-outline-warning btn-block"><i class="fa fa-download" aria-hidden="true"></i> Download PDF</button></a>
+    <a href="marks_excel_report.php?tid=<?php echo $tid;?>&dept=<?php echo $dept;?>&degree=<?php echo $degree;?>&pyear=<?php echo $pyear;?>&tname=<?php echo $tname; ?>"><button type="button" class="btn btn-outline-warning btn-block"><i class="fa fa-download" aria-hidden="true"></i> Download Excel</button></a>
 <?php
 }?>
