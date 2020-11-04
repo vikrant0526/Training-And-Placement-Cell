@@ -3,14 +3,16 @@
   include('header.php');
   $data=$_SESSION['Userdata'];
 ?>
+
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
 <?php
       include('../../Files/PDO/dbcon.php'); 
       $ilid = $_GET['ilid'];
       $_SESSION["broadcast_id"]=$ilid;
       $stmt=$con->prepare("CALL VIEW_COMPANY");
       $stmt->execute();
-  ?>
+?>
 
 <div class="content-wrapper header-info">
     <!-- widgets -->

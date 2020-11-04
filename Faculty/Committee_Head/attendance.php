@@ -158,8 +158,6 @@
       }
   }
 ?>
-
-
     <script type="text/javascript">
     function att_check_evnt(clicked) {
         if ($('#' + clicked).is(":checked")) {

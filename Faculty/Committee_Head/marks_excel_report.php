@@ -6,9 +6,7 @@
       $degree = $_GET['degree'];
       $pyear = $_GET['pyear'];
       $excel = new PHPExcel();
-
       $excel->setActiveSheetIndex(0);
-
       $stmt=$con->prepare("CALL VIEW_TEST_MARKS(:tid);");
       $stmt->bindparam(":tid", $_GET['tid']);
       $stmt->execute();
@@ -19,16 +17,24 @@
       $c=0;
       $test_name; 
      while($data = $stmt->fetch(PDO::FETCH_ASSOC)) {
-         $name=$data['STUDENT_FIRST_NAME']." ".$data['STUDENT_LAST_NAME'];
+        // echo "<pre>"; 
+        // print_r($data);
+        // echo "</pre>";
+        $name=$data['STUDENT_FIRST_NAME']." ".$data['STUDENT_LAST_NAME'];
         $test_name=$data["TEST_NAME"]; 
         // $excel->getActiveSheet()->setCellValue('A'.$row ,$data['STUDENT_ENROLLMENT_NUMBER']); 
         $excel->getActiveSheet()->setCellValueExplicit('A'.$row,$data['STUDENT_ENROLLMENT_NUMBER'],PHPExcel_Cell_DataType::TYPE_STRING);
         $excel->getActiveSheet()->setCellValue('B'.$row ,$name); 
         $excel->getActiveSheet()->setCellValue('C'.$row ,$data['MARKS_OBTAINED'] ); 
         $excel->getActiveSheet()->setCellValue('D'.$row ,$data['TEST_TOTAL_MARKS'] ); 
+        
         // $excel->getActiveSheet()->getStyle('A'.$row)
         // ->getNumberFormat()
         // ->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_NUMBER); 
+
+       
+
+
         if($data['MARKS_OBTAINED']  >= $data['TEST_PASSING_MARKS']){
             $excel->getActiveSheet()->setCellValue('E'.$row ,  "PASS" ); 
         }

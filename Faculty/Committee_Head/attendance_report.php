@@ -10,7 +10,6 @@
 <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
 <script src="http://cdn.jsdelivr.net/g/filesaver.js"></script>
 <div class="content-wrapper header-info">
-    
     <!-- widgets -->
     <div class="mb-30">
         <div class="card h-100 ">
@@ -102,17 +101,6 @@
         xmlhttp.open("GET", "att_report.php?dept=" + document.getElementById("dept").value + "&" + "degree=" + document.getElementById("degree").value + "&" + "pyear=" + document.getElementById("pyear").value + "&" + "cid=" + document.getElementById("cid").value, false);
         xmlhttp.send(null);
         document.getElementById("attendance").innerHTML = xmlhttp.responseText;
-    }
-    function excel(){
-        var wb = XLSX.utils.table_to_book(document.getElementById('att_report'), {sheet:"Attandance Report"});
-        var wbout = XLSX.write(wb, {bookType:'xlsx', bookSST:true, type: 'binary'});
-        function s2ab(s) {
-          var buf = new ArrayBuffer(s.length);
-          var view = new Uint8Array(buf);
-          for (var i=0; i<s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
-          return buf;
-        }
-        saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), 'Attandance_Report.xlsx');
     }
 </script>     
 

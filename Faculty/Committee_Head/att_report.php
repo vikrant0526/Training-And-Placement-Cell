@@ -6,8 +6,6 @@
      $degree = $_GET['degree'];
      $pyear = $_GET['pyear'];
 
-    //$dept ="BMIIT";
-   
      $stmt=$con->prepare("CALL GET_EVENT_BY_BATCH_AND_COMPANY(:cid, :dept, :degree, :pyear)");
      $stmt->bindParam(':cid',$cid);
      $stmt->bindParam(':dept',$dept);
@@ -140,7 +138,7 @@ if ($cnt==1) {
     ?>
     <div class="row">
         <a href="attendance_pdf_report.php?cid=<?php echo $cid;?>&dept=<?php echo $dept;?>&degree=<?php echo $degree;?>&pyear=<?php echo $pyear;?>" class="col-6"><button type="button" class="btn btn-outline-warning btn-block"><i class="fa fa-download" aria-hidden="true"></i> Download PDF</button></a>
-        <button type="button" id="button-a" class="btn btn-outline-warning col-5" onclick="excel()"><i class="fa fa-download" aria-hidden="true"></i> Download Excel</button></a>
+        <a href="attendance_excel_report.php?cid=<?php echo $cid;?>&dept=<?php echo $dept;?>&degree=<?php echo $degree;?>&pyear=<?php echo $pyear;?>" class="col-6"><button type="button" id="button-a" class="btn btn-outline-warning"><i class="fa fa-download" aria-hidden="true"></i> Download Excel</button></a>
     </div>
 <?php
 }
