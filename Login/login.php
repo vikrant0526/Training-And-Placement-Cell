@@ -34,11 +34,9 @@
 
     $url = "https://www.google.com/recaptcha/api/siteverify";
     $data =  [
-
       'secret' => "6Lf1u9AUAAAAADYBOzxXDJz6jowQpl-xq-IK8TU-",
       'response' => $_REQUEST['token'],
       'remoteip' => $_SERVER['REMOTE_ADDR']  
-
     ];
     $uname=$_REQUEST['uname'];
     $pass=$_REQUEST['pass'];
