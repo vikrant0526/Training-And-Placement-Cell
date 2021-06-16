@@ -9,6 +9,8 @@ Final Year Project(B.Sc(IT))
  should be able to interact with Company Representative for the same. Also, the T&P Committee Member should be able to manage the interaction between Company 
  representatives and Students. Company Representative logging in should be able to view Student profiles and request candidates as per there requirements.
  
+
 ** Role: Back-end development using PHP, PDO and MYSQL alongside administrating database and SQL Stored Procedure,SQL trigger using phpMyAdmin.**
+
 ** Technologies used: Core PHP, PDO, MYSQL, HTML, CSS, Bootstrap, AJAX, jQuery, and XAMPP Server ** 
 
