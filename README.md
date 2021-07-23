@@ -1,5 +1,4 @@
 # Training-And-Placement-Cell
-Final Year Project(B.Sc(IT))
 
  This project was aimed at developing an online application for the Training and Placement Cell of the University. 
  The system was a web application that can be accessed throughout the organization and outside as well with proper login provided. 
